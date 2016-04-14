@@ -15,7 +15,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.plattysoft.leonids.Particle;
 import com.plattysoft.leonids.ParticleSystem;
+import com.plattysoft.leonids.modifiers.ParticleModifier;
 
 public class MainActivity extends AppCompatActivity {
 
