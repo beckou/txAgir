@@ -1,6 +1,8 @@
 package com.tx.agir;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -9,7 +11,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.plattysoft.leonids.ParticleSystem;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -38,6 +44,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        TextView textViewCustom = (TextView) findViewById(R.id.TitleText);
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
+        textViewCustom.setTypeface(myCustomFont);
+        new ParticleSystem(this, 1,R.drawable.essai, 10000)
+                .setSpeedRange(0.001f, 0.1f)
+                .setFadeOut(10000 , new AccelerateInterpolator())
+                .emit(300, 300, 1);
+
+        new ParticleSystem(this, 1,R.drawable.essai, 7000)
+                .setSpeedRange(0.001f, 0.1f)
+                .setFadeOut(7000 , new AccelerateInterpolator())
+                .emit(500, 1000, 1);
+
+        new ParticleSystem(this, 1,R.drawable.essai, 5000)
+                .setSpeedRange(0.001f, 0.1f)
+                .setFadeOut(5000 , new AccelerateInterpolator())
+                .emit(400, 850, 1);
     }
 
     @Override
