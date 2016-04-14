@@ -38,6 +38,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button button_oublier = (Button) findViewById(R.id.oublier_button);
+        button_eclairer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Eclairer.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
