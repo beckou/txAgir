@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Agir</string>
     <string name="action_settings">Settings</string>
+    <string name="oublier_phrase01">\"Quiconque veut oublier peut toujours essayer\",
+        Mais
+        \"Vouloir oublier quelqu\'un, c\'est y penser\"</string>
+    <string name="oublier_phrase02">Et vous, que souhaitez-vous oublier? </string>
+    <string name="bouton_effacer">Effacer</string>
+
 </resources>
