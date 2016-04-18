@@ -37,7 +37,7 @@
         android:layout_below="@+id/to_forget"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
-        android:background="#e5ecc7ee" />
+        android:background="#ed7b7b" />
 
     <TextView
         android:layout_width="wrap_content"

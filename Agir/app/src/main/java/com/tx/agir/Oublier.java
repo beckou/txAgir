@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.DragEvent;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
@@ -219,8 +220,18 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                         if (isPointWithin(x, y, Word_toForget.getLeft(),Word_toForget.getRight(), Word_toForget.getTop(),
                                 Word_toForget.getBottom())) {
                             //b.getBackground().setState(STATE_PRESSED);
-                            Toast.makeText(getApplicationContext(), "word is being touched",
-                                    Toast.LENGTH_SHORT).show();
+                       /*     Toast.makeText(getApplicationContext(), "word is being touched",
+                                    Toast.LENGTH_SHORT).show();*/
+
+                            float textSize = Word_toForget.getTextSize();
+                            float incr = (float) 1;
+                            textSize = textSize + incr;
+
+                            //Word_toForget.setTextSize(textSize);
+                            Word_toForget.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
+
+
+
 
                         }
 
