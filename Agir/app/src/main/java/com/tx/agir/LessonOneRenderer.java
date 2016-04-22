@@ -64,6 +64,11 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
     private final FloatBuffer mCubeColors;
     private final FloatBuffer mCubeNormals;
 
+
+    private final FloatBuffer mCarrePositions;
+    private final FloatBuffer mCarreColors;
+    private final FloatBuffer mCarreNormals;
+
     /** This will be used to pass in the transformation matrix. */
     private int mMVPMatrixHandle;
 
@@ -117,7 +122,47 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
     {
         // Define points for a cube.
 
-        // X, Y, Z
+        final float[] carrePositionData =
+                {
+                        // In OpenGL counter-clockwise winding is default. This means that when we look at a triangle,
+                        // if the points are counter-clockwise we are looking at the "front". If not we are looking at
+                        // the back. OpenGL has an optimization where all back-facing triangles are culled, since they
+                        // usually represent the backside of an object and aren't visible anyways.
+
+                        -3.0f, 3.0f, -3.0f,
+                        -3.0f, 3.0f, 3.0f,
+                        3.0f, 3.0f, -3.0f,
+                        -3.0f, 3.0f, 3.0f,
+                        3.0f, 3.0f, 3.0f,
+                        3.0f, 3.0f, -3.0f
+
+                };
+
+        // R, G, B, A
+        final float[] carreColorData =
+                {
+                        0.0f, 2.0f, 2.0f, 2.0f,
+                        0.0f, 2.0f, 2.0f, 2.0f,
+                        0.0f, 2.0f, 2.0f, 2.0f,
+                        0.0f, 2.0f, 2.0f, 2.0f,
+                        0.0f, 2.0f, 2.0f, 2.0f,
+                        0.0f, 2.0f, 2.0f, 2.0f,
+                };
+
+        final float[] carreNormalData =
+                {
+                        // Front face
+                        0.0f, 1.0f, 1.0f,
+                        0.0f, 1.0f, 1.0f,
+                        0.0f, 1.0f, 1.0f,
+                        0.0f, 1.0f, 1.0f,
+                        0.0f, 1.0f, 1.0f,
+                        0.0f, 1.0f, 1.0f,
+
+
+                };
+
+
         final float[] cubePositionData =
                 {
                         // In OpenGL counter-clockwise winding is default. This means that when we look at a triangle,
@@ -286,6 +331,18 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mCubePositions.put(cubePositionData).position(0);
 
+        mCarrePositions = ByteBuffer.allocateDirect(carrePositionData.length * mBytesPerFloat)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
+        mCarrePositions.put(carrePositionData).position(0);
+
+        mCarreColors = ByteBuffer.allocateDirect(carreColorData.length * mBytesPerFloat)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
+        mCarreColors.put(carreColorData).position(0);
+
+        mCarreNormals = ByteBuffer.allocateDirect(carreNormalData.length * mBytesPerFloat)
+                .order(ByteOrder.nativeOrder()).asFloatBuffer();
+        mCarreNormals.put(carreNormalData).position(0);
+
         mCubeColors = ByteBuffer.allocateDirect(cubeColorData.length * mBytesPerFloat)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mCubeColors.put(cubeColorData).position(0);
@@ -297,7 +354,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 
     protected String getVertexShader()
     {
-        // TODO: Explain why we normalize the vectors, explain some of the vector math behind it all. Explain what is eye space.
+                // TODO: Explain why we normalize the vectors, explain some of the vector math behind it all. Explain what is eye space.
         final String vertexShader =
                 "uniform mat4 u_MVPMatrix;      \n"		// A constant representing the combined model/view/projection matrix.
                         + "uniform mat4 u_MVMatrix;       \n"		// A constant representing the combined model/view matrix.
@@ -318,12 +375,12 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
                         // Will be used for attenuation.
                         + "   float distance = length(u_LightPos - modelViewVertex);             \n"
                         // Get a lighting direction vector from the light to the vertex.
-                        + "   vec3 lightVector = normalize(u_LightPos - modelViewVertex);        \n"
+                        + "   vec3 lightVector = normalize(vec3(0.0, 0.4, 0.4));       \n"
                         // Calculate the dot product of the light vector and vertex normal. If the normal and light vector are
                         // pointing in the same direction then it will get max illumination.
-                        + "   float diffuse = max(dot(modelViewNormal, lightVector), 0.1);       \n"
+                        + "   float diffuse = max(dot(modelViewNormal, lightVector), 0.2);       \n"
                         // Attenuate the light based on distance.
-                        + "   diffuse = diffuse * (1.0 / (1.0 + (0.25 * distance * distance)));  \n"
+                        + "   diffuse = diffuse * (1.0 / (1.0 + (0.05 * distance * distance)));  \n"
                         // Multiply the color by the illumination level. It will be interpolated across the triangle.
                         + "   v_Color = a_Color * diffuse;                                       \n"
                         // gl_Position is a special variable used to store the final position.
@@ -369,12 +426,12 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         // We are looking toward the distance
         final float lookX = 0.0f;
         final float lookY = 0.0f;
-        final float lookZ = -5.0f;
+        final float lookZ = -10.0f;
 
         // Set our up vector. This is where our head would be pointing were we holding the camera.
         final float upX = 0.0f;
         final float upY = 1.0f;
-        final float upZ = 0.0f;
+        final float upZ = -10.0f;
 
         // Set the view matrix. This matrix can be said to represent the camera position.
         // NOTE: In OpenGL 1, a ModelView matrix is used, which is a combination of a model and
@@ -398,7 +455,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
                         + "{                              \n"
                         + "   gl_Position = u_MVPMatrix   \n"
                         + "               * a_Position;   \n"
-                        + "   gl_PointSize = 5.0;         \n"
+                        + "   gl_PointSize = 10.0;         \n"
                         + "}                              \n";
 
         final String pointFragmentShader =
@@ -426,6 +483,7 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         final float ratio = (float) width / height;
         final float left = -ratio;
         final float right = ratio;
+
         final float bottom = -1.0f;
         final float top = 1.0f;
         final float near = 1.0f;
@@ -479,17 +537,19 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 0.0f, 0.0f, 1.0f);
         drawCube();
 
-        Matrix.setIdentityM(mModelMatrix, 0);
-        Matrix.translateM(mModelMatrix, 0, 0.0f, -4.0f, -7.0f);
-        drawCube();
+
 
         Matrix.setIdentityM(mModelMatrix, 0);
-        Matrix.translateM(mModelMatrix, 0, 0.0f, 0.0f, -5.0f);
-        Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 1.0f, 0.0f);
-        drawCube();
+        Matrix.translateM(mModelMatrix, 0, 0.0f, -10.0f, -7.0f);
+        //Matrix.rotateM(mModelMatrix, 0, -angleInDegrees, 0.0f, 1.0f, 0.0f);
+        drawCarre();
+
 
         // Draw a point to indicate the light.
         GLES20.glUseProgram(mPointProgramHandle);
+        Matrix.setIdentityM(mModelMatrix, 0);
+        Matrix.translateM(mModelMatrix, 0, 0.0f, 2.0f, -7.0f);
+
         drawLight();
     }
 
@@ -540,6 +600,51 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
     }
 
+
+    private void drawCarre()
+    {
+        // Pass in the position information
+        mCarrePositions.position(0);
+        GLES20.glVertexAttribPointer(mPositionHandle, mPositionDataSize, GLES20.GL_FLOAT, false,
+                0, mCarrePositions);
+
+        GLES20.glEnableVertexAttribArray(mPositionHandle);
+
+        // Pass in the color information
+        mCarreColors.position(0);
+        GLES20.glVertexAttribPointer(mColorHandle, mColorDataSize, GLES20.GL_FLOAT, false,
+                0, mCarreColors);
+
+        GLES20.glEnableVertexAttribArray(mColorHandle);
+
+        // Pass in the normal information
+        mCarreNormals.position(0);
+        GLES20.glVertexAttribPointer(mNormalHandle, mNormalDataSize, GLES20.GL_FLOAT, false,
+                0, mCarreNormals);
+
+        GLES20.glEnableVertexAttribArray(mNormalHandle);
+
+        // This multiplies the view matrix by the model matrix, and stores the result in the MVP matrix
+        // (which currently contains model * view).
+        Matrix.multiplyMM(mMVPMatrix, 0, mViewMatrix, 0, mModelMatrix, 0);
+
+        // Pass in the modelview matrix.
+        GLES20.glUniformMatrix4fv(mMVMatrixHandle, 1, false, mMVPMatrix, 0);
+
+        // This multiplies the modelview matrix by the projection matrix, and stores the result in the MVP matrix
+        // (which now contains model * view * projection).
+        Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
+
+        // Pass in the combined matrix.
+        GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mMVPMatrix, 0);
+
+        // Pass in the light position in eye space.
+        GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
+
+        // Draw the cube.
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 8);
+    }
+
     /**
      * Draws a point representing the position of the light.
      */
@@ -547,7 +652,6 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
     {
         final int pointMVPMatrixHandle = GLES20.glGetUniformLocation(mPointProgramHandle, "u_MVPMatrix");
         final int pointPositionHandle = GLES20.glGetAttribLocation(mPointProgramHandle, "a_Position");
-
         // Pass in the position.
         GLES20.glVertexAttrib3f(pointPositionHandle, mLightPosInModelSpace[0], mLightPosInModelSpace[1], mLightPosInModelSpace[2]);
 
