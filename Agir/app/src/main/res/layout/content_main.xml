@@ -33,17 +33,25 @@
             android:id="@+id/oublier_button"
             android:layout_gravity="center_horizontal" />
 
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/revert"
+            android:background="#3d3b78"
+            app:backgroundTint="#f75b2187"
+            android:src="@android:drawable/ic_menu_revert" />
+
         <LinearLayout
             android:orientation="horizontal"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="267dp"
-            android:weightSum="1">
+            android:weightSum="1"
+            android:layout_weight="1.94">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="A"
-                android:layout_gravity="center"
                 android:id="@+id/A"
                 android:inputType="none"
                 android:textColor="#ffffff"
@@ -56,7 +64,6 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="G"
                 android:id="@+id/G"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="0.17"
                 android:textSize="150dp"
                 android:textColor="#ffffff" />
@@ -67,7 +74,6 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="I"
                 android:id="@+id/I"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="0.17"
                 android:textSize="150dp"
                 android:textColor="#ffffff" />
@@ -78,21 +84,11 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="R"
                 android:id="@+id/R"
-                android:layout_gravity="center_vertical"
                 android:layout_weight="0.17"
                 android:textSize="150dp"
                 android:textColor="#ffffff" />
 
         </LinearLayout>
-
-        <android.support.design.widget.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/revert"
-            android:background="#3d3b78"
-            app:backgroundTint="#f75b2187"
-            android:src="@android:drawable/ic_menu_revert"
-            android:layout_gravity="center_horizontal" />
 
     </LinearLayout>
 </RelativeLayout>
