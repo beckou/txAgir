@@ -40,8 +40,12 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     private AnimationSet replaceAnimation = null;
     private Animation TranslateAnimation = null;
+    private Animation blink = null;
 
     private Boolean letter_A_clicked;
+    private Boolean letter_G_clicked;
+    private Boolean letter_I_clicked;
+    private Boolean letter_R_clicked;
 
     private AnimationSet myanimSet = null;
     private Animation anim_letters  = null;
@@ -84,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private TextView oublier;
     private TextView adapter;
     private TextView agiter;
+    private TextView eclairer;
 
 
     @Override
@@ -92,6 +97,11 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        letter_A_clicked = false;
+        letter_I_clicked = false;
+        letter_G_clicked = false;
+        letter_R_clicked = false;
 
 
         adapter_A = (TextView) findViewById(R.id.adapter_A);
@@ -118,6 +128,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         revert_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                letter_A_clicked = false;
+                letter_I_clicked = false;
+                letter_G_clicked = false;
+                letter_R_clicked = false;
+
+
                 letterA.setVisibility(View.VISIBLE);
                 letterG.setVisibility(View.VISIBLE);
                 letterI.setVisibility(View.VISIBLE);
@@ -136,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 oublier.setVisibility(View.INVISIBLE);
                 adapter.setVisibility(View.INVISIBLE);
                 agiter.setVisibility(View.INVISIBLE);
-
+                eclairer.setVisibility(View.INVISIBLE);
 
                 if (letterTouch.equals("A")) {
                    // replace((int) firstPosX_A, (int) firstPosY_A, firstX_A, firstY_A, letterTouch);
@@ -161,23 +178,27 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        if(fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+        }
 
 
         Button button_eclairer = (Button) findViewById(R.id.eclairer_button);
-        button_eclairer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Eclairer.class);
-                startActivity(intent);
-            }
-        });
+        if(button_eclairer != null) {
+            button_eclairer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, Eclairer.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         Button button_oublier = (Button) findViewById(R.id.oublier_button);
         button_oublier.setOnClickListener(new View.OnClickListener() {
@@ -232,61 +253,59 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         agiter.setVisibility(View.INVISIBLE);
 
 
+        eclairer= (TextView) findViewById(R.id.eclairer);
+        eclairer.setVisibility(View.INVISIBLE);
+
+
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
         fadeOutOther = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_other);
-
+        blink = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
 
         fadeOut.setAnimationListener(this);
 
         letterA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                letterA.clearAnimation();
 
-                letterG.clearAnimation();
-                letterI.clearAnimation();
-                letterR.clearAnimation();
-                letter_A();
-                letterTouch = "A";
-
-                float si = adapter_A.getTextSize();
-                //letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,si);
-               // replace(adapter_A.getX(), adapter_A.getY(),1.0f, 1.0f, letterTouch );
+                if (letter_A_clicked == true) {
+                    // button has already been clicked once.
+//                    Intent adapter_intent = new Intent(MainActivity.this, Agiter.class);
+//                    startActivity(adapter_intent);
+                } else {
 
 
+                    letter_A_clicked = true;
 
-                letterG.startAnimation(fadeOut);
-                letterI.startAnimation(fadeOut);
-                letterR.startAnimation(fadeOut);
+                    letterA.clearAnimation();
 
-                letterG.setVisibility(View.INVISIBLE);
-                letterI.setVisibility(View.INVISIBLE);
-                letterR.setVisibility(View.INVISIBLE);
-                revert_button.setVisibility(View.VISIBLE);
+                    letterG.clearAnimation();
+                    letterI.clearAnimation();
+                    letterR.clearAnimation();
+                    letter_A();
+                    letterTouch = "A";
 
+                    float si = adapter_A.getTextSize();
+                    //letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,si);
+                    // replace(adapter_A.getX(), adapter_A.getY(),1.0f, 1.0f, letterTouch );
 
-                adapter.startAnimation(fadeIn);
-                adapter.setVisibility(View.VISIBLE);
+                    letterA.startAnimation(blink);
 
-//                adapter_A.startAnimation(fadeIn);
-//                adapter_D.startAnimation(fadeIn);
-//                adapter_Abis.startAnimation(fadeIn);
-//                adapter_P.startAnimation(fadeIn);
-//                adapter_T.startAnimation(fadeIn);
-//                adapter_E.startAnimation(fadeIn);
-//                adapter_R.startAnimation(fadeIn);
-//
-//                adapter_A.setVisibility(View.VISIBLE);
-//                adapter_D.setVisibility(View.VISIBLE);
-//                adapter_Abis.setVisibility(View.VISIBLE);
-//                adapter_P.setVisibility(View.VISIBLE);
-//                adapter_T.setVisibility(View.VISIBLE);
-//                adapter_E.setVisibility(View.VISIBLE);
-//                adapter_R.setVisibility(View.VISIBLE);
+                    letterG.startAnimation(fadeOut);
+                    letterI.startAnimation(fadeOut);
+                    letterR.startAnimation(fadeOut);
+
+                    letterG.setVisibility(View.INVISIBLE);
+                    letterI.setVisibility(View.INVISIBLE);
+                    letterR.setVisibility(View.INVISIBLE);
+                    revert_button.setVisibility(View.VISIBLE);
+
+                    adapter.startAnimation(fadeIn);
+                    adapter.setVisibility(View.VISIBLE);
 
 
+                }
             }
 
 
@@ -303,6 +322,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterTouch = "G";
                // replace(200,0,0.5f,0.5f,letterTouch);
 
+
+                letterG.startAnimation(blink);
 
                 letterI.startAnimation(fadeOut);
                 letterA.startAnimation(fadeOut);
@@ -322,39 +343,73 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                letterG.clearAnimation();
-                letterA.clearAnimation();
-                letterR.clearAnimation();
-                letter_I();
-                letterTouch = "I";
 
-                letterG.startAnimation(fadeOut);
-                letterA.startAnimation(fadeOut);
-                letterR.startAnimation(fadeOut);
+                if (letter_I_clicked == true) {
 
-                letterG.setVisibility(View.INVISIBLE);
-                letterA.setVisibility(View.INVISIBLE);
-                letterR.setVisibility(View.INVISIBLE);
-                revert_button.setVisibility(View.VISIBLE);
+                    // button has already been clicked once.
+                    Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
+                    startActivity(oublier_intent);
 
 
-                oublier.startAnimation(fadeIn);
-                oublier.setVisibility(View.VISIBLE);
+
+                } else {
 
 
-                //replace(200,0,0.5f,0.5f,letterTouch);
+                    letter_I_clicked = true;
+                    letterG.clearAnimation();
+                    letterA.clearAnimation();
+                    letterR.clearAnimation();
+                    letter_I();
+                    letterTouch = "I";
+
+                    letterG.startAnimation(fadeOut);
+                    letterA.startAnimation(fadeOut);
+                    letterR.startAnimation(fadeOut);
+
+                    letterG.setVisibility(View.INVISIBLE);
+                    letterA.setVisibility(View.INVISIBLE);
+                    letterR.setVisibility(View.INVISIBLE);
+                    revert_button.setVisibility(View.VISIBLE);
+
+                    letterI.startAnimation(blink);
+
+
+                    oublier.startAnimation(fadeIn);
+                    oublier.setVisibility(View.VISIBLE);
+
+
+                    //replace(200,0,0.5f,0.5f,letterTouch);
+                }
             }
         });
 
         letterR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                letterG.clearAnimation();
-                letterA.clearAnimation();
-                letterI.clearAnimation();
-                letter_R();
-                letterTouch = "R";
-                //replace(200,0,0.5f,0.5f,letterTouch);
+                if (letter_R_clicked == true) {
+
+                    Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
+                    startActivity(eclairer_intent);
+
+                } else {
+
+
+                    letter_R_clicked = true;
+                    letterG.clearAnimation();
+                    letterA.clearAnimation();
+                    letterI.clearAnimation();
+                    letter_R();
+                    letterTouch = "R";
+
+                    letterR.startAnimation(blink);
+
+
+                    eclairer.startAnimation(fadeIn);
+                    eclairer.setVisibility(View.VISIBLE);
+
+
+                    //replace(200,0,0.5f,0.5f,letterTouch);
+                }
             }
         });
 
@@ -508,94 +563,94 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         // TODO Auto-generated method stub
         super.onResume();
 
-        touchview.setOnTouchListener(new View.OnTouchListener() {
-
-            private boolean isInside = false;
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                int x = (int) event.getX();
-                int y = (int) event.getY();
-
-
-//                if (!isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
-//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                }
-//                if (!isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
+//        touchview.setOnTouchListener(new View.OnTouchListener() {
+//
+//            private boolean isInside = false;
+//
+//            @Override
+//            public boolean onTouch(View v, MotionEvent event) {
+//
+//                int x = (int) event.getX();
+//                int y = (int) event.getY();
+//
+//
+////                if (!isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
+////                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+////                }
+////                if (!isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
+////                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+////                }
+////                if (!isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
+////                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+////                }
+////                if (!isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
+////                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+////                }
+//
+//                if (isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
+//                    //b.getBackground().setState(STATE_PRESSED);
+//                            /*Toast.makeText(getApplicationContext(), "letterA",
+//                                    Toast.LENGTH_SHORT).show();*/
+//
+//                   // letter_A();
+//
+//                    float val = letterA.getTextSize() + 10;
+//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
+//
+//
 //                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                }
-//                if (!isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
 //                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                }
-//                if (!isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
 //                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                }
-
-                if (isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
-                    //b.getBackground().setState(STATE_PRESSED);
-                            /*Toast.makeText(getApplicationContext(), "letterA",
-                                    Toast.LENGTH_SHORT).show();*/
-
-                   // letter_A();
-
-                    float val = letterA.getTextSize() + 10;
-                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-
-
-                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                }
-                if (isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
-                    //b.getBackground().setState(STATE_PRESSED);
-                            /*Toast.makeText(getApplicationContext(), "letterG",
-                                    Toast.LENGTH_SHORT).show();*/
-
-
-                    float val = letterG.getTextSize() + 10;
-                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-
-                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
-
-
-                }
-                if (isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
-                    //b.getBackground().setState(STATE_PRESSED);
-                           /* Toast.makeText(getApplicationContext(), "letterI",
-                                    Toast.LENGTH_SHORT).show();*/
-
-
-                    float val = letterI.getTextSize() + 10;
-                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-
-                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
-                }
-                if (isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
-                    //b.getBackground().setState(STATE_PRESSED);
-                            /*Toast.makeText(getApplicationContext(), "letterR",
-                                    Toast.LENGTH_SHORT).show();*/
-
-
-                    float val = letterR.getTextSize() + 10;
-                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-
-                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
-                }
-
-                return true;
-            }
-
-        });
+//                if (isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
+//                    //b.getBackground().setState(STATE_PRESSED);
+//                            /*Toast.makeText(getApplicationContext(), "letterG",
+//                                    Toast.LENGTH_SHORT).show();*/
+//
+//
+//                    float val = letterG.getTextSize() + 10;
+//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
+//
+//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//
+//
+//
+//                }
+//                if (isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
+//                    //b.getBackground().setState(STATE_PRESSED);
+//                           /* Toast.makeText(getApplicationContext(), "letterI",
+//                                    Toast.LENGTH_SHORT).show();*/
+//
+//
+//                    float val = letterI.getTextSize() + 10;
+//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
+//
+//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//
+//                }
+//                if (isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
+//                    //b.getBackground().setState(STATE_PRESSED);
+//                            /*Toast.makeText(getApplicationContext(), "letterR",
+//                                    Toast.LENGTH_SHORT).show();*/
+//
+//
+//                    float val = letterR.getTextSize() + 10;
+//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
+//
+//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//
+//                }
+//
+//                return true;
+//            }
+//
+//        });
 
     }
 
