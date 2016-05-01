@@ -16,7 +16,8 @@
         android:layout_marginTop="162dp"
         android:text="@string/oublier_phrase01"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#f2aaaa" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,5 +48,7 @@
         android:id="@+id/word_toForget"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:textColor="#f59d9d" />
+
 </RelativeLayout>

@@ -21,6 +21,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
  * Created by Rebecca on 13/04/2016.
  */
@@ -29,6 +32,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     private Animation animation_firstText  = null;
     private  Animation animation_last_text = null;
     private Animation fade_in = null;
+    private Animation fade_out = null;
 
     private TextView wellcomeSentence = null;
     private EditText toForget = null;
@@ -36,6 +40,12 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     private TextView Word_toForget = null;
 
     RelativeLayout touchview; // my view
+
+
+    public static Timer timer;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +54,13 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
        // Get information VIEW
         touchview = (RelativeLayout) findViewById(R.id.relativeLayout);
 
-
+        myTimer(123, "127.0.0.1");
 
         animation_firstText = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.first_text_appear);
         animation_last_text = AnimationUtils.loadAnimation(this, R.anim.last_text_appear);
         fade_in =  AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out_oublier);
+
 
         wellcomeSentence = (TextView)findViewById(R.id.oublier_sentence);
         wellcomeSentence.setAnimation(animation_firstText);
@@ -62,6 +74,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
         Word_toForget = (TextView)findViewById(R.id.word_toForget);
         Word_toForget.setVisibility(View.INVISIBLE);
+
 
 
 
@@ -91,6 +104,9 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                 Word_toForget.setText(toForget.getText());
                 Word_toForget.setVisibility(View.VISIBLE);
 
+                update();
+
+                Word_toForget.setAnimation(fade_out);
             }
         });
 
@@ -101,7 +117,46 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         animation_last_text.setAnimationListener(this);
     }
 
+    public void myTimer(final long MAC, final String ipAddress) {
+        TimerTask timerTask = new TimerTask() {
 
+            @Override
+            public void run() {
+                System.out.println("MAC: " + MAC + "ipAddress:" + ipAddress);
+                update();
+            }
+        };
+        timer = new Timer();
+        timer.schedule(timerTask, 1000);
+
+    }
+
+    public void update() {
+        final TimerTask timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+//stuff that updates ui
+          disappear();
+
+
+                    }
+                });
+
+            }
+
+
+        };
+        timer.cancel();
+        timer = new Timer();
+        timer.schedule(timerTask, 10000);
+        System.out.println("Time:    "+timerTask.scheduledExecutionTime());
+
+    }
 
 
     // animation listeners
@@ -144,6 +199,13 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         if (animation == animation_last_text) {
             wellcomeSentence.setVisibility(View.VISIBLE);
         }
+    }
+
+    public void disappear(){
+
+        Word_toForget.startAnimation(fade_out);
+        Word_toForget.setVisibility(View.INVISIBLE);
+
     }
 
 
@@ -210,11 +272,9 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                 int x = (int) event.getX();
                 int y = (int) event.getY();
 
-
                         if (!isPointWithin(x, y, Word_toForget.getLeft(), Word_toForget.getRight(), Word_toForget.getTop(),
                                 Word_toForget.getBottom())) {
                             //b.getBackground().setState(defaultStates);
-
                         }
 
                         if (isPointWithin(x, y, Word_toForget.getLeft(),Word_toForget.getRight(), Word_toForget.getTop(),
@@ -230,11 +290,9 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                             //Word_toForget.setTextSize(textSize);
                             Word_toForget.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
 
-
-
+                            update();
 
                         }
-
 
                 return true;
             }
