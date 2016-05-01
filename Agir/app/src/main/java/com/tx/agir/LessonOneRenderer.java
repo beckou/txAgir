@@ -134,7 +134,16 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
                         3.0f, 3.0f, -3.0f,
                         -3.0f, 3.0f, 3.0f,
                         3.0f, 3.0f, 3.0f,
-                        3.0f, 3.0f, -3.0f
+                        3.0f, 3.0f, -3.0f,
+
+
+                        -1.0f, 1.0f, 1.0f,
+                        -1.0f, -1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f,
+                        -1.0f, -1.0f, 1.0f,
+                        1.0f, -1.0f, 1.0f,
+                        1.0f, 1.0f, 1.0f,
+
 
                 };
 
@@ -147,6 +156,15 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
                         0.0f, 2.0f, 2.0f, 2.0f,
                         0.0f, 2.0f, 2.0f, 2.0f,
                         0.0f, 2.0f, 2.0f, 2.0f,
+
+
+
+                        1.0f, 0.0f, 0.0f, 1.0f,
+                        1.0f, 0.0f, 0.0f, 1.0f,
+                        1.0f, 0.0f, 0.0f, 1.0f,
+                        1.0f, 0.0f, 0.0f, 1.0f,
+                        1.0f, 0.0f, 0.0f, 1.0f,
+                        1.0f, 0.0f, 0.0f, 1.0f,
                 };
 
         final float[] carreNormalData =
@@ -159,8 +177,16 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
                         0.0f, 1.0f, 1.0f,
                         0.0f, 1.0f, 1.0f,
 
-
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
+                        0.0f, 0.0f, 1.0f,
                 };
+
+
+
 
 
         final float[] cubePositionData =
