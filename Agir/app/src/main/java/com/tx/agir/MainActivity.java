@@ -23,14 +23,12 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.plattysoft.leonids.Particle;
 import com.plattysoft.leonids.ParticleSystem;
-import com.plattysoft.leonids.modifiers.ParticleModifier;
 
 public class MainActivity extends AppCompatActivity implements Animation.AnimationListener{
 
+    //private LinearLayout linLayout;
     private RelativeLayout touchview;
     private TextView letterA;
     private TextView letterG ;
@@ -48,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private AnimationSet myanimSet = null;
     private Animation anim_letters  = null;
     private Animation slide = null;
+    private Animation  fadeIn = null;
+    private Animation fadeOut = null;
+    private Animation fadeOutOther = null;
 
 
     // saving pos and scales
@@ -72,8 +73,17 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private float firstY_R;
 
 
+    private TextView adapter_A;
+    private TextView adapter_D;
+    private TextView adapter_Abis;
+    private TextView adapter_P;
+    private TextView adapter_T;
+    private TextView adapter_E;
+    private TextView adapter_R;
 
-
+    private TextView oublier;
+    private TextView adapter;
+    private TextView agiter;
 
 
     @Override
@@ -84,7 +94,25 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         setSupportActionBar(toolbar);
 
 
-        touchview= (RelativeLayout) findViewById(R.id.relativeLayout);
+        adapter_A = (TextView) findViewById(R.id.adapter_A);
+        adapter_D=(TextView) findViewById(R.id.adapter_D);
+        adapter_Abis=(TextView) findViewById(R.id.adapter_Abis);
+        adapter_P=(TextView) findViewById(R.id.adapter_P);
+        adapter_T=(TextView) findViewById(R.id.adapter_T);
+        adapter_E=(TextView) findViewById(R.id.adapter_E);
+        adapter_R=(TextView) findViewById(R.id.adapter_R);
+
+        adapter_A.setVisibility(View.INVISIBLE);
+        adapter_D.setVisibility(View.INVISIBLE);
+        adapter_Abis.setVisibility(View.INVISIBLE);
+        adapter_P.setVisibility(View.INVISIBLE);
+        adapter_T.setVisibility(View.INVISIBLE);
+        adapter_E.setVisibility(View.INVISIBLE);
+        adapter_R.setVisibility(View.INVISIBLE);
+
+
+        //linLayout = (LinearLayout) findViewById(R.id.linLayout);
+        touchview= (RelativeLayout) findViewById(R.id.test);
         revert_button = (FloatingActionButton)  findViewById(R.id.revert);
         revert_button.setVisibility(View.INVISIBLE);
         revert_button.setOnClickListener(new View.OnClickListener() {
@@ -96,25 +124,35 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterR.setVisibility(View.VISIBLE);
                 revert_button.setVisibility(View.INVISIBLE);
 
-//                replace((int)firstPosX_A,(int)firstPosY_A,firstX_A,firstY_A,letterA);
-//                replace((int)firstPosX_G,(int)firstPosY_G,firstX_G,firstY_G,letterG);
-//                replace((int)firstPosX_I,(int)firstPosY_I,firstX_I,firstY_I,letterI);
-//                replace((int)firstPosX_R,(int)firstPosY_R,firstX_R,firstY_R,letterR);
+                adapter_A.setVisibility(View.INVISIBLE);
+                adapter_D.setVisibility(View.INVISIBLE);
+                adapter_Abis.setVisibility(View.INVISIBLE);
+                adapter_P.setVisibility(View.INVISIBLE);
+                adapter_T.setVisibility(View.INVISIBLE);
+                adapter_E.setVisibility(View.INVISIBLE);
+                adapter_R.setVisibility(View.INVISIBLE);
+
+
+                oublier.setVisibility(View.INVISIBLE);
+                adapter.setVisibility(View.INVISIBLE);
+                agiter.setVisibility(View.INVISIBLE);
+
 
                 if (letterTouch.equals("A")) {
-                    replace((int) firstPosX_A, (int) firstPosY_A, firstX_A, firstY_A, letterTouch);
+                   // replace((int) firstPosX_A, (int) firstPosY_A, firstX_A, firstY_A, letterTouch);
                     letterA.clearAnimation();
+
                 }
                 if (letterTouch.equals("G")) {
-                    replace((int) firstPosX_G, (int) firstPosY_G, firstX_G, firstY_G, letterTouch);
+                    //replace((int) firstPosX_G, (int) firstPosY_G, firstX_G, firstY_G, letterTouch);
                     letterG.clearAnimation();
                 }
                 if (letterTouch.equals("I")) {
-                    replace((int) firstPosX_I, (int) firstPosY_I, firstX_I, firstY_I, letterTouch);
+                    //replace((int) firstPosX_I, (int) firstPosY_I, firstX_I, firstY_I, letterTouch);
                     letterI.clearAnimation();
                 }
                 if (letterTouch.equals("R")) {
-                    replace((int) firstPosX_R, (int) firstPosY_R, firstX_R, firstY_R, letterTouch);
+                    //replace((int) firstPosX_R, (int) firstPosY_R, firstX_R, firstY_R, letterTouch);
                     letterR.clearAnimation();
                 }
 
@@ -157,10 +195,10 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterI = (TextView) findViewById(R.id.I);
         letterR = (TextView) findViewById(R.id.R);
 
-        letterA.setTypeface(myCustomFont);
-        letterG.setTypeface(myCustomFont);
-        letterI.setTypeface(myCustomFont);
-        letterR.setTypeface(myCustomFont);
+//        letterA.setTypeface(myCustomFont);
+//        letterG.setTypeface(myCustomFont);
+//        letterI.setTypeface(myCustomFont);
+//        letterR.setTypeface(myCustomFont);
 
         firstPosX_A = letterA.getX();
         firstPosX_G = letterG.getX();
@@ -182,17 +220,77 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         firstY_I = letterI.getScaleY();
         firstY_R = letterR.getScaleY();
 
+        oublier = (TextView) findViewById(R.id.oublier);
+        oublier.setVisibility(View.INVISIBLE);
+
+
+        adapter= (TextView) findViewById(R.id.adapter);
+        adapter.setVisibility(View.INVISIBLE);
+
+
+        agiter = (TextView) findViewById(R.id.agiter);
+        agiter.setVisibility(View.INVISIBLE);
+
+
+
+        fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
+        fadeOutOther = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_other);
+
+
+        fadeOut.setAnimationListener(this);
 
         letterA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                letterA.clearAnimation();
+
                 letterG.clearAnimation();
                 letterI.clearAnimation();
                 letterR.clearAnimation();
                 letter_A();
                 letterTouch = "A";
-                replace(200,0,0.5f,0.5f,letterTouch);
+
+                float si = adapter_A.getTextSize();
+                //letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,si);
+               // replace(adapter_A.getX(), adapter_A.getY(),1.0f, 1.0f, letterTouch );
+
+
+
+                letterG.startAnimation(fadeOut);
+                letterI.startAnimation(fadeOut);
+                letterR.startAnimation(fadeOut);
+
+                letterG.setVisibility(View.INVISIBLE);
+                letterI.setVisibility(View.INVISIBLE);
+                letterR.setVisibility(View.INVISIBLE);
+                revert_button.setVisibility(View.VISIBLE);
+
+
+                adapter.startAnimation(fadeIn);
+                adapter.setVisibility(View.VISIBLE);
+
+//                adapter_A.startAnimation(fadeIn);
+//                adapter_D.startAnimation(fadeIn);
+//                adapter_Abis.startAnimation(fadeIn);
+//                adapter_P.startAnimation(fadeIn);
+//                adapter_T.startAnimation(fadeIn);
+//                adapter_E.startAnimation(fadeIn);
+//                adapter_R.startAnimation(fadeIn);
+//
+//                adapter_A.setVisibility(View.VISIBLE);
+//                adapter_D.setVisibility(View.VISIBLE);
+//                adapter_Abis.setVisibility(View.VISIBLE);
+//                adapter_P.setVisibility(View.VISIBLE);
+//                adapter_T.setVisibility(View.VISIBLE);
+//                adapter_E.setVisibility(View.VISIBLE);
+//                adapter_R.setVisibility(View.VISIBLE);
+
+
             }
+
+
+
         });
 
         letterG.setOnClickListener(new View.OnClickListener() {
@@ -203,7 +301,21 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterR.clearAnimation();
                 letter_G();
                 letterTouch = "G";
-                replace(200,0,0.5f,0.5f,letterTouch);
+               // replace(200,0,0.5f,0.5f,letterTouch);
+
+
+                letterI.startAnimation(fadeOut);
+                letterA.startAnimation(fadeOut);
+                letterR.startAnimation(fadeOut);
+
+                letterI.setVisibility(View.INVISIBLE);
+                letterA.setVisibility(View.INVISIBLE);
+                letterR.setVisibility(View.INVISIBLE);
+                revert_button.setVisibility(View.VISIBLE);
+
+                agiter.startAnimation(fadeIn);
+                agiter.setVisibility(View.VISIBLE);
+
             }
         });
 
@@ -215,7 +327,22 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterR.clearAnimation();
                 letter_I();
                 letterTouch = "I";
-                replace(200,0,0.5f,0.5f,letterTouch);
+
+                letterG.startAnimation(fadeOut);
+                letterA.startAnimation(fadeOut);
+                letterR.startAnimation(fadeOut);
+
+                letterG.setVisibility(View.INVISIBLE);
+                letterA.setVisibility(View.INVISIBLE);
+                letterR.setVisibility(View.INVISIBLE);
+                revert_button.setVisibility(View.VISIBLE);
+
+
+                oublier.startAnimation(fadeIn);
+                oublier.setVisibility(View.VISIBLE);
+
+
+                //replace(200,0,0.5f,0.5f,letterTouch);
             }
         });
 
@@ -227,7 +354,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterI.clearAnimation();
                 letter_R();
                 letterTouch = "R";
-                replace(200,0,0.5f,0.5f,letterTouch);
+                //replace(200,0,0.5f,0.5f,letterTouch);
             }
         });
 
@@ -291,7 +418,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     @Override
     public void onAnimationStart(Animation animation) {
-
+        if(animation ==  fadeIn){
+        }
     }
 
     @Override
@@ -300,7 +428,28 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         }
 
+        if(animation ==  fadeIn){
+            adapter_D.setVisibility(View.VISIBLE);
 
+        }
+
+        if(animation == fadeOut) {
+            System.out.println("Je suis dans fade out");
+            if(letterTouch == "A") {
+
+
+//                letterA.startAnimation(fadeOutOther);
+//                letterA.setVisibility(View.INVISIBLE);
+
+                //letterA.clearAnimation();
+
+                letterG.clearAnimation();
+                letterI.clearAnimation();
+                letterR.clearAnimation();
+
+            }
+
+        }
 
     }
 
@@ -466,33 +615,39 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 
         letterA.setVisibility(View.VISIBLE);
-        letterG.setVisibility(View.INVISIBLE);
-        letterI.setVisibility(View.INVISIBLE);
-        letterR.setVisibility(View.INVISIBLE);
-        revert_button.setVisibility(View.VISIBLE);
+
+//        letterG.startAnimation(fadeOut);
+//        letterI.startAnimation(fadeOut);
+//        letterR.startAnimation(fadeOut);
+//
+//
+//        letterG.setVisibility(View.INVISIBLE);
+//        letterI.setVisibility(View.INVISIBLE);
+//        letterR.setVisibility(View.INVISIBLE);
+//        revert_button.setVisibility(View.VISIBLE);
 
     }
 
     public void letter_G(){
 
-        letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
-        letterA.setVisibility(View.INVISIBLE);
-        letterG.setVisibility(View.VISIBLE);
-        letterI.setVisibility(View.INVISIBLE);
-        letterR.setVisibility(View.INVISIBLE);
-        revert_button.setVisibility(View.VISIBLE);
+//        letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//
+//        letterA.setVisibility(View.INVISIBLE);
+//        letterG.setVisibility(View.VISIBLE);
+//        letterI.setVisibility(View.INVISIBLE);
+//        letterR.setVisibility(View.INVISIBLE);
+//        revert_button.setVisibility(View.VISIBLE);
     }
 
     public void letter_I(){
 
-        letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
-        letterA.setVisibility(View.INVISIBLE);
-        letterG.setVisibility(View.INVISIBLE);
-        letterI.setVisibility(View.VISIBLE);
-        letterR.setVisibility(View.INVISIBLE);
-        revert_button.setVisibility(View.VISIBLE);
+//        letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//
+//        letterA.setVisibility(View.INVISIBLE);
+//        letterG.setVisibility(View.INVISIBLE);
+//        letterI.setVisibility(View.VISIBLE);
+//        letterR.setVisibility(View.INVISIBLE);
+//        revert_button.setVisibility(View.VISIBLE);
     }
 
     public void letter_R(){
@@ -506,7 +661,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         revert_button.setVisibility(View.VISIBLE);
     }
 
-    public void replace(int xTo, int yTo, float xScale, float yScale,String letter) {
+    public void replace(float xTo, float yTo, float xScale, float yScale,String letter) {
 
         if(letter.equals("A")) {
 
@@ -522,10 +677,27 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             scale.setDuration(1000);
 
             // create translation animation
-            TranslateAnimation trans = new TranslateAnimation((int) letterA.getX(), (int) letterA.getY(),
-                    TranslateAnimation.ABSOLUTE, xTo - touchview.getLeft(), 0, 0,
-                    TranslateAnimation.ABSOLUTE, yTo);
+//            TranslateAnimation trans = new TranslateAnimation((int) letterA.getX(), (int) letterA.getY(),
+//                    Animation.ABSOLUTE, xTo - touchview.getLeft(), 0, 0,
+//                    Animation.ABSOLUTE, yTo - touchview.getTop());
+//            trans.setDuration(1000);
+float test = (float) ((float)  yTo*0.6);
+            TranslateAnimation trans = new TranslateAnimation(
+                    0,letterA.getX(),
+                    Animation.ABSOLUTE, xTo,
+                    0,  letterA.getY(),
+                    Animation.ABSOLUTE, test );
             trans.setDuration(1000);
+
+//            TranslateAnimation trans = new TranslateAnimation(
+//                    Animation.ABSOLUTE,  letterA.getX(),
+//                    Animation.ABSOLUTE, xTo,
+//                    Animation.ABSOLUTE,  letterA.getY(),
+//                    Animation.ABSOLUTE,  yTo);
+//            trans.setDuration(1000);
+
+//TranslateAnimation(int fromXType, float fromXValue, int toXType, float toXValue, int fromYType, float fromYValue, int toYType, float toYValue)
+
 
             // add new animations to the set
             replaceAnimation.addAnimation(scale);
