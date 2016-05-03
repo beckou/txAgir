@@ -262,6 +262,48 @@
             android:layout_toLeftOf="@+id/R"
             android:layout_toStartOf="@+id/R" />
 
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner1"
+            android:layout_alignParentTop="true"
+            android:layout_alignLeft="@+id/oublier"
+            android:layout_alignStart="@+id/oublier"
+            android:background="#ffebeb"
+            android:spinnerMode="dropdown" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_mot"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/spinner1"
+            android:layout_toLeftOf="@+id/R"
+            android:layout_toStartOf="@+id/R"
+            android:textColor="#00ff55"
+            android:textSize="70sp"
+            android:textIsSelectable="false" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FR"
+            android:id="@+id/FR_button"
+            android:layout_above="@+id/R"
+            android:layout_toRightOf="@+id/adapter_P"
+            android:layout_toEndOf="@+id/adapter_P" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EN"
+            android:id="@+id/EN_button"
+            android:layout_above="@+id/R"
+            android:layout_toRightOf="@+id/oublier"
+            android:layout_toEndOf="@+id/oublier" />
+
     </RelativeLayout>
 
 </RelativeLayout>

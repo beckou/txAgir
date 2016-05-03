@@ -2,12 +2,15 @@ package com.tx.agir;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -20,13 +23,34 @@ import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import java.util.Locale;
+
 
 import com.plattysoft.leonids.ParticleSystem;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity implements Animation.AnimationListener{
+
+    // Switching languages
+
+    private String languageToLoad = "fr";
+
+    private Spinner spinnerctrl;
+    private Button btn;
+    private Locale myLocale;
+
+
+    private Button fr_button;
+    private Button en_button;
+
 
     //private LinearLayout linLayout;
     private RelativeLayout touchview;
@@ -94,9 +118,95 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+       // setLocale("fr");
+
+        //languageToLoad  = "fr"; // your language
+
+        System.out.println("coucou");
+
+
+        setContentView(R.layout.activity_main);
+
+        // Language
+        //---------------
+
+        spinnerctrl = (Spinner) findViewById(R.id.spinner1);
+
+    // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter_spin = ArrayAdapter.createFromResource(this,
+                R.array.language_array, android.R.layout.simple_spinner_item);
+    // Specify the layout to use when the list of choices appears
+        adapter_spin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    // Apply the adapter to the spinner
+        spinnerctrl.setAdapter(adapter_spin);
+
+
+
+
+        spinnerctrl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int pos, long id) {
+                if(pos == 0){
+
+
+                }else if (pos == 1) {
+                    Toast.makeText(parent.getContext(),
+                            "You have selected English", Toast.LENGTH_SHORT)
+                            .show();
+                    setLocale("en");
+
+                } else if (pos == 2) {
+                    Toast.makeText(parent.getContext(),
+                            "You have selected French", Toast.LENGTH_SHORT)
+                            .show();
+                    setLocale("fr");
+
+                }
+
+            }
+
+            public void onNothingSelected(AdapterView<?> arg0) {
+                // TODO Auto-generated method stub
+            }
+
+        });
+
+
+          fr_button = (Button) findViewById(R.id.FR_button);
+          en_button = (Button)findViewById(R.id.EN_button);
+
+        if(fr_button != null){
+            fr_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getBaseContext(),
+                            "You have selected French", Toast.LENGTH_SHORT)
+                            .show();
+                    setLocale("fr");
+                }
+            });
+
+        }
+        if(en_button != null){
+
+            en_button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(getBaseContext(),
+                            "You have selected English", Toast.LENGTH_SHORT)
+                            .show();
+                    setLocale("en");
+                }
+            });
+        }
+
+
+        ///////////////:
 
         letter_A_clicked = false;
         letter_I_clicked = false;
@@ -201,13 +311,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         }
 
         Button button_oublier = (Button) findViewById(R.id.oublier_button);
-        button_oublier.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this, Oublier.class);
-                startActivity(intent2);
-            }
-        });
+        if(button_oublier != null) {
+            button_oublier.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent2 = new Intent(MainActivity.this, Oublier.class);
+                    startActivity(intent2);
+                }
+            });
+        }
 
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
 
@@ -448,6 +560,21 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         //anim_letters.setRepeatCount(Animation.INFINITE);
     }
+
+
+    public void setLocale(String lang) {
+        //languageToLoad = lang;
+        Locale locale = new Locale(lang);
+        //Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getBaseContext().getResources().updateConfiguration(config,
+                getBaseContext().getResources().getDisplayMetrics());
+        Intent refresh = new Intent(this, MainActivity.class);
+        finish();
+        startActivity(refresh);
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
