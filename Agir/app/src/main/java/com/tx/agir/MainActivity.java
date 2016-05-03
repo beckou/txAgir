@@ -43,10 +43,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     private String languageToLoad = "fr";
 
-    private Spinner spinnerctrl;
-    private Button btn;
-    private Locale myLocale;
-
 
     private Button fr_button;
     private Button en_button;
@@ -121,66 +117,24 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-       // setLocale("fr");
-
-        //languageToLoad  = "fr"; // your language
-
-        System.out.println("coucou");
-
-
         setContentView(R.layout.activity_main);
 
         // Language
         //---------------
 
-        spinnerctrl = (Spinner) findViewById(R.id.spinner1);
-
-    // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter_spin = ArrayAdapter.createFromResource(this,
-                R.array.language_array, android.R.layout.simple_spinner_item);
-    // Specify the layout to use when the list of choices appears
-        adapter_spin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-    // Apply the adapter to the spinner
-        spinnerctrl.setAdapter(adapter_spin);
+        Locale current = getResources().getConfiguration().locale;
 
 
-
-
-        spinnerctrl.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int pos, long id) {
-                if(pos == 0){
-
-
-                }else if (pos == 1) {
-                    Toast.makeText(parent.getContext(),
-                            "You have selected English", Toast.LENGTH_SHORT)
-                            .show();
-                    setLocale("en");
-
-                } else if (pos == 2) {
-                    Toast.makeText(parent.getContext(),
-                            "You have selected French", Toast.LENGTH_SHORT)
-                            .show();
-                    setLocale("fr");
-
-                }
-
-            }
-
-            public void onNothingSelected(AdapterView<?> arg0) {
-                // TODO Auto-generated method stub
-            }
-
-        });
-
-
-          fr_button = (Button) findViewById(R.id.FR_button);
+        fr_button = (Button) findViewById(R.id.FR_button);
           en_button = (Button)findViewById(R.id.EN_button);
 
+
         if(fr_button != null){
+
+            if(current.getLanguage() == "fr"){
+                fr_button.setEnabled(false);
+                en_button.setEnabled(true);
+            }
             fr_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -188,19 +142,28 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                             "You have selected French", Toast.LENGTH_SHORT)
                             .show();
                     setLocale("fr");
+
                 }
             });
 
         }
         if(en_button != null){
-
+            if(current.getLanguage() == "en"){
+                System.out.println("coucou!   en");
+               // fr_button.setText("coucou");
+                fr_button.setEnabled(true);
+                en_button.setEnabled(false);
+            }
             en_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(getBaseContext(),
                             "You have selected English", Toast.LENGTH_SHORT)
                             .show();
+
                     setLocale("en");
+
+
                 }
             });
         }

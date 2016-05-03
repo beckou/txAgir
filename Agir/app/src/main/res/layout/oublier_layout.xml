@@ -50,4 +50,14 @@
         android:visibility="invisible"
         android:textColor="#f59d9d" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test_mot_oublier"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="70sp"
+        android:textColor="#f3c9c9" />
+
 </RelativeLayout>
