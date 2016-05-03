@@ -281,7 +281,9 @@
             android:id="@+id/FR_button"
             android:layout_alignParentTop="true"
             android:layout_alignLeft="@+id/adapter_T"
-            android:layout_alignStart="@+id/adapter_T" />
+            android:layout_alignStart="@+id/adapter_T"
+            android:clickable="false"
+            android:enabled="true" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

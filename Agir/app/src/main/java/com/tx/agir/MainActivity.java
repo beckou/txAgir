@@ -117,13 +117,21 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        setContentView(R.layout.activity_main);
 
         // Language
         //---------------
 
         Locale current = getResources().getConfiguration().locale;
+        if(Singleton.getInstance().getString() == "fr"){
+            Locale locale = new Locale("fr");
+            //Locale.setDefault(locale);
+            Configuration config = new Configuration();
+            config.locale = locale;
+            getBaseContext().getResources().updateConfiguration(config,
+                    getBaseContext().getResources().getDisplayMetrics());
+        }
 
+        setContentView(R.layout.activity_main);
 
         fr_button = (Button) findViewById(R.id.FR_button);
           en_button = (Button)findViewById(R.id.EN_button);
@@ -141,8 +149,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     Toast.makeText(getBaseContext(),
                             "You have selected French", Toast.LENGTH_SHORT)
                             .show();
+                    Singleton.getInstance().setString("fr");
                     setLocale("fr");
-
                 }
             });
 
@@ -160,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     Toast.makeText(getBaseContext(),
                             "You have selected English", Toast.LENGTH_SHORT)
                             .show();
-
+                    Singleton.getInstance().setString("en");
                     setLocale("en");
 
 
