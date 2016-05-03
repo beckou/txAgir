@@ -106,7 +106,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
                 update();
 
-                Word_toForget.setAnimation(fade_out);
+                Word_toForget.setAnimation(fade_in);
             }
         });
 
@@ -284,7 +284,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                                     Toast.LENGTH_SHORT).show();*/
 
                             float textSize = Word_toForget.getTextSize();
-                            float incr = (float) 1;
+                            float incr = (float) 10;
                             textSize = textSize + incr;
 
                             //Word_toForget.setTextSize(textSize);
