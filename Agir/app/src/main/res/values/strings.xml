@@ -11,5 +11,18 @@
     <string name="test_mot">Salut</string>
     <string name="test_mot_oublier">oublier</string>
 
+    <string name="agir_A">A</string>
+    <string name="agir_G">G</string>
+    <string name="agir_I">I</string>
+    <string name="agir_R">R</string>
+
+
+    <string name="oublier">EFFACE</string>
+    <string name="eclairer">ECLA RER</string>
+    <string name="adapter">DAPTER</string>
+    <string name="agiter">A&#160;&#160;&#160;&#160;&#160; ITER</string>
+
+
+
 
 </resources>

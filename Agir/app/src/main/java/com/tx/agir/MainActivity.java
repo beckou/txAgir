@@ -96,15 +96,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private float firstY_I;
     private float firstY_R;
 
-
-    private TextView adapter_A;
-    private TextView adapter_D;
-    private TextView adapter_Abis;
-    private TextView adapter_P;
-    private TextView adapter_T;
-    private TextView adapter_E;
-    private TextView adapter_R;
-
     private TextView oublier;
     private TextView adapter;
     private TextView agiter;
@@ -185,22 +176,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letter_R_clicked = false;
 
 
-        adapter_A = (TextView) findViewById(R.id.adapter_A);
-        adapter_D=(TextView) findViewById(R.id.adapter_D);
-        adapter_Abis=(TextView) findViewById(R.id.adapter_Abis);
-        adapter_P=(TextView) findViewById(R.id.adapter_P);
-        adapter_T=(TextView) findViewById(R.id.adapter_T);
-        adapter_E=(TextView) findViewById(R.id.adapter_E);
-        adapter_R=(TextView) findViewById(R.id.adapter_R);
-
-        adapter_A.setVisibility(View.INVISIBLE);
-        adapter_D.setVisibility(View.INVISIBLE);
-        adapter_Abis.setVisibility(View.INVISIBLE);
-        adapter_P.setVisibility(View.INVISIBLE);
-        adapter_T.setVisibility(View.INVISIBLE);
-        adapter_E.setVisibility(View.INVISIBLE);
-        adapter_R.setVisibility(View.INVISIBLE);
-
 
         //linLayout = (LinearLayout) findViewById(R.id.linLayout);
         touchview= (RelativeLayout) findViewById(R.id.test);
@@ -221,14 +196,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterI.setVisibility(View.VISIBLE);
                 letterR.setVisibility(View.VISIBLE);
                 revert_button.setVisibility(View.INVISIBLE);
-
-                adapter_A.setVisibility(View.INVISIBLE);
-                adapter_D.setVisibility(View.INVISIBLE);
-                adapter_Abis.setVisibility(View.INVISIBLE);
-                adapter_P.setVisibility(View.INVISIBLE);
-                adapter_T.setVisibility(View.INVISIBLE);
-                adapter_E.setVisibility(View.INVISIBLE);
-                adapter_R.setVisibility(View.INVISIBLE);
 
 
                 oublier.setVisibility(View.INVISIBLE);
@@ -369,7 +336,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letter_A();
                     letterTouch = "A";
 
-                    float si = adapter_A.getTextSize();
                     //letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,si);
                     // replace(adapter_A.getX(), adapter_A.getY(),1.0f, 1.0f, letterTouch );
 
@@ -430,10 +396,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 if (letter_I_clicked == true) {
 
                     // button has already been clicked once.
-                    Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
-                    startActivity(oublier_intent);
-
-
+                    Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
+                    startActivity(eclairer_intent);
+                    
 
                 } else {
 
@@ -457,8 +422,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letterI.startAnimation(blink);
 
 
-                    oublier.startAnimation(fadeIn);
-                    oublier.setVisibility(View.VISIBLE);
+                    eclairer.startAnimation(fadeIn);
+                    eclairer.setVisibility(View.VISIBLE);
 
 
                     //replace(200,0,0.5f,0.5f,letterTouch);
@@ -471,8 +436,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             public void onClick(View view) {
                 if (letter_R_clicked == true) {
 
-                    Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
-                    startActivity(eclairer_intent);
+                    Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
+                    startActivity(oublier_intent);
 
                 } else {
 
@@ -486,10 +451,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     letterR.startAnimation(blink);
 
-
-                    eclairer.startAnimation(fadeIn);
-                    eclairer.setVisibility(View.VISIBLE);
-
+                    oublier.startAnimation(fadeIn);
+                    oublier.setVisibility(View.VISIBLE);
 
                     //replace(200,0,0.5f,0.5f,letterTouch);
                 }
@@ -582,7 +545,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         }
 
         if(animation ==  fadeIn){
-            adapter_D.setVisibility(View.VISIBLE);
 
         }
 

@@ -40,203 +40,6 @@
             android:layout_centerHorizontal="true"
             android:visibility="gone" />
 
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/test">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="G"
-            android:id="@+id/G"
-            android:layout_weight="0.17"
-            android:textSize="150dp"
-            android:textColor="#ffffff"
-            android:layout_alignTop="@+id/A"
-            android:layout_alignRight="@+id/adapter_D"
-            android:layout_alignEnd="@+id/adapter_D" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A"
-            android:id="@+id/A"
-            android:inputType="none"
-            android:textColor="#ffffff"
-            android:textIsSelectable="false"
-            android:textSize="150dp"
-            android:layout_alignTop="@+id/I"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="I"
-            android:id="@+id/I"
-            android:layout_weight="0.17"
-            android:textSize="150dp"
-            android:textColor="#ffffff"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/adapter_Abis"
-            android:layout_alignStart="@+id/adapter_Abis"
-            android:layout_marginTop="126dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="R"
-            android:id="@+id/R"
-            android:layout_weight="0.17"
-            android:textSize="150dp"
-            android:textColor="#ffffff"
-            android:layout_above="@+id/adapter_Abis"
-            android:layout_toRightOf="@+id/I"
-            android:layout_toEndOf="@+id/I" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="A"
-            android:id="@+id/adapter_A"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/G"
-            android:layout_toRightOf="@+id/A"
-            android:layout_toEndOf="@+id/A"
-            android:layout_marginLeft="33dp"
-            android:layout_marginStart="33dp"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="D"
-            android:id="@+id/adapter_D"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/G"
-            android:layout_toRightOf="@+id/adapter_A"
-            android:layout_toEndOf="@+id/adapter_A"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="A"
-            android:id="@+id/adapter_Abis"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/G"
-            android:layout_toRightOf="@+id/adapter_D"
-            android:layout_toEndOf="@+id/adapter_D"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="P"
-            android:id="@+id/adapter_P"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/R"
-            android:layout_toRightOf="@+id/adapter_Abis"
-            android:layout_toEndOf="@+id/adapter_Abis"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="T"
-            android:id="@+id/adapter_T"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/R"
-            android:layout_toRightOf="@+id/adapter_P"
-            android:layout_toEndOf="@+id/adapter_P"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="E"
-            android:id="@+id/adapter_E"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/R"
-            android:layout_toRightOf="@+id/adapter_T"
-            android:layout_toEndOf="@+id/adapter_T"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="R"
-            android:id="@+id/adapter_R"
-            android:textSize="@dimen/abc_action_button_min_width_material"
-            android:textColor="#fc8f8f"
-            android:layout_below="@+id/R"
-            android:layout_toRightOf="@+id/adapter_E"
-            android:layout_toEndOf="@+id/adapter_E"
-            android:visibility="invisible" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/oublier"
-            android:text="OUBL  ER"
-            android:textColor="#deb6b6"
-            android:textSize="70sp"
-            android:visibility="invisible"
-            android:layout_alignTop="@+id/adapter"
-            android:layout_alignRight="@+id/adapter_E"
-            android:layout_alignEnd="@+id/adapter_E" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="DAPTER"
-            android:id="@+id/adapter"
-            android:textColor="#cb8787"
-            android:textSize="70sp"
-            android:visibility="invisible"
-            android:layout_alignTop="@+id/agiter"
-            android:layout_toRightOf="@+id/A"
-            android:layout_toEndOf="@+id/A" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="A     ITER"
-            android:id="@+id/agiter"
-            android:textSize="70sp"
-            android:textColor="#f9bdbd"
-            android:singleLine="false"
-            android:visibility="invisible"
-            android:layout_alignTop="@+id/G"
-            android:layout_alignRight="@+id/R"
-            android:layout_alignEnd="@+id/R"
-            android:layout_marginTop="43dp" />
-
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -244,23 +47,138 @@
             android:background="#3d3b78"
             app:backgroundTint="#f75b2187"
             android:src="@android:drawable/ic_menu_revert"
-            android:layout_marginTop="29dp"
-            android:layout_below="@+id/R"
-            android:layout_toRightOf="@+id/adapter_T"
-            android:layout_toEndOf="@+id/adapter_T" />
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="146dp" />
 
-        <TextView
+        <RelativeLayout
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="ECLAIRE"
-            android:id="@+id/eclairer"
-            android:textColor="#e09090"
-            android:textSize="60sp"
-            android:textIsSelectable="false"
-            android:layout_alignBottom="@+id/oublier"
-            android:layout_toLeftOf="@+id/R"
-            android:layout_toStartOf="@+id/R" />
+            android:id="@+id/linearLayout"
+            android:layout_above="@+id/revert"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="49dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/agir_A"
+                android:id="@+id/A"
+                android:inputType="none"
+                android:textColor="#ffffff"
+                android:textIsSelectable="false"
+                android:textSize="150dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="0dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/agir_G"
+                android:id="@+id/G"
+                android:layout_weight="0.17"
+                android:textSize="150dp"
+                android:textColor="#ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/A"
+                android:layout_toEndOf="@+id/A" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/agir_I"
+                android:id="@+id/I"
+                android:layout_weight="0.17"
+                android:textSize="150dp"
+                android:textColor="#ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/G"
+                android:layout_toEndOf="@+id/G" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/agir_R"
+                android:id="@+id/R"
+                android:layout_weight="0.17"
+                android:textSize="150dp"
+                android:textColor="#ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/I"
+                android:layout_toEndOf="@+id/I" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/agiter"
+                android:id="@+id/agiter"
+                android:textSize="70sp"
+                android:textColor="#f9bdbd"
+                android:singleLine="false"
+                android:visibility="invisible"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/R"
+                android:layout_alignEnd="@+id/R" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/eclairer"
+                android:id="@+id/eclairer"
+                android:textColor="#e09090"
+                android:textSize="60sp"
+                android:textIsSelectable="false"
+                android:visibility="invisible"
+                android:layout_below="@+id/adapter"
+                android:layout_alignRight="@+id/R"
+                android:layout_alignEnd="@+id/R" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:id="@+id/oublier"
+                android:text="@string/oublier"
+                android:textColor="#deb6b6"
+                android:textSize="70sp"
+                android:visibility="invisible"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/adapter"
+                android:id="@+id/adapter"
+                android:textColor="#cb8787"
+                android:textSize="70sp"
+                android:visibility="visible"
+                android:layout_centerVertical="true"
+                android:layout_alignLeft="@+id/G"
+                android:layout_alignStart="@+id/G" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/test">
 
         <TextView
             android:layout_width="wrap_content"
@@ -271,7 +189,19 @@
             android:layout_toStartOf="@+id/R"
             android:textColor="#00ff55"
             android:textSize="70sp"
-            android:textIsSelectable="false" />
+            android:textIsSelectable="false"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignRight="@+id/linearLayout"
+        android:layout_alignEnd="@+id/linearLayout"
+        android:id="@+id/linearLayout2">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -279,11 +209,11 @@
             android:layout_height="wrap_content"
             android:text="FR"
             android:id="@+id/FR_button"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/adapter_T"
-            android:layout_alignStart="@+id/adapter_T"
             android:clickable="false"
-            android:enabled="true" />
+            android:enabled="true"
+            android:layout_above="@+id/R"
+            android:layout_alignLeft="@+id/revert"
+            android:layout_alignStart="@+id/revert" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -291,10 +221,10 @@
             android:layout_height="wrap_content"
             android:text="EN"
             android:id="@+id/EN_button"
-            android:layout_alignParentTop="true"
-            android:layout_alignLeft="@+id/adapter_R"
-            android:layout_alignStart="@+id/adapter_R" />
+            android:layout_alignTop="@+id/FR_button"
+            android:layout_alignRight="@+id/adapter"
+            android:layout_alignEnd="@+id/adapter" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
