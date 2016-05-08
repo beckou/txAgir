@@ -7,7 +7,7 @@
         c\'est de
         les oublier\"</string>
     <string name="oublier_phrase02">Et vous, que souhaitez-vous oublier? </string>
-    <string name="bouton_effacer">oublier</string>
+    <string name="bouton_effacer">effacer</string>
     <string name="test_mot">Salut</string>
     <string name="test_mot_oublier">oublier</string>
 
@@ -18,11 +18,14 @@
 
 
     <string name="oublier">EFFACE</string>
-    <string name="eclairer">ECLA RER</string>
+    <string name="eclairer">ECLA&#160; RER</string>
     <string name="adapter">DAPTER</string>
     <string name="agiter">A&#160;&#160;&#160;&#160;&#160; ITER</string>
 
-
+    <string name="erase">E&#160; ASE</string>
+    <string name="lighten">LIGHT&#160; N</string>
+    <string name="adapt">A&#160;&#160;&#160; APT</string>
+    <string name="shake">SH&#160;&#160; KE</string>
 
 
 </resources>

@@ -101,6 +101,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private TextView agiter;
     private TextView eclairer;
 
+    private TextView erase;
+    private TextView adapt;
+    private TextView shake;
+    private TextView lighten;
+
+    private RelativeLayout english_menu;
+    private RelativeLayout mainLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,6 +115,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
 
         // Language
         //---------------
@@ -133,6 +142,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             if(current.getLanguage() == "fr"){
                 fr_button.setEnabled(false);
                 en_button.setEnabled(true);
+                //mainLayout.setVisibility(View.VISIBLE);
+                //english_menu.setVisibility(View.INVISIBLE);
+
             }
             fr_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -141,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                             "You have selected French", Toast.LENGTH_SHORT)
                             .show();
                     Singleton.getInstance().setString("fr");
+
                     setLocale("fr");
                 }
             });
@@ -152,6 +165,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                // fr_button.setText("coucou");
                 fr_button.setEnabled(true);
                 en_button.setEnabled(false);
+                //mainLayout.setVisibility(View.INVISIBLE);
+                //english_menu.setVisibility(View.VISIBLE);
             }
             en_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -160,6 +175,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                             "You have selected English", Toast.LENGTH_SHORT)
                             .show();
                     Singleton.getInstance().setString("en");
+
                     setLocale("en");
 
 
@@ -169,6 +185,11 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
         ///////////////:
+
+//        english_menu = (RelativeLayout) findViewById(R.id.english_menu);
+//        english_menu.setVisibility(View.GONE);
+
+
 
         letter_A_clicked = false;
         letter_I_clicked = false;
@@ -197,11 +218,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterR.setVisibility(View.VISIBLE);
                 revert_button.setVisibility(View.INVISIBLE);
 
-
                 oublier.setVisibility(View.INVISIBLE);
                 adapter.setVisibility(View.INVISIBLE);
                 agiter.setVisibility(View.INVISIBLE);
                 eclairer.setVisibility(View.INVISIBLE);
+
+                adapt.setVisibility(View.INVISIBLE);
+                shake.setVisibility(View.INVISIBLE);
+                erase.setVisibility(View.INVISIBLE);
+                lighten.setVisibility(View.INVISIBLE);
 
                 if (letterTouch.equals("A")) {
                    // replace((int) firstPosX_A, (int) firstPosY_A, firstX_A, firstY_A, letterTouch);
@@ -237,27 +262,27 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         }
 
 
-        Button button_eclairer = (Button) findViewById(R.id.eclairer_button);
-        if(button_eclairer != null) {
-            button_eclairer.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(MainActivity.this, Eclairer.class);
-                    startActivity(intent);
-                }
-            });
-        }
+//        Button button_eclairer = (Button) findViewById(R.id.eclairer_button);
+//        if(button_eclairer != null) {
+//            button_eclairer.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(MainActivity.this, Eclairer.class);
+//                    startActivity(intent);
+//                }
+//            });
+//        }
 
-        Button button_oublier = (Button) findViewById(R.id.oublier_button);
-        if(button_oublier != null) {
-            button_oublier.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent2 = new Intent(MainActivity.this, Oublier.class);
-                    startActivity(intent2);
-                }
-            });
-        }
+//        Button button_oublier = (Button) findViewById(R.id.oublier_button);
+//        if(button_oublier != null) {
+//            button_oublier.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent2 = new Intent(MainActivity.this, Oublier.class);
+//                    startActivity(intent2);
+//                }
+//            });
+//        }
 
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
 
@@ -308,6 +333,18 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
 
+        adapt = (TextView) findViewById(R.id.adapt);
+        adapt.setVisibility(View.INVISIBLE);
+
+        shake = (TextView) findViewById(R.id.shake);
+        shake.setVisibility(View.INVISIBLE);
+
+        erase = (TextView) findViewById(R.id.erase);
+        erase.setVisibility(View.INVISIBLE);
+
+        lighten = (TextView) findViewById(R.id.lighten);
+        lighten.setVisibility(View.INVISIBLE);
+
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
         fadeOutOther = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_other);
@@ -350,8 +387,14 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letterR.setVisibility(View.INVISIBLE);
                     revert_button.setVisibility(View.VISIBLE);
 
-                    adapter.startAnimation(fadeIn);
-                    adapter.setVisibility(View.VISIBLE);
+
+                    if(Singleton.getInstance().getString() == "fr"){
+                        adapter.startAnimation(fadeIn);
+                        adapter.setVisibility(View.VISIBLE);
+                    }else if(Singleton.getInstance().getString() == "en"){
+                        adapt.startAnimation(fadeIn);
+                        adapt.setVisibility(View.VISIBLE);
+                    }
 
 
                 }
@@ -383,8 +426,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 letterR.setVisibility(View.INVISIBLE);
                 revert_button.setVisibility(View.VISIBLE);
 
-                agiter.startAnimation(fadeIn);
-                agiter.setVisibility(View.VISIBLE);
+
+
+                if(Singleton.getInstance().getString() == "fr"){
+                    agiter.startAnimation(fadeIn);
+                    agiter.setVisibility(View.VISIBLE);
+                }else if(Singleton.getInstance().getString() == "en"){
+                    shake.startAnimation(fadeIn);
+                    shake.setVisibility(View.VISIBLE);
+                }
 
             }
         });
@@ -395,10 +445,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 if (letter_I_clicked == true) {
 
-                    // button has already been clicked once.
-                    Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
-                    startActivity(eclairer_intent);
-                    
+                    // button has already been clicked once
+                    if(Singleton.getInstance().getString() == "fr"){
+                        Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
+                        startActivity(eclairer_intent);
+                    }else if(Singleton.getInstance().getString() == "en"){
+                        Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
+                        startActivity(oublier_intent);
+                    }
+
 
                 } else {
 
@@ -421,10 +476,14 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     letterI.startAnimation(blink);
 
+                    if(Singleton.getInstance().getString() == "fr"){
+                        eclairer.startAnimation(fadeIn);
+                        eclairer.setVisibility(View.VISIBLE);
 
-                    eclairer.startAnimation(fadeIn);
-                    eclairer.setVisibility(View.VISIBLE);
-
+                    }else if(Singleton.getInstance().getString() == "en"){
+                        erase.startAnimation(fadeIn);
+                        erase.setVisibility(View.VISIBLE);
+                    }
 
                     //replace(200,0,0.5f,0.5f,letterTouch);
                 }
@@ -436,8 +495,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             public void onClick(View view) {
                 if (letter_R_clicked == true) {
 
-                    Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
-                    startActivity(oublier_intent);
+                    if(Singleton.getInstance().getString() == "fr"){
+                        Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
+                        startActivity(oublier_intent);
+                    }else if(Singleton.getInstance().getString() == "en"){
+                        Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
+                        startActivity(eclairer_intent);
+                    }
 
                 } else {
 
@@ -451,8 +515,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     letterR.startAnimation(blink);
 
-                    oublier.startAnimation(fadeIn);
-                    oublier.setVisibility(View.VISIBLE);
+                    if(Singleton.getInstance().getString() == "fr"){
+                        oublier.startAnimation(fadeIn);
+                        oublier.setVisibility(View.VISIBLE);
+                    }else if(Singleton.getInstance().getString() == "en"){
+                        lighten.startAnimation(fadeIn);
+                        lighten.setVisibility(View.VISIBLE);
+                    }
 
                     //replace(200,0,0.5f,0.5f,letterTouch);
                 }
@@ -727,7 +796,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     public void letter_A(){
 
-        letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+       // letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 
         letterA.setVisibility(View.VISIBLE);
 
@@ -767,7 +836,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     public void letter_R(){
 
-        letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+        //letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 
         letterA.setVisibility(View.INVISIBLE);
         letterG.setVisibility(View.INVISIBLE);

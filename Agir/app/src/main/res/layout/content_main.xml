@@ -17,28 +17,9 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:weightSum="1">
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="éclairer"
-            android:id="@+id/eclairer_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Oublier"
-            android:id="@+id/oublier_button"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="67dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:visibility="gone" />
+        android:weightSum="1"
+        android:visibility="visible"
+        android:id="@+id/mainLayout">
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
@@ -53,13 +34,67 @@
             android:layout_marginBottom="146dp" />
 
         <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/test"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/test_mot"
+                android:id="@+id/textView2"
+                android:layout_toLeftOf="@+id/R"
+                android:layout_toStartOf="@+id/R"
+                android:textColor="#00ff55"
+                android:textSize="70sp"
+                android:textIsSelectable="false"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout"
-            android:layout_above="@+id/revert"
+            android:id="@+id/linearLayout2"
+            android:visibility="visible"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FR"
+                android:id="@+id/FR_button"
+                android:clickable="false"
+                android:enabled="true"
+                android:layout_above="@+id/R"
+                android:layout_alignLeft="@+id/revert"
+                android:layout_alignStart="@+id/revert" />
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EN"
+                android:id="@+id/EN_button"
+                android:layout_alignTop="@+id/FR_button"
+                android:layout_alignRight="@+id/adapter"
+                android:layout_alignEnd="@+id/adapter" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="49dp">
+            android:id="@+id/relativeLayout2">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -68,8 +103,8 @@
                 android:id="@+id/A"
                 android:inputType="none"
                 android:textColor="#ffffff"
-                android:textIsSelectable="false"
-                android:textSize="150dp"
+                android:textIsSelectable="true"
+                android:textSize="110sp"
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="0dp"
                 android:layout_alignParentTop="true"
@@ -81,12 +116,12 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/agir_G"
                 android:id="@+id/G"
-                android:layout_weight="0.17"
-                android:textSize="150dp"
+                android:textSize="110sp"
                 android:textColor="#ffffff"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/A"
-                android:layout_toEndOf="@+id/A" />
+                android:layout_toEndOf="@+id/A"
+                android:textIsSelectable="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -94,12 +129,12 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/agir_I"
                 android:id="@+id/I"
-                android:layout_weight="0.17"
-                android:textSize="150dp"
+                android:textSize="110sp"
                 android:textColor="#ffffff"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/G"
-                android:layout_toEndOf="@+id/G" />
+                android:layout_toEndOf="@+id/G"
+                android:textIsSelectable="true" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -107,12 +142,51 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/agir_R"
                 android:id="@+id/R"
-                android:layout_weight="0.17"
-                android:textSize="150dp"
+                android:textSize="110sp"
                 android:textColor="#ffffff"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/I"
-                android:layout_toEndOf="@+id/I" />
+                android:layout_toEndOf="@+id/I"
+                android:textIsSelectable="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/linearLayout"
+            android:layout_alignBottom="@+id/relativeLayout2"
+            android:layout_alignRight="@+id/revert"
+            android:layout_alignEnd="@+id/revert">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/shake"
+                android:id="@+id/shake"
+                android:textSize="70sp"
+                android:textColor="#f9bdbd"
+                android:singleLine="false"
+                android:visibility="invisible"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/adapt"
+                android:id="@+id/adapt"
+                android:textSize="70sp"
+                android:textColor="#f9bdbd"
+                android:singleLine="false"
+                android:visibility="invisible"
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/eclairer"
+                android:layout_alignEnd="@+id/eclairer" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -135,12 +209,14 @@
                 android:text="@string/eclairer"
                 android:id="@+id/eclairer"
                 android:textColor="#e09090"
-                android:textSize="60sp"
-                android:textIsSelectable="false"
-                android:visibility="invisible"
-                android:layout_below="@+id/adapter"
-                android:layout_alignRight="@+id/R"
-                android:layout_alignEnd="@+id/R" />
+                android:textSize="70sp"
+                android:textIsSelectable="true"
+                android:visibility="visible"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignLeft="@+id/lighten"
+                android:layout_alignStart="@+id/lighten" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -151,9 +227,9 @@
                 android:textColor="#deb6b6"
                 android:textSize="70sp"
                 android:visibility="invisible"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentTop="true"
+                android:layout_alignRight="@+id/agiter"
+                android:layout_alignEnd="@+id/agiter" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -163,68 +239,40 @@
                 android:id="@+id/adapter"
                 android:textColor="#cb8787"
                 android:textSize="70sp"
-                android:visibility="visible"
-                android:layout_centerVertical="true"
-                android:layout_alignLeft="@+id/G"
-                android:layout_alignStart="@+id/G" />
+                android:visibility="invisible"
+                android:layout_alignBottom="@+id/eclairer"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/erase"
+                android:id="@+id/erase"
+                android:textSize="70sp"
+                android:textColor="#f9bdbd"
+                android:singleLine="false"
+                android:visibility="invisible"
+                android:layout_alignBottom="@+id/adapter"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/lighten"
+                android:id="@+id/lighten"
+                android:textSize="70sp"
+                android:textColor="#f9bdbd"
+                android:singleLine="false"
+                android:visibility="invisible"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
 
     </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/test">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/test_mot"
-            android:id="@+id/textView2"
-            android:layout_toLeftOf="@+id/R"
-            android:layout_toStartOf="@+id/R"
-            android:textColor="#00ff55"
-            android:textSize="70sp"
-            android:textIsSelectable="false"
-            android:visibility="gone" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignRight="@+id/linearLayout"
-        android:layout_alignEnd="@+id/linearLayout"
-        android:id="@+id/linearLayout2">
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FR"
-            android:id="@+id/FR_button"
-            android:clickable="false"
-            android:enabled="true"
-            android:layout_above="@+id/R"
-            android:layout_alignLeft="@+id/revert"
-            android:layout_alignStart="@+id/revert" />
-
-        <Button
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EN"
-            android:id="@+id/EN_button"
-            android:layout_alignTop="@+id/FR_button"
-            android:layout_alignRight="@+id/adapter"
-            android:layout_alignEnd="@+id/adapter" />
-
-    </LinearLayout>
 
 </RelativeLayout>
