@@ -11,12 +11,6 @@
     <string name="test_mot">Salut</string>
     <string name="test_mot_oublier">oublier</string>
 
-    <string name="agir_A">A</string>
-    <string name="agir_G">G</string>
-    <string name="agir_I">I</string>
-    <string name="agir_R">R</string>
-
-
     <string name="oublier">EFFACE</string>
     <string name="eclairer">ECLA&#160; RER</string>
     <string name="adapter">DAPTER</string>
@@ -26,6 +20,5 @@
     <string name="lighten">LIGHT&#160; N</string>
     <string name="adapt">A&#160;&#160;&#160; APT</string>
     <string name="shake">SH&#160;&#160; KE</string>
-
 
 </resources>
