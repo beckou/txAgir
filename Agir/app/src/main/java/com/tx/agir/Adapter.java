@@ -28,7 +28,6 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
     private float mPosY;
 
     FrameLayout frame;
-    Button bouton;
     RelativeLayout mView;
 
     private Boolean TopLefttouched = false;
@@ -41,36 +40,9 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
 
 
         frame = (FrameLayout) findViewById(R.id.frame);
-        bouton = (Button) findViewById(R.id.button);
         mView = (RelativeLayout)  findViewById(R.id.view);
 
         mView.setOnTouchListener(this);
-
-        bouton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Rect rectf = new Rect();
-                frame.getGlobalVisibleRect(rectf);
-
-                Log.d("WIDTH        :", String.valueOf(rectf.width()));
-                Log.d("HEIGHT       :", String.valueOf(rectf.height()));
-                Log.d("left         :", String.valueOf(rectf.left));
-                Log.d("right        :", String.valueOf(rectf.right));
-                Log.d("top          :", String.valueOf(rectf.top));
-                Log.d("bottom       :", String.valueOf(rectf.bottom));
-
-                // (1) create a java int array
-                int[] intArray = new int[2];
-                frame.getLocationOnScreen(intArray);
-
-                Log.d("x        :", String.valueOf(intArray[0]));
-                Log.d("y       :", String.valueOf(intArray[1]));
-
-            }
-        });
-
-
-
 
 
     }
