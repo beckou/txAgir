@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000">
+    android:background="#000000"
+    android:id="@+id/view">
 
-    <FrameLayout
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/border">
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="271dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp" />
+
+    <FrameLayout
+        android:layout_width="264dp"
+        android:layout_height="144dp"
+        android:background="@drawable/border"
+        android:id="@+id/frame"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text=" TEST TEST TEST TEST TEST"
             android:id="@+id/textView2"
-            android:textColor="#ffffff" />
+            android:textColor="#ffffff"
+            android:textSize="60sp"
+            android:textIsSelectable="false"
+            android:editable="false"
+            />
     </FrameLayout>
-</LinearLayout>
+
+</RelativeLayout>
