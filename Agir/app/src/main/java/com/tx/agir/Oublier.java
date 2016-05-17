@@ -33,6 +33,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     private  Animation animation_last_text = null;
     private Animation fade_in = null;
     private Animation fade_out = null;
+    private Animation fade_out_bis = null;
 
     private TextView wellcomeSentence = null;
     private EditText toForget = null;
@@ -41,8 +42,11 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
     RelativeLayout touchview; // my view
 
+    private TextView oublier_3 = null;
 
     public static Timer timer;
+    public static Timer timer2;
+
 
 
 
@@ -60,7 +64,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         animation_last_text = AnimationUtils.loadAnimation(this, R.anim.last_text_appear);
         fade_in =  AnimationUtils.loadAnimation(this, R.anim.fade_in);
         fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out_oublier);
-
+        fade_out_bis = AnimationUtils.loadAnimation(this, R.anim.fade_out_other);
 
         wellcomeSentence = (TextView)findViewById(R.id.oublier_sentence);
         wellcomeSentence.setAnimation(animation_firstText);
@@ -74,6 +78,11 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
         Word_toForget = (TextView)findViewById(R.id.word_toForget);
         Word_toForget.setVisibility(View.INVISIBLE);
+
+        oublier_3 = (TextView)findViewById(R.id.oublier_3);
+        if(oublier_3 != null){
+            oublier_3.setVisibility(View.INVISIBLE);
+        }
 
 
 
@@ -89,10 +98,6 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
 
 
-
-
-
-
         bouton_effacer = (Button) findViewById(R.id.button_effacer);
         bouton_effacer.setVisibility(View.INVISIBLE);
         bouton_effacer.setOnClickListener(new View.OnClickListener() {
@@ -104,9 +109,9 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                 Word_toForget.setText(toForget.getText());
                 Word_toForget.setVisibility(View.VISIBLE);
 
-                update();
+                //update();
 
-                Word_toForget.setAnimation(fade_out);
+                //Word_toForget.setAnimation(fade_out_bis);
             }
         });
 
@@ -115,6 +120,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     // set animation listener
         animation_firstText.setAnimationListener(this);
         animation_last_text.setAnimationListener(this);
+        //fade_out_bis.setAnimationListener(this);
     }
 
     public void myTimer(final long MAC, final String ipAddress) {
@@ -124,13 +130,14 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
             public void run() {
                 System.out.println("MAC: " + MAC + "ipAddress:" + ipAddress);
                 update();
+                update2();
+
             }
         };
         timer = new Timer();
         timer.schedule(timerTask, 1000);
 
     }
-
     public void update() {
         final TimerTask timerTask = new TimerTask() {
 
@@ -141,23 +148,45 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                     public void run() {
 
 //stuff that updates ui
-          disappear();
-
+          disappear() ;
 
                     }
                 });
 
             }
 
+        };
+        timer.cancel();
+        timer = new Timer();
+        timer.schedule(timerTask, 10000);
+        System.out.println("Time:    "+timerTask.scheduledExecutionTime());
+    }
+    public void update2() {
+        final TimerTask timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        //lastText(); ;
+                    }
+                });
+
+            }
 
         };
         timer.cancel();
         timer = new Timer();
         timer.schedule(timerTask, 10000);
         System.out.println("Time:    "+timerTask.scheduledExecutionTime());
-
     }
 
+
+    public void lastText(){
+        oublier_3.setVisibility(View.VISIBLE);
+
+    }
 
     // animation listeners
     @Override
@@ -170,13 +199,11 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
             wellcomeSentence.setVisibility(View.INVISIBLE);
             wellcomeSentence.setText(R.string.oublier_phrase02);
             wellcomeSentence.startAnimation(animation_last_text);
-        }
-
-        if (animation == animation_last_text) {
+        }else if (animation == animation_last_text) {
             //wellcomeSentence.setVisibility(View.INVISIBLE);
             toForget.setVisibility(View.VISIBLE);
             toForget.startAnimation(fade_in);
-
+           // wellcomeSentence.clearAnimation();
             bouton_effacer.setVisibility(View.VISIBLE);
             bouton_effacer.startAnimation(fade_in);
 
@@ -203,8 +230,14 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
     public void disappear(){
 
-        Word_toForget.startAnimation(fade_out);
+        Word_toForget.startAnimation(fade_out_bis);
         Word_toForget.setVisibility(View.INVISIBLE);
+
+        oublier_3.setVisibility(View.VISIBLE);
+
+        //wellcomeSentence.setText(R.string.oublier_phrase03);
+       // wellcomeSentence.setVisibility(View.VISIBLE);
+       // wellcomeSentence.startAnimation(fade_in);
 
     }
 
