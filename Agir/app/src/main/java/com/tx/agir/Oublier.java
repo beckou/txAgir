@@ -34,6 +34,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     private Animation fade_in = null;
     private Animation fade_out = null;
     private Animation fade_out_bis = null;
+    private Animation final_fade = null;
 
     private TextView wellcomeSentence = null;
     private EditText toForget = null;
@@ -65,6 +66,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         fade_in =  AnimationUtils.loadAnimation(this, R.anim.fade_in);
         fade_out = AnimationUtils.loadAnimation(this, R.anim.fade_out_oublier);
         fade_out_bis = AnimationUtils.loadAnimation(this, R.anim.fade_out_other);
+        final_fade =  AnimationUtils.loadAnimation(this, R.anim.final_fade_in);
 
         wellcomeSentence = (TextView)findViewById(R.id.oublier_sentence);
         wellcomeSentence.setAnimation(animation_firstText);
@@ -234,6 +236,8 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         Word_toForget.setVisibility(View.INVISIBLE);
 
         oublier_3.setVisibility(View.VISIBLE);
+        oublier_3.startAnimation(final_fade);
+
 
         //wellcomeSentence.setText(R.string.oublier_phrase03);
        // wellcomeSentence.setVisibility(View.VISIBLE);
