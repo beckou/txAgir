@@ -96,59 +96,6 @@
             android:layout_centerHorizontal="true"
             android:id="@+id/relativeLayout2">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/agir_A"
-                android:id="@+id/A"
-                android:inputType="none"
-                android:textColor="#ffffff"
-                android:textIsSelectable="true"
-                android:textSize="110sp"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="0dp"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="0dp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/agir_G"
-                android:id="@+id/G"
-                android:textSize="110sp"
-                android:textColor="#ffffff"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/A"
-                android:layout_toEndOf="@+id/A"
-                android:textIsSelectable="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/agir_I"
-                android:id="@+id/I"
-                android:textSize="110sp"
-                android:textColor="#ffffff"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/G"
-                android:layout_toEndOf="@+id/G"
-                android:textIsSelectable="true" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/agir_R"
-                android:id="@+id/R"
-                android:textSize="110sp"
-                android:textColor="#ffffff"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/I"
-                android:layout_toEndOf="@+id/I"
-                android:textIsSelectable="true" />
-
         </RelativeLayout>
 
         <RelativeLayout
@@ -272,6 +219,59 @@
                 android:layout_centerHorizontal="true" />
 
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/agir_A"
+            android:id="@+id/A"
+            android:inputType="none"
+            android:textColor="#ffffff"
+            android:textIsSelectable="true"
+            android:textSize="110sp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/agir_G"
+            android:id="@+id/G"
+            android:textSize="110sp"
+            android:textColor="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/A"
+            android:layout_toEndOf="@+id/A"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/agir_I"
+            android:id="@+id/I"
+            android:textSize="110sp"
+            android:textColor="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/G"
+            android:layout_toEndOf="@+id/G"
+            android:textIsSelectable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/agir_R"
+            android:id="@+id/R"
+            android:textSize="110sp"
+            android:textColor="#ffffff"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/I"
+            android:layout_toEndOf="@+id/I"
+            android:textIsSelectable="true" />
 
     </RelativeLayout>
 

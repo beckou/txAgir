@@ -4,10 +4,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
@@ -36,6 +39,7 @@ import java.util.Locale;
 import com.plattysoft.leonids.ParticleSystem;
 
 import java.util.Locale;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements Animation.AnimationListener{
 
@@ -204,7 +208,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
         //linLayout = (LinearLayout) findViewById(R.id.linLayout);
-        touchview= (RelativeLayout) findViewById(R.id.test);
+        touchview= (RelativeLayout) findViewById(R.id.relativeLayout);
         revert_button = (FloatingActionButton)  findViewById(R.id.revert);
         revert_button.setVisibility(View.INVISIBLE);
         revert_button.setOnClickListener(new View.OnClickListener() {
@@ -557,24 +561,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         });
 
 
-
-//        new ParticleSystem(this, 1,R.drawable.essai, 10000)
-//                .setSpeedRange(0.001f, 0.1f)
-//                .setFadeOut(10000 , new AccelerateInterpolator())
-//                .emit(300, 300, 1);
-//
-//        new ParticleSystem(this, 1,R.drawable.essai, 7000)
-//                .setSpeedRange(0.001f, 0.1f)
-//                .setFadeOut(7000 , new AccelerateInterpolator())
-//                .emit(500, 1000, 1);
-//
-//        new ParticleSystem(this, 1,R.drawable.essai, 5000)
-//                .setSpeedRange(0.001f, 0.1f)
-//                .setFadeOut(5000 , new AccelerateInterpolator())
-//                .emit(400, 850, 1);
-
-
-
         // anims
 
 //        anim_letters = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.letter_anim);
@@ -720,80 +706,89 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         // TODO Auto-generated method stub
         super.onResume();
 
-//        touchview.setOnTouchListener(new View.OnTouchListener() {
-//
-//            private boolean isInside = false;
-//
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//
-//                int x = (int) event.getX();
-//                int y = (int) event.getY();
-//
-//
-////                if (!isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
-////                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-////                }
-////                if (!isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
-////                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-////                }
-////                if (!isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
-////                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-////                }
-////                if (!isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
-////                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-////                }
-//
-//                if (isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
-//                    //b.getBackground().setState(STATE_PRESSED);
-//                            /*Toast.makeText(getApplicationContext(), "letterA",
-//                                    Toast.LENGTH_SHORT).show();*/
-//
-//                   // letter_A();
-//
+        touchview.setOnTouchListener(new View.OnTouchListener() {
+
+            private boolean isInside = false;
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+
+
+//                if (!isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
+//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                }
+//                if (!isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
+//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                }
+//                if (!isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
+//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                }
+//                if (!isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
+//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
+//                }
+
+                if (isPointWithin(x, y, letterA.getLeft(), letterA.getRight(), letterA.getTop(), letterA.getBottom())) {
+                    System.out.println("coucou tu es sur le A");
+
+                    Random rnd = new Random();
+                    //int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
+
+
+                    //letterA.setTextColor(  ContextCompat.getColor(getBaseContext(), R.color.letter01));
+                    letterA.setTextColor(color);
+
+
 //                    float val = letterA.getTextSize() + 10;
 //                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-//
 //
 //                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                }
-//                if (isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
-//                    //b.getBackground().setState(STATE_PRESSED);
-//                            /*Toast.makeText(getApplicationContext(), "letterG",
-//                                    Toast.LENGTH_SHORT).show();*/
-//
-//
+                }
+                if (isPointWithin(x, y, letterG.getLeft(), letterG.getRight(), letterG.getTop(), letterG.getBottom())) {
+
+                    Random rnd = new Random();
+                    //int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
+
+                    letterG.setTextColor(color);
+
 //                    float val = letterG.getTextSize() + 10;
 //                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
 //
 //                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//
-//
-//
-//                }
-//                if (isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
-//                    //b.getBackground().setState(STATE_PRESSED);
-//                           /* Toast.makeText(getApplicationContext(), "letterI",
-//                                    Toast.LENGTH_SHORT).show();*/
-//
-//
+
+
+
+                }
+                if (isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
+                    Random rnd = new Random();
+                    //int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
+                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
+
+                    letterI.setTextColor(color);
+
+
 //                    float val = letterI.getTextSize() + 10;
 //                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
 //
 //                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//
-//                }
-//                if (isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
-//                    //b.getBackground().setState(STATE_PRESSED);
-//                            /*Toast.makeText(getApplicationContext(), "letterR",
-//                                    Toast.LENGTH_SHORT).show();*/
-//
+
+
+
+                }
+                if (isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
+                    Random rnd = new Random();
+                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
+                    letterR.setTextColor(color);
 //
 //                    float val = letterR.getTextSize() + 10;
 //                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
@@ -801,13 +796,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 //                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 //                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//
-//                }
-//
-//                return true;
-//            }
-//
-//        });
+
+                }
+
+                return true;
+            }
+
+        });
 
     }
 
