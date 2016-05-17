@@ -75,6 +75,11 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private Animation fadeOutOther = null;
 
 
+    private ParticleSystem parti1;
+    private ParticleSystem parti2;
+    private ParticleSystem parti3;
+
+
     // saving pos and scales
     private float firstPosX_A;
     private float firstPosX_G;
@@ -247,6 +252,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 }
 
 
+                // remove particles
+                if(parti1!=null && parti2!=null && parti2!=null ) {
+                    parti1.cancel();
+                    parti2.cancel();
+                    parti3.cancel();
+                }
+
+
+
             }
         });
 
@@ -356,6 +370,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             @Override
             public void onClick(View view) {
 
+                generateParticules(letterA);
+
+
                 if (letter_A_clicked == true) {
                     // button has already been clicked once.
                     Intent adapter_intent = new Intent(MainActivity.this, Adapter.class);
@@ -407,6 +424,10 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterG.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                generateParticules(letterG);
+
+
                 letterA.clearAnimation();
                 letterI.clearAnimation();
                 letterR.clearAnimation();
@@ -442,6 +463,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                generateParticules(letterI);
+
 
                 if (letter_I_clicked == true) {
 
@@ -493,6 +517,10 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterR.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                generateParticules(letterR);
+
+
                 if (letter_R_clicked == true) {
 
                     if(Singleton.getInstance().getString() == "fr"){
@@ -530,20 +558,20 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
 
-        new ParticleSystem(this, 1,R.drawable.essai, 10000)
-                .setSpeedRange(0.001f, 0.1f)
-                .setFadeOut(10000 , new AccelerateInterpolator())
-                .emit(300, 300, 1);
-
-        new ParticleSystem(this, 1,R.drawable.essai, 7000)
-                .setSpeedRange(0.001f, 0.1f)
-                .setFadeOut(7000 , new AccelerateInterpolator())
-                .emit(500, 1000, 1);
-
-        new ParticleSystem(this, 1,R.drawable.essai, 5000)
-                .setSpeedRange(0.001f, 0.1f)
-                .setFadeOut(5000 , new AccelerateInterpolator())
-                .emit(400, 850, 1);
+//        new ParticleSystem(this, 1,R.drawable.essai, 10000)
+//                .setSpeedRange(0.001f, 0.1f)
+//                .setFadeOut(10000 , new AccelerateInterpolator())
+//                .emit(300, 300, 1);
+//
+//        new ParticleSystem(this, 1,R.drawable.essai, 7000)
+//                .setSpeedRange(0.001f, 0.1f)
+//                .setFadeOut(7000 , new AccelerateInterpolator())
+//                .emit(500, 1000, 1);
+//
+//        new ParticleSystem(this, 1,R.drawable.essai, 5000)
+//                .setSpeedRange(0.001f, 0.1f)
+//                .setFadeOut(5000 , new AccelerateInterpolator())
+//                .emit(400, 850, 1);
 
 
 
@@ -843,6 +871,26 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterI.setVisibility(View.INVISIBLE);
         letterR.setVisibility(View.VISIBLE);
         revert_button.setVisibility(View.VISIBLE);
+    }
+
+    public void generateParticules(TextView letter_origin){
+
+        parti1 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai, 10000);
+        parti1.setSpeedRange(0.001f, 0.1f);
+        parti1.setFadeOut(10000 , new AccelerateInterpolator());
+        parti1.emit(letter_origin, 1);
+
+        parti2 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai, 7000);
+        parti2.setSpeedRange(0.001f, 0.1f);
+        parti2.setFadeOut(7000 , new AccelerateInterpolator());
+        parti2.emit(letter_origin, 1);
+
+        parti3 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai, 5000);
+        parti3.setSpeedRange(0.001f, 0.1f);
+        parti3.setFadeOut(5000 , new AccelerateInterpolator());
+        parti3.emit(letter_origin, 1);
+
+
     }
 
     public void replace(float xTo, float yTo, float xScale, float yScale,String letter) {
