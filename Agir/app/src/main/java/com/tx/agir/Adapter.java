@@ -9,9 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Created by Rebecca on 13/04/2016.
@@ -29,9 +31,10 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
 
     FrameLayout frame;
     RelativeLayout mView;
+    private TextView adapter_text = null;
 
     private Boolean TopLefttouched = false;
-
+    ViewGroup.MarginLayoutParams marginParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +43,23 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
 
 
         frame = (FrameLayout) findViewById(R.id.frame);
+        if(frame != null){
+            frame.getLayoutParams().height = 162;
+            frame.getLayoutParams().width = 333;
+        }
+
+
         mView = (RelativeLayout)  findViewById(R.id.view);
+
+        adapter_text = (TextView) findViewById(R.id.adapter_text);
+        if(adapter_text !=null){
+
+            adapter_text.setText(" instable");
+        }
 
         mView.setOnTouchListener(this);
 
+        marginParams = new ViewGroup.MarginLayoutParams(adapter_text.getLayoutParams());
 
     }
 
@@ -51,6 +67,11 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
     @Override
     public boolean onTouch(View v, MotionEvent event) {
 
+
+        double h =  frame.getLayoutParams().height;
+        double w = frame.getLayoutParams().width;
+
+      //  Log.d("y touched :", String.valueOf(w));
 
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
@@ -63,9 +84,9 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                 mLastTouchY = y;
                 // Save the ID of this pointer (for dragging)
                 mActivePointerId = MotionEventCompat.getPointerId(event, 0);
-
-                Log.d("x touched :", String.valueOf(x));
-                Log.d("y touched :", String.valueOf(y));
+//
+//                Log.d("x touched :", String.valueOf(x));
+//                Log.d("y touched :", String.valueOf(y));
 
                 // added
 
@@ -114,6 +135,20 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
 
                 frame.getLayoutParams().height +=dy;
                 frame.getLayoutParams().width += dx;
+
+                Log.d("w:", String.valueOf( frame.getLayoutParams().width));
+                Log.d("h:", String.valueOf( frame.getLayoutParams().height));
+
+                if(frame.getLayoutParams().width >=  587 && frame.getLayoutParams().height >= 247 ){
+                    adapter_text.setText(" Tout est si instable autour de moi");
+                }
+                if(frame.getLayoutParams().width <  587 && frame.getLayoutParams().height < 247){
+                    adapter_text.setText("instable");
+                }
+
+
+                marginParams.setMargins(3, 3, 3, 3);
+
                 frame.requestLayout();
 
 
