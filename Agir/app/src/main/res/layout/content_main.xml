@@ -33,29 +33,6 @@
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="146dp" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:id="@+id/test"
-            android:visibility="visible">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/test_mot"
-                android:id="@+id/textView2"
-                android:layout_toLeftOf="@+id/R"
-                android:layout_toStartOf="@+id/R"
-                android:textColor="#00ff55"
-                android:textSize="70sp"
-                android:textIsSelectable="false"
-                android:visibility="gone" />
-
-        </RelativeLayout>
-
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="wrap_content"
@@ -89,136 +66,118 @@
 
         </LinearLayout>
 
-        <RelativeLayout
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/shake"
+            android:id="@+id/shake"
+            android:textSize="70sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
             android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/relativeLayout2">
+            android:layout_marginLeft="46sp"
 
-        </RelativeLayout>
+            />
 
-        <RelativeLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/linearLayout"
-            android:layout_alignBottom="@+id/relativeLayout2"
-            android:layout_alignRight="@+id/revert"
-            android:layout_alignEnd="@+id/revert">
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/adapt"
+            android:id="@+id/adapt"
+            android:textSize="70sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14sp"
+            />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/shake"
-                android:id="@+id/shake"
-                android:textSize="70sp"
-                android:textColor="#f9bdbd"
-                android:singleLine="false"
-                android:visibility="invisible"
-                android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/adapt"
-                android:id="@+id/adapt"
-                android:textSize="70sp"
-                android:textColor="#f9bdbd"
-                android:singleLine="false"
-                android:visibility="invisible"
-                android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/eclairer"
-                android:layout_alignEnd="@+id/eclairer" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/agiter"
-                android:id="@+id/agiter"
-                android:textSize="70sp"
-                android:textColor="#f9bdbd"
-                android:singleLine="false"
-                android:visibility="invisible"
-                android:layout_centerVertical="true"
-                android:layout_alignRight="@+id/R"
-                android:layout_alignEnd="@+id/R" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/agiter"
+            android:id="@+id/agiter"
+            android:textSize="70sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/eclairer"
-                android:id="@+id/eclairer"
-                android:textColor="#e09090"
-                android:textSize="70sp"
-                android:textIsSelectable="true"
-                android:visibility="visible"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignLeft="@+id/lighten"
-                android:layout_alignStart="@+id/lighten" />
+            />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:id="@+id/oublier"
-                android:text="@string/oublier"
-                android:textColor="#deb6b6"
-                android:textSize="70sp"
-                android:visibility="invisible"
-                android:layout_alignParentTop="true"
-                android:layout_alignRight="@+id/agiter"
-                android:layout_alignEnd="@+id/agiter" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/eclairer"
+            android:id="@+id/eclairer"
+            android:textColor="#e09090"
+            android:textSize="70sp"
+            android:textIsSelectable="true"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40sp"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/adapter"
-                android:id="@+id/adapter"
-                android:textColor="#cb8787"
-                android:textSize="70sp"
-                android:visibility="invisible"
-                android:layout_alignBottom="@+id/eclairer"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+            />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/erase"
-                android:id="@+id/erase"
-                android:textSize="70sp"
-                android:textColor="#f9bdbd"
-                android:singleLine="false"
-                android:visibility="invisible"
-                android:layout_alignBottom="@+id/adapter"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/oublier"
+            android:text="@string/oublier"
+            android:textColor="#deb6b6"
+            android:textSize="70sp"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/lighten"
-                android:id="@+id/lighten"
-                android:textSize="70sp"
-                android:textColor="#f9bdbd"
-                android:singleLine="false"
-                android:visibility="invisible"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true" />
+            />
 
-        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/adapter"
+            android:id="@+id/adapter"
+            android:textColor="#cb8787"
+            android:textSize="70sp"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/erase"
+            android:id="@+id/erase"
+            android:textSize="70sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/lighten"
+            android:id="@+id/lighten"
+            android:textSize="70sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -227,12 +186,11 @@
             android:id="@+id/A"
             android:inputType="none"
             android:textColor="#ffffff"
-            android:textIsSelectable="true"
+            android:textIsSelectable="false"
             android:textSize="110sp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp" />
+            android:layout_marginLeft="50sp"
+            android:layout_centerVertical="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -242,10 +200,10 @@
             android:id="@+id/G"
             android:textSize="110sp"
             android:textColor="#ffffff"
-            android:layout_alignParentTop="true"
+            android:textIsSelectable="false"
             android:layout_toRightOf="@+id/A"
-            android:layout_toEndOf="@+id/A"
-            android:textIsSelectable="true" />
+            android:layout_centerVertical="true"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -255,10 +213,10 @@
             android:id="@+id/I"
             android:textSize="110sp"
             android:textColor="#ffffff"
-            android:layout_alignParentTop="true"
+            android:textIsSelectable="true"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/G"
-            android:layout_toEndOf="@+id/G"
-            android:textIsSelectable="true" />
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -268,10 +226,203 @@
             android:id="@+id/R"
             android:textSize="110sp"
             android:textColor="#ffffff"
-            android:layout_alignParentTop="true"
+            android:textIsSelectable="true"
+            android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/I"
-            android:layout_toEndOf="@+id/I"
-            android:textIsSelectable="true" />
+            android:layout_toEndOf="@+id/I" />
+
+
+
+
+
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="DAPTER"
+            android:id="@+id/adapter_bis"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/A"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="A"
+            android:id="@+id/agiter_bis_1"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/G"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ITER"
+            android:id="@+id/agiter_bis_2"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/G"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ECLA"
+            android:id="@+id/eclairer_bis_1"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/I"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="RER"
+            android:id="@+id/eclairer_bis_2"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/I"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="EFFACE"
+            android:id="@+id/effacer_bis"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/R"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="A"
+            android:id="@+id/adapt_bis_1"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/A"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="APT"
+            android:id="@+id/adapt_bis_2"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/A"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="SH"
+            android:id="@+id/shake_bis_1"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/G"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="KE"
+            android:id="@+id/shake_bis_2"
+            android:textSize="60sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/G"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="E"
+            android:id="@+id/erase_bis_1"
+            android:textSize="50sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/I"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="ASE"
+            android:id="@+id/erase_bis_2"
+            android:textSize="50sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/I"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="LIGHT"
+            android:id="@+id/lighten_bis_1"
+            android:textSize="50sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/R"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="N"
+            android:id="@+id/lighten_bis_2"
+            android:textSize="50sp"
+            android:textColor="#f9bdbd"
+            android:singleLine="false"
+            android:visibility="invisible"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/R"
+            />
+
 
     </RelativeLayout>
 

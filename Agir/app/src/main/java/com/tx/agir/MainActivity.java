@@ -38,6 +38,8 @@ import java.util.Locale;
 
 import com.plattysoft.leonids.ParticleSystem;
 
+import org.w3c.dom.Text;
+
 import java.util.Locale;
 import java.util.Random;
 
@@ -114,6 +116,32 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private TextView adapt;
     private TextView shake;
     private TextView lighten;
+
+    // replace words ///
+    private TextView adapter_bis;
+
+    private TextView agiter_bis_1;
+    private TextView agiter_bis_2;
+
+    private TextView eclairer_bis_1;
+    private TextView eclairer_bis_2;
+
+    private TextView effacer_bis;
+
+    private TextView adapt_bis_1;
+    private TextView adapt_bis_2;
+
+    private TextView shake_bis_1;
+    private TextView shake_bis_2;
+
+    private TextView erase_bis_1;
+    private TextView erase_bis_2;
+
+    private TextView lighten_bis_1;
+    private TextView lighten_bis_2;
+
+
+    ////////////////////
 
     private RelativeLayout english_menu;
     private RelativeLayout mainLayout;
@@ -236,6 +264,39 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 shake.setVisibility(View.INVISIBLE);
                 erase.setVisibility(View.INVISIBLE);
                 lighten.setVisibility(View.INVISIBLE);
+
+
+
+                // replace words
+                adapter_bis.setVisibility(View.INVISIBLE);
+
+                agiter_bis_1.setVisibility(View.INVISIBLE);
+                agiter_bis_2.setVisibility(View.INVISIBLE);
+
+                eclairer_bis_1.setVisibility(View.INVISIBLE);
+                eclairer_bis_2.setVisibility(View.INVISIBLE);
+
+                effacer_bis.setVisibility(View.INVISIBLE);
+
+                adapt_bis_1.setVisibility(View.INVISIBLE);
+                adapt_bis_2.setVisibility(View.INVISIBLE);
+
+                shake_bis_1.setVisibility(View.INVISIBLE);
+                shake_bis_2.setVisibility(View.INVISIBLE);
+
+                erase_bis_1.setVisibility(View.INVISIBLE);
+
+                erase_bis_2.setVisibility(View.INVISIBLE);
+
+                lighten_bis_1.setVisibility(View.INVISIBLE);
+                lighten_bis_2.setVisibility(View.INVISIBLE);
+
+
+
+                ///////////
+
+
+
 
                 if (letterTouch.equals("A")) {
                    // replace((int) firstPosX_A, (int) firstPosY_A, firstX_A, firstY_A, letterTouch);
@@ -363,6 +424,32 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         lighten = (TextView) findViewById(R.id.lighten);
         lighten.setVisibility(View.INVISIBLE);
 
+        /// replace words
+
+        adapter_bis = (TextView) findViewById(R.id.adapter_bis);
+
+        agiter_bis_1 = (TextView) findViewById(R.id.agiter_bis_1);
+        agiter_bis_2 = (TextView) findViewById(R.id.agiter_bis_2);
+
+        eclairer_bis_1 = (TextView) findViewById(R.id.eclairer_bis_1);
+        eclairer_bis_2 = (TextView) findViewById(R.id.eclairer_bis_2);
+
+        effacer_bis = (TextView) findViewById(R.id.effacer_bis);
+
+        adapt_bis_1 = (TextView) findViewById(R.id.adapt_bis_1);
+        adapt_bis_2 = (TextView) findViewById(R.id.adapt_bis_2);
+
+        shake_bis_1 = (TextView) findViewById(R.id.shake_bis_1);
+        shake_bis_2 = (TextView) findViewById(R.id.shake_bis_2);
+
+        erase_bis_1 = (TextView) findViewById(R.id.erase_bis_1);
+
+        erase_bis_2 = (TextView) findViewById(R.id.erase_bis_2);
+
+        lighten_bis_1 = (TextView) findViewById(R.id.lighten_bis_1);
+        lighten_bis_2 = (TextView) findViewById(R.id.lighten_bis_2);
+
+
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
         fadeOut = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
         fadeOutOther = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out_other);
@@ -410,11 +497,18 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
                     if(Singleton.getInstance().getString() == "fr"){
-                        adapter.startAnimation(fadeIn);
-                        adapter.setVisibility(View.VISIBLE);
+//                        adapter.startAnimation(fadeIn);
+//                        adapter.setVisibility(View.VISIBLE);
+                        adapter_bis.startAnimation(fadeIn);
+                        adapter_bis.setVisibility(View.VISIBLE);
                     }else if(Singleton.getInstance().getString() == "en"){
-                        adapt.startAnimation(fadeIn);
-                        adapt.setVisibility(View.VISIBLE);
+//                        adapt.startAnimation(fadeIn);
+//                        adapt.setVisibility(View.VISIBLE);
+                        adapt_bis_1.startAnimation(fadeIn);
+                        adapt_bis_1.setVisibility(View.VISIBLE);
+
+                        adapt_bis_2.startAnimation(fadeIn);
+                        adapt_bis_2.setVisibility(View.VISIBLE);
                     }
 
 
@@ -454,11 +548,22 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
                 if(Singleton.getInstance().getString() == "fr"){
-                    agiter.startAnimation(fadeIn);
-                    agiter.setVisibility(View.VISIBLE);
+//                    agiter.startAnimation(fadeIn);
+//                    agiter.setVisibility(View.VISIBLE);
+
+                    agiter_bis_1.startAnimation(fadeIn);
+                    agiter_bis_1.setVisibility(View.VISIBLE);
+                    agiter_bis_2.startAnimation(fadeIn);
+                    agiter_bis_2.setVisibility(View.VISIBLE);
+
                 }else if(Singleton.getInstance().getString() == "en"){
-                    shake.startAnimation(fadeIn);
-                    shake.setVisibility(View.VISIBLE);
+//                    shake.startAnimation(fadeIn);
+//                    shake.setVisibility(View.VISIBLE);
+
+                    shake_bis_1.startAnimation(fadeIn);
+                    shake_bis_1.setVisibility(View.VISIBLE);
+                    shake_bis_2.startAnimation(fadeIn);
+                    shake_bis_2.setVisibility(View.VISIBLE);
                 }
 
             }
@@ -505,12 +610,23 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letterI.startAnimation(blink);
 
                     if(Singleton.getInstance().getString() == "fr"){
-                        eclairer.startAnimation(fadeIn);
-                        eclairer.setVisibility(View.VISIBLE);
+//                        eclairer.startAnimation(fadeIn);
+//                        eclairer.setVisibility(View.VISIBLE);
+
+                        eclairer_bis_1.startAnimation(fadeIn);
+                        eclairer_bis_1.setVisibility(View.VISIBLE);
+
+                        eclairer_bis_2.startAnimation(fadeIn);
+                        eclairer_bis_2.setVisibility(View.VISIBLE);
 
                     }else if(Singleton.getInstance().getString() == "en"){
-                        erase.startAnimation(fadeIn);
-                        erase.setVisibility(View.VISIBLE);
+//                        erase.startAnimation(fadeIn);
+//                        erase.setVisibility(View.VISIBLE);
+
+                        erase_bis_1.startAnimation(fadeIn);
+                        erase_bis_1.setVisibility(View.VISIBLE);
+                        erase_bis_2.startAnimation(fadeIn);
+                        erase_bis_2.setVisibility(View.VISIBLE);
                     }
 
                     //replace(200,0,0.5f,0.5f,letterTouch);
@@ -548,11 +664,20 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letterR.startAnimation(blink);
 
                     if(Singleton.getInstance().getString() == "fr"){
-                        oublier.startAnimation(fadeIn);
-                        oublier.setVisibility(View.VISIBLE);
+//                        oublier.startAnimation(fadeIn);
+//                        oublier.setVisibility(View.VISIBLE);
+
+                        effacer_bis.startAnimation(fadeIn);
+                        effacer_bis.setVisibility(View.VISIBLE);
+
                     }else if(Singleton.getInstance().getString() == "en"){
-                        lighten.startAnimation(fadeIn);
-                        lighten.setVisibility(View.VISIBLE);
+//                        lighten.startAnimation(fadeIn);
+//                        lighten.setVisibility(View.VISIBLE);
+
+                        lighten_bis_1.startAnimation(fadeIn);
+                        lighten_bis_1.setVisibility(View.VISIBLE);
+                        lighten_bis_2.startAnimation(fadeIn);
+                        lighten_bis_2.setVisibility(View.VISIBLE);
                     }
 
                     //replace(200,0,0.5f,0.5f,letterTouch);
@@ -576,6 +701,18 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
         //anim_letters.setRepeatCount(Animation.INFINITE);
+
+
+
+        /////////////////////////////////////////
+        // ORGANISATION DE LA VIEW
+        // //////////////////////////////////////
+
+
+
+
+
+        //////////////////////////////////////////:::
     }
 
 
