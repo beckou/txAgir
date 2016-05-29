@@ -1045,17 +1045,17 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     public void generateParticules(TextView letter_origin){
 
-        parti1 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai, 10000);
+        parti1 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai2, 10000);
         parti1.setSpeedRange(0.001f, 0.1f);
         parti1.setFadeOut(10000 , new AccelerateInterpolator());
         parti1.emit(letter_origin, 1);
 
-        parti2 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai, 7000);
+        parti2 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai2, 7000);
         parti2.setSpeedRange(0.001f, 0.1f);
         parti2.setFadeOut(7000 , new AccelerateInterpolator());
         parti2.emit(letter_origin, 1);
 
-        parti3 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai, 5000);
+        parti3 = new ParticleSystem(MainActivity.this, 1,R.drawable.essai2, 5000);
         parti3.setSpeedRange(0.001f, 0.1f);
         parti3.setFadeOut(5000 , new AccelerateInterpolator());
         parti3.emit(letter_origin, 1);
