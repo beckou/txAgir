@@ -363,17 +363,22 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 //            });
 //        }
 
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
+       // Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
 
         letterA = (TextView) findViewById(R.id.A);
         letterG = (TextView) findViewById(R.id.G);
         letterI = (TextView) findViewById(R.id.I);
         letterR = (TextView) findViewById(R.id.R);
 
-//        letterA.setTypeface(myCustomFont);
-//        letterG.setTypeface(myCustomFont);
-//        letterI.setTypeface(myCustomFont);
-//        letterR.setTypeface(myCustomFont);
+
+
+
+
+        letterA.setTypeface(myCustomFont);
+        letterG.setTypeface(myCustomFont);
+        letterI.setTypeface(myCustomFont);
+        letterR.setTypeface(myCustomFont);
 
         firstPosX_A = letterA.getX();
         firstPosX_G = letterG.getX();
@@ -427,27 +432,46 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         /// replace words
 
         adapter_bis = (TextView) findViewById(R.id.adapter_bis);
+        adapter_bis.setTypeface(myCustomFont);
 
         agiter_bis_1 = (TextView) findViewById(R.id.agiter_bis_1);
         agiter_bis_2 = (TextView) findViewById(R.id.agiter_bis_2);
+        agiter_bis_1.setTypeface(myCustomFont);
+        agiter_bis_2.setTypeface(myCustomFont);
+
 
         eclairer_bis_1 = (TextView) findViewById(R.id.eclairer_bis_1);
         eclairer_bis_2 = (TextView) findViewById(R.id.eclairer_bis_2);
+        eclairer_bis_1.setTypeface(myCustomFont);
+        eclairer_bis_2.setTypeface(myCustomFont);
+
 
         effacer_bis = (TextView) findViewById(R.id.effacer_bis);
+        effacer_bis.setTypeface(myCustomFont);
+
 
         adapt_bis_1 = (TextView) findViewById(R.id.adapt_bis_1);
         adapt_bis_2 = (TextView) findViewById(R.id.adapt_bis_2);
+        adapt_bis_1.setTypeface(myCustomFont);
+        adapt_bis_2.setTypeface(myCustomFont);
+
 
         shake_bis_1 = (TextView) findViewById(R.id.shake_bis_1);
         shake_bis_2 = (TextView) findViewById(R.id.shake_bis_2);
+        shake_bis_1.setTypeface(myCustomFont);
+        shake_bis_2.setTypeface(myCustomFont);
+
 
         erase_bis_1 = (TextView) findViewById(R.id.erase_bis_1);
-
         erase_bis_2 = (TextView) findViewById(R.id.erase_bis_2);
+        erase_bis_1.setTypeface(myCustomFont);
+        erase_bis_2.setTypeface(myCustomFont);
+
 
         lighten_bis_1 = (TextView) findViewById(R.id.lighten_bis_1);
         lighten_bis_2 = (TextView) findViewById(R.id.lighten_bis_2);
+        lighten_bis_1.setTypeface(myCustomFont);
+        lighten_bis_2.setTypeface(myCustomFont);
 
 
         fadeIn = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
@@ -456,7 +480,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         blink = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.blink);
 
         fadeOut.setAnimationListener(this);
-
         letterA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -737,6 +760,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         return true;
     }
 
+
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -947,6 +972,19 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     public void onWindowFocusChanged(boolean hasFocus) {
         // TODO Auto-generated method stub
         super.onWindowFocusChanged(hasFocus);
+
+
+        System.out.println("letterA size is "+letterA.getWidth());
+
+
+        int lettersWidth = letterA.getWidth()+letterG.getWidth()+letterI.getWidth()+letterR.getWidth();
+        int layoutWidth = touchview.getWidth();
+        int shift = (layoutWidth - lettersWidth)/2;
+
+        RelativeLayout.LayoutParams head_params = (RelativeLayout.LayoutParams)letterA.getLayoutParams();
+        head_params.setMargins(shift, 0, 0, 0); //substitute parameters for left, top, right, bottom
+        letterA.setLayoutParams(head_params);
+
     }
 
     static boolean isPointWithin(int x, int y, int x1, int x2, int y1, int y2) {

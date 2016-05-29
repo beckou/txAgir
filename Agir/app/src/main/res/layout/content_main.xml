@@ -149,7 +149,7 @@
             android:id="@+id/adapter"
             android:textColor="#cb8787"
             android:textSize="70sp"
-            android:visibility="invisible"
+            android:visibility="gone"
             android:layout_centerVertical="true"
 
             />
@@ -252,7 +252,7 @@
             android:visibility="invisible"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/A"
-            />
+            android:textIsSelectable="true" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
