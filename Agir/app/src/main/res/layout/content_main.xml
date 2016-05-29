@@ -26,14 +26,15 @@
             android:layout_height="wrap_content"
             android:id="@+id/revert"
             android:background="#3d3b78"
-            app:backgroundTint="#f75b2187"
+            app:backgroundTint="#f7ffbab4"
+            app:rippleColor="#f7140f0f"
             android:src="@android:drawable/ic_menu_revert"
             android:layout_alignParentBottom="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginBottom="146dp"
             android:layout_marginRight="19dp"
-            />
+            android:tint="#ffffff" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -45,7 +46,7 @@
             android:layout_alignParentStart="true">
 
             <Button
-                style="?android:attr/buttonStyleSmall"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="FR"
@@ -54,17 +55,24 @@
                 android:enabled="true"
                 android:layout_above="@+id/R"
                 android:layout_alignLeft="@+id/revert"
-                android:layout_alignStart="@+id/revert" />
+                android:layout_alignStart="@+id/revert"
+                android:foregroundTint="#dfc1c1"
+                android:backgroundTint="#f7ffbab4"
+                android:textColor="#ffffff" />
 
             <Button
-                style="?android:attr/buttonStyleSmall"
+                style="@android:style/Widget.DeviceDefault.Light.Button.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="EN"
                 android:id="@+id/EN_button"
                 android:layout_alignTop="@+id/FR_button"
                 android:layout_alignRight="@+id/adapter"
-                android:layout_alignEnd="@+id/adapter" />
+                android:layout_alignEnd="@+id/adapter"
+                android:backgroundTint="#f7ffbab4"
+                android:hint="ttin"
+                android:textColorHint="#ffffff"
+                android:textColor="#ffffff" />
 
         </LinearLayout>
 

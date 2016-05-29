@@ -16,8 +16,10 @@
         android:layout_marginTop="162dp"
         android:text="@string/oublier_phrase01"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textColor="#f2aaaa" />
+        android:textColor="#f2aaaa"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -28,7 +30,8 @@
         android:layout_marginTop="60dp"
         android:background="#ed9b9b"
         android:inputType="text"
-        android:width="@dimen/abc_action_bar_stacked_tab_max_width" />
+        android:width="@dimen/abc_action_bar_stacked_tab_max_width"
+        />
 
     <Button
         android:layout_width="wrap_content"
@@ -38,7 +41,7 @@
         android:layout_below="@+id/to_forget"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="64dp"
-        android:background="#ed7b7b" />
+        android:background="#f7ffbab4" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,6 +62,9 @@
         android:layout_alignTop="@+id/word_toForget"
         android:layout_centerHorizontal="true"
         android:textColor="#f2b5b5"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:focusableInTouchMode="true"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
 </RelativeLayout>

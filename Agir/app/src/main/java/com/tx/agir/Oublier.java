@@ -4,12 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.DragEvent;
 import android.view.GestureDetector;
 import android.view.GestureDetector.SimpleOnGestureListener;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -56,7 +58,10 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oublier_layout);
 
-       // Get information VIEW
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
+
+
+        // Get information VIEW
         touchview = (RelativeLayout) findViewById(R.id.relativeLayout);
 
         myTimer(123, "127.0.0.1");
@@ -70,11 +75,27 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
         wellcomeSentence = (TextView)findViewById(R.id.oublier_sentence);
         wellcomeSentence.setAnimation(animation_firstText);
+        wellcomeSentence.setTypeface(myCustomFont);
 
 
         toForget = (EditText)findViewById(R.id.to_forget);
         toForget.setVisibility(View.INVISIBLE);
+//        toForget.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
+        toForget.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+
+                bouton_effacer.setVisibility(View.VISIBLE);
+                bouton_effacer.startAnimation(fade_in);
+                return false;
+            }
+        });
 
 
 
@@ -84,6 +105,8 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         oublier_3 = (TextView)findViewById(R.id.oublier_3);
         if(oublier_3 != null){
             oublier_3.setVisibility(View.INVISIBLE);
+            oublier_3.setTypeface(myCustomFont);
+
         }
 
 
@@ -97,6 +120,8 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                         Toast.LENGTH_SHORT).show();
             }
         });*/
+
+
 
 
 
@@ -160,7 +185,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         };
         timer.cancel();
         timer = new Timer();
-        timer.schedule(timerTask, 10000);
+        timer.schedule(timerTask, 5000);
         System.out.println("Time:    "+timerTask.scheduledExecutionTime());
     }
     public void update2() {
@@ -206,8 +231,8 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
             toForget.setVisibility(View.VISIBLE);
             toForget.startAnimation(fade_in);
            // wellcomeSentence.clearAnimation();
-            bouton_effacer.setVisibility(View.VISIBLE);
-            bouton_effacer.startAnimation(fade_in);
+//            bouton_effacer.setVisibility(View.VISIBLE);
+//            bouton_effacer.startAnimation(fade_in);
 
         }
 
