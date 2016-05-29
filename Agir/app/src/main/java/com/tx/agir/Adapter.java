@@ -48,8 +48,8 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
 
         frame = (FrameLayout) findViewById(R.id.frame);
         if(frame != null){
-            frame.getLayoutParams().height = 173;
-            frame.getLayoutParams().width = 351;
+//            frame.getLayoutParams().height = 173;
+//            frame.getLayoutParams().width = 351;
         }
 
 
@@ -66,6 +66,19 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
         marginParams = new ViewGroup.MarginLayoutParams(adapter_text.getLayoutParams());
 
     }
+
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        // TODO Auto-generated method stub
+        super.onWindowFocusChanged(hasFocus);
+
+
+        frame.getLayoutParams().height = adapter_text.getHeight()+ 100;
+        frame.getLayoutParams().width = adapter_text.getWidth()+ 100 ;
+
+    }
+
 
 
     @Override
