@@ -33,6 +33,9 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     private Button fr_button;
     private Button en_button;
+
 
 
     //private LinearLayout linLayout;
@@ -84,6 +88,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private ParticleSystem parti1;
     private ParticleSystem parti2;
     private ParticleSystem parti3;
+
+    private List<ParticleSystem> particleList;
 
 
     // saving pos and scales
@@ -226,6 +232,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 //        english_menu = (RelativeLayout) findViewById(R.id.english_menu);
 //        english_menu.setVisibility(View.GONE);
 
+        particleList = new ArrayList<ParticleSystem>();
+
 
 
         letter_A_clicked = false;
@@ -318,10 +326,20 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
                 // remove particles
-                if(parti1!=null && parti2!=null && parti2!=null ) {
-                    parti1.cancel();
-                    parti2.cancel();
-                    parti3.cancel();
+//                if(parti1!=null && parti2!=null && parti2!=null ) {
+//
+//
+//                    parti1.cancel();
+//                    parti2.cancel();
+//                    parti3.cancel();
+//
+//
+//
+//                }
+
+                for (ParticleSystem p : particleList) {
+                    p.cancel();
+                    p = null;
                 }
 
 
@@ -484,7 +502,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             @Override
             public void onClick(View view) {
 
-                generateParticules(letterA);
 
 
                 if (letter_A_clicked == true) {
@@ -498,48 +515,53 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 } else {
 
+                    if ((!letter_G_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
 
-                    letter_A_clicked = true;
-
-                    letterA.clearAnimation();
-
-                    letterG.clearAnimation();
-                    letterI.clearAnimation();
-                    letterR.clearAnimation();
-                    letter_A();
-                    letterTouch = "A";
-
-                    //letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,si);
-                    // replace(adapter_A.getX(), adapter_A.getY(),1.0f, 1.0f, letterTouch );
-
-                    letterA.startAnimation(blink);
-
-                    letterG.startAnimation(fadeOut);
-                    letterI.startAnimation(fadeOut);
-                    letterR.startAnimation(fadeOut);
-
-                    letterG.setVisibility(View.INVISIBLE);
-                    letterI.setVisibility(View.INVISIBLE);
-                    letterR.setVisibility(View.INVISIBLE);
-                    revert_button.setVisibility(View.VISIBLE);
+                        generateParticules(letterA);
 
 
-                    if(Singleton.getInstance().getString() == "fr"){
+                        letter_A_clicked = true;
+
+                        letterA.clearAnimation();
+
+                        letterG.clearAnimation();
+                        letterI.clearAnimation();
+                        letterR.clearAnimation();
+                        letter_A();
+                        letterTouch = "A";
+
+                        //letterA.setTextSize(TypedValue.COMPLEX_UNIT_PX,si);
+                        // replace(adapter_A.getX(), adapter_A.getY(),1.0f, 1.0f, letterTouch );
+
+                        letterA.startAnimation(blink);
+
+                        letterG.startAnimation(fadeOut);
+                        letterI.startAnimation(fadeOut);
+                        letterR.startAnimation(fadeOut);
+
+                        letterG.setVisibility(View.INVISIBLE);
+                        letterI.setVisibility(View.INVISIBLE);
+                        letterR.setVisibility(View.INVISIBLE);
+                        revert_button.setVisibility(View.VISIBLE);
+
+
+                        if (Singleton.getInstance().getString() == "fr") {
 //                        adapter.startAnimation(fadeIn);
 //                        adapter.setVisibility(View.VISIBLE);
-                        adapter_bis.startAnimation(fadeIn);
-                        adapter_bis.setVisibility(View.VISIBLE);
-                    }else if(Singleton.getInstance().getString() == "en"){
+                            adapter_bis.startAnimation(fadeIn);
+                            adapter_bis.setVisibility(View.VISIBLE);
+                        } else if (Singleton.getInstance().getString() == "en") {
 //                        adapt.startAnimation(fadeIn);
 //                        adapt.setVisibility(View.VISIBLE);
-                        adapt_bis_1.startAnimation(fadeIn);
-                        adapt_bis_1.setVisibility(View.VISIBLE);
+                            adapt_bis_1.startAnimation(fadeIn);
+                            adapt_bis_1.setVisibility(View.VISIBLE);
 
-                        adapt_bis_2.startAnimation(fadeIn);
-                        adapt_bis_2.setVisibility(View.VISIBLE);
+                            adapt_bis_2.startAnimation(fadeIn);
+                            adapt_bis_2.setVisibility(View.VISIBLE);
+                        }
+
+
                     }
-
-
                 }
             }
 
@@ -551,49 +573,59 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             @Override
             public void onClick(View view) {
 
-                generateParticules(letterG);
+                if (letter_G_clicked == true) {
+
+                } else {
+
+                    if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
 
 
-                letterA.clearAnimation();
-                letterI.clearAnimation();
-                letterR.clearAnimation();
-                letter_G();
-                letterTouch = "G";
-               // replace(200,0,0.5f,0.5f,letterTouch);
+                        letter_G_clicked = true;
+
+                        generateParticules(letterG);
 
 
-                letterG.startAnimation(blink);
-
-                letterI.startAnimation(fadeOut);
-                letterA.startAnimation(fadeOut);
-                letterR.startAnimation(fadeOut);
-
-                letterI.setVisibility(View.INVISIBLE);
-                letterA.setVisibility(View.INVISIBLE);
-                letterR.setVisibility(View.INVISIBLE);
-                revert_button.setVisibility(View.VISIBLE);
+                        letterA.clearAnimation();
+                        letterI.clearAnimation();
+                        letterR.clearAnimation();
+                        letter_G();
+                        letterTouch = "G";
+                        // replace(200,0,0.5f,0.5f,letterTouch);
 
 
+                        letterG.startAnimation(blink);
 
-                if(Singleton.getInstance().getString() == "fr"){
+                        letterI.startAnimation(fadeOut);
+                        letterA.startAnimation(fadeOut);
+                        letterR.startAnimation(fadeOut);
+
+                        letterI.setVisibility(View.INVISIBLE);
+                        letterA.setVisibility(View.INVISIBLE);
+                        letterR.setVisibility(View.INVISIBLE);
+                        revert_button.setVisibility(View.VISIBLE);
+
+
+                        if (Singleton.getInstance().getString() == "fr") {
 //                    agiter.startAnimation(fadeIn);
 //                    agiter.setVisibility(View.VISIBLE);
 
-                    agiter_bis_1.startAnimation(fadeIn);
-                    agiter_bis_1.setVisibility(View.VISIBLE);
-                    agiter_bis_2.startAnimation(fadeIn);
-                    agiter_bis_2.setVisibility(View.VISIBLE);
+                            agiter_bis_1.startAnimation(fadeIn);
+                            agiter_bis_1.setVisibility(View.VISIBLE);
+                            agiter_bis_2.startAnimation(fadeIn);
+                            agiter_bis_2.setVisibility(View.VISIBLE);
 
-                }else if(Singleton.getInstance().getString() == "en"){
+                        } else if (Singleton.getInstance().getString() == "en") {
 //                    shake.startAnimation(fadeIn);
 //                    shake.setVisibility(View.VISIBLE);
 
-                    shake_bis_1.startAnimation(fadeIn);
-                    shake_bis_1.setVisibility(View.VISIBLE);
-                    shake_bis_2.startAnimation(fadeIn);
-                    shake_bis_2.setVisibility(View.VISIBLE);
-                }
+                            shake_bis_1.startAnimation(fadeIn);
+                            shake_bis_1.setVisibility(View.VISIBLE);
+                            shake_bis_2.startAnimation(fadeIn);
+                            shake_bis_2.setVisibility(View.VISIBLE);
+                        }
 
+                    }
+                }
             }
         });
 
@@ -601,7 +633,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             @Override
             public void onClick(View view) {
 
-                generateParticules(letterI);
 
 
                 if (letter_I_clicked == true) {
@@ -618,46 +649,52 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 } else {
 
+                    if ((!letter_A_clicked) && (!letter_G_clicked) && (!letter_R_clicked)) {
 
-                    letter_I_clicked = true;
-                    letterG.clearAnimation();
-                    letterA.clearAnimation();
-                    letterR.clearAnimation();
-                    letter_I();
-                    letterTouch = "I";
 
-                    letterG.startAnimation(fadeOut);
-                    letterA.startAnimation(fadeOut);
-                    letterR.startAnimation(fadeOut);
+                        generateParticules(letterI);
 
-                    letterG.setVisibility(View.INVISIBLE);
-                    letterA.setVisibility(View.INVISIBLE);
-                    letterR.setVisibility(View.INVISIBLE);
-                    revert_button.setVisibility(View.VISIBLE);
 
-                    letterI.startAnimation(blink);
+                        letter_I_clicked = true;
+                        letterG.clearAnimation();
+                        letterA.clearAnimation();
+                        letterR.clearAnimation();
+                        letter_I();
+                        letterTouch = "I";
 
-                    if(Singleton.getInstance().getString() == "fr"){
+                        letterG.startAnimation(fadeOut);
+                        letterA.startAnimation(fadeOut);
+                        letterR.startAnimation(fadeOut);
+
+                        letterG.setVisibility(View.INVISIBLE);
+                        letterA.setVisibility(View.INVISIBLE);
+                        letterR.setVisibility(View.INVISIBLE);
+                        revert_button.setVisibility(View.VISIBLE);
+
+                        letterI.startAnimation(blink);
+
+                        if (Singleton.getInstance().getString() == "fr") {
 //                        eclairer.startAnimation(fadeIn);
 //                        eclairer.setVisibility(View.VISIBLE);
 
-                        eclairer_bis_1.startAnimation(fadeIn);
-                        eclairer_bis_1.setVisibility(View.VISIBLE);
+                            eclairer_bis_1.startAnimation(fadeIn);
+                            eclairer_bis_1.setVisibility(View.VISIBLE);
 
-                        eclairer_bis_2.startAnimation(fadeIn);
-                        eclairer_bis_2.setVisibility(View.VISIBLE);
+                            eclairer_bis_2.startAnimation(fadeIn);
+                            eclairer_bis_2.setVisibility(View.VISIBLE);
 
-                    }else if(Singleton.getInstance().getString() == "en"){
+                        } else if (Singleton.getInstance().getString() == "en") {
 //                        erase.startAnimation(fadeIn);
 //                        erase.setVisibility(View.VISIBLE);
 
-                        erase_bis_1.startAnimation(fadeIn);
-                        erase_bis_1.setVisibility(View.VISIBLE);
-                        erase_bis_2.startAnimation(fadeIn);
-                        erase_bis_2.setVisibility(View.VISIBLE);
-                    }
+                            erase_bis_1.startAnimation(fadeIn);
+                            erase_bis_1.setVisibility(View.VISIBLE);
+                            erase_bis_2.startAnimation(fadeIn);
+                            erase_bis_2.setVisibility(View.VISIBLE);
+                        }
 
-                    //replace(200,0,0.5f,0.5f,letterTouch);
+                        //replace(200,0,0.5f,0.5f,letterTouch);
+                    }
                 }
             }
         });
@@ -666,7 +703,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             @Override
             public void onClick(View view) {
 
-                generateParticules(letterR);
 
 
                 if (letter_R_clicked == true) {
@@ -681,34 +717,40 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 } else {
 
+                    if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_G_clicked)) {
 
-                    letter_R_clicked = true;
-                    letterG.clearAnimation();
-                    letterA.clearAnimation();
-                    letterI.clearAnimation();
-                    letter_R();
-                    letterTouch = "R";
 
-                    letterR.startAnimation(blink);
+                        generateParticules(letterR);
 
-                    if(Singleton.getInstance().getString() == "fr"){
+
+                        letter_R_clicked = true;
+                        letterG.clearAnimation();
+                        letterA.clearAnimation();
+                        letterI.clearAnimation();
+                        letter_R();
+                        letterTouch = "R";
+
+                        letterR.startAnimation(blink);
+
+                        if (Singleton.getInstance().getString() == "fr") {
 //                        oublier.startAnimation(fadeIn);
 //                        oublier.setVisibility(View.VISIBLE);
 
-                        effacer_bis.startAnimation(fadeIn);
-                        effacer_bis.setVisibility(View.VISIBLE);
+                            effacer_bis.startAnimation(fadeIn);
+                            effacer_bis.setVisibility(View.VISIBLE);
 
-                    }else if(Singleton.getInstance().getString() == "en"){
+                        } else if (Singleton.getInstance().getString() == "en") {
 //                        lighten.startAnimation(fadeIn);
 //                        lighten.setVisibility(View.VISIBLE);
 
-                        lighten_bis_1.startAnimation(fadeIn);
-                        lighten_bis_1.setVisibility(View.VISIBLE);
-                        lighten_bis_2.startAnimation(fadeIn);
-                        lighten_bis_2.setVisibility(View.VISIBLE);
-                    }
+                            lighten_bis_1.startAnimation(fadeIn);
+                            lighten_bis_1.setVisibility(View.VISIBLE);
+                            lighten_bis_2.startAnimation(fadeIn);
+                            lighten_bis_2.setVisibility(View.VISIBLE);
+                        }
 
-                    //replace(200,0,0.5f,0.5f,letterTouch);
+                        //replace(200,0,0.5f,0.5f,letterTouch);
+                    }
                 }
             }
         });
@@ -753,8 +795,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         getBaseContext().getResources().updateConfiguration(config,
                 getBaseContext().getResources().getDisplayMetrics());
         Intent refresh = new Intent(this, MainActivity.class);
-        finish();
         startActivity(refresh);
+        MainActivity.this.overridePendingTransition(R.anim.empty, R.anim.activity_fade_out);
+        finish();
     }
 
 
@@ -872,6 +915,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     protected void onResume() {
         // TODO Auto-generated method stub
         super.onResume();
+
+
+        // remove particles
+        for (ParticleSystem p : particleList) {
+            p.cancel();
+            p = null;
+        }
+
+
 
         touchview.setOnTouchListener(new View.OnTouchListener() {
 
@@ -1064,6 +1116,10 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         parti3.setSpeedRange(0.001f, 0.1f);
         parti3.setFadeOut(5000 , new AccelerateInterpolator());
         parti3.emit(letter_origin, 1);
+
+        particleList.add(parti1);
+        particleList.add(parti2);
+        particleList.add(parti3);
 
 
     }
