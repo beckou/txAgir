@@ -489,8 +489,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 if (letter_A_clicked == true) {
                     // button has already been clicked once.
-                    Intent adapter_intent = new Intent(MainActivity.this, Adapter.class);
+//                    Intent adapter_intent = new Intent(MainActivity.this, Adapter.class);
+//                    startActivity(adapter_intent);
+
+                    Intent adapter_intent = new Intent(MainActivity.this, IntroAdapter.class);
                     startActivity(adapter_intent);
+
+
                 } else {
 
 

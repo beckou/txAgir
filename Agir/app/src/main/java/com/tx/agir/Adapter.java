@@ -45,6 +45,7 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.adapter_layout);
+        Adapter.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
 
         frame = (FrameLayout) findViewById(R.id.frame);
@@ -126,6 +127,9 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                 // Find the index of the active pointer and fetch its position
                 final int pointerIndex =
                         MotionEventCompat.findPointerIndex(event, mActivePointerId);
+
+
+
 
                 final float x = MotionEventCompat.getX(event, pointerIndex);
                 final float y = MotionEventCompat.getY(event, pointerIndex);
