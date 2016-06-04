@@ -18,7 +18,7 @@ public class WellcomeActivity extends AppCompatActivity {
             public void run() {
                 Intent i = new Intent(WellcomeActivity.this, MainActivity.class);
                 startActivity(i);
-                WellcomeActivity.this.overridePendingTransition(R.anim.activity_fade_out, R.anim.activity_fade_out);
+                WellcomeActivity.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
                 finish();
             }

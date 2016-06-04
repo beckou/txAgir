@@ -10,4 +10,14 @@
     tools:context="com.tx.agir.IntroAgiter"
     android:background="#050303">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_agiter"
+        android:id="@+id/introAgiter"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#fab5b5"
+        android:textAlignment="center"
+        android:textSize="40dp" />
 </RelativeLayout>

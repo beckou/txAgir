@@ -10,4 +10,15 @@
     tools:context="com.tx.agir.IntroEclairer"
     android:background="#050202">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/intro_eclairer"
+        android:id="@+id/introEclairer"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textColor="#eba8a8"
+        android:textAlignment="center"
+        android:textSize="40dp"
+        android:textIsSelectable="true" />
 </RelativeLayout>

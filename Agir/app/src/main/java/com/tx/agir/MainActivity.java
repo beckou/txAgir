@@ -516,6 +516,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     startActivity(adapter_intent);
 
 
+
                 } else {
 
                     if ((!letter_G_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
@@ -578,15 +579,16 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 if (letter_G_clicked == true) {
 
+                    Intent agiter_intent = new Intent(MainActivity.this, IntroAgiter.class);
+                    startActivity(agiter_intent);
+
                 } else {
 
                     if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
 
-
                         letter_G_clicked = true;
 
                         generateParticules(letterG);
-
 
                         letterA.clearAnimation();
                         letterI.clearAnimation();
