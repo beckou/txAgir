@@ -156,6 +156,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        MainActivity.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -639,7 +642,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     // button has already been clicked once
                     if(Singleton.getInstance().getString() == "fr"){
-                        Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
+                        Intent eclairer_intent = new Intent(MainActivity.this, IntroEclairer.class);
                         startActivity(eclairer_intent);
                     }else if(Singleton.getInstance().getString() == "en"){
                         Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
@@ -711,7 +714,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                         Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
                         startActivity(oublier_intent);
                     }else if(Singleton.getInstance().getString() == "en"){
-                        Intent eclairer_intent = new Intent(MainActivity.this, Eclairer.class);
+                        Intent eclairer_intent = new Intent(MainActivity.this, IntroEclairer.class);
                         startActivity(eclairer_intent);
                     }
 
@@ -719,9 +722,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_G_clicked)) {
 
-
                         generateParticules(letterR);
-
 
                         letter_R_clicked = true;
                         letterG.clearAnimation();
@@ -796,7 +797,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 getBaseContext().getResources().getDisplayMetrics());
         Intent refresh = new Intent(this, MainActivity.class);
         startActivity(refresh);
-        MainActivity.this.overridePendingTransition(R.anim.empty, R.anim.activity_fade_out);
+        MainActivity.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
         finish();
     }
 
