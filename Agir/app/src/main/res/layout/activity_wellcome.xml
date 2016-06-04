@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.tx.agir.WellcomeActivity">
+    tools:context="com.tx.agir.WellcomeActivity"
+    android:background="#160909">
 
     <ImageView
         android:layout_width="match_parent"
@@ -11,5 +12,6 @@
         android:id="@+id/imageView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@android:color/holo_orange_dark" />
+        android:src="@drawable/intro_logo" />
+
 </RelativeLayout>

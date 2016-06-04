@@ -355,8 +355,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                            .setAction("Action", null).show();
+
+                    // information activity
+
+                    Intent i = new Intent(MainActivity.this, InfoActivity.class);
+                    startActivity(i);
+                  //  MainActivity.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
+
                 }
             });
         }

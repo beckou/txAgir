@@ -45,7 +45,8 @@
             android:required="true" />
 
         <activity android:name=".IntroEclairer" />
-        <activity android:name=".IntroAgiter"></activity>
+        <activity android:name=".IntroAgiter" />
+        <activity android:name=".InfoActivity"></activity>
     </application>
 
 </manifest>
