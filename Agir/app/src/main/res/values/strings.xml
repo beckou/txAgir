@@ -1,13 +1,9 @@
 <resources>
     <string name="app_name">Agir</string>
     <string name="action_settings">Settings</string>
-    <string name="oublier_phrase01">\"La meilleure façon
-        de
-        résoudre  ses problèmes,
-        c\'est de
-        les oublier\"</string>
-    <string name="oublier_phrase02">Et vous, que souhaitez-vous oublier? </string>
-    <string name="oublier_phrase03">Malgré les efforts, seul le temps permet d\'effacer</string>
+    <string name="oublier_phrase01">Je me suis souvent dit : "la meilleure façon de résoudre ses problèmes, c\'est de les oublier".</string>
+    <string name="oublier_phrase02">Qu\'est-ce que je souhaite oublier ?</string>
+    <string name="oublier_phrase03">Malgré mes efforts, seul le temps permet d\'effacer</string>
 
     <string name="bouton_effacer">effacer</string>
     <string name="test_mot">Salut</string>
