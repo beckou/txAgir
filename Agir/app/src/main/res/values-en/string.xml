@@ -1,19 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Agir</string>
-    <string name="action_settings">Settings</string>
-    <string name="oublier_phrase01">Je me suis souvent dit : "la meilleure façon de résoudre ses problèmes, c\'est de les oublier".</string>
-    <string name="oublier_phrase02">Qu\'est-ce que je souhaite oublier ?</string>
-    <string name="oublier_phrase03">Malgré mes efforts, seul le temps permet d\'effacer</string>
 
-    <string name="bouton_effacer">effacer</string>
-    <string name="test_mot">Salut</string>
-    <string name="test_mot_oublier">oublier</string>
+    <string name="test_mot">Hello</string>
+    <string name="test_mot_oublier">forget</string>
+    <string name="oublier_phrase01">The best way to resolve its own problems, is to forget them. </string>
+    <string name="oublier_phrase02">And you, what do you want to forget? </string>
+    <string name="oublier_phrase03">In spite of the efforts, only time erase memories</string>
+    <string name="agir_A">D</string>
+    <string name="agir_G">A</string>
+    <string name="agir_I">R</string>
+    <string name="agir_R">E</string>
 
-    <string name="agir_A">A</string>
-    <string name="agir_G">G</string>
-    <string name="agir_I">I</string>
-    <string name="agir_R">R</string>
-
+    <string name="bouton_effacer">erase</string>
 
     <string name="oublier">EFFACE</string>
     <string name="eclairer">ECLA&#160; RER</string>
@@ -31,7 +29,10 @@
         ou du moins que je secoue mon téléphone pour faire changer les choses.</string>
 
     <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour donner du sens.</string>
+
     <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, agrandir mon champs de vue...</string>
 
     <string name="info">Que peut signifier agir dans le milieu numérique de l\'interactivité compulsive ? La création numérique "Agir" propose quatre expériences interactives : s\'adapter, agiter, éclairer et effacer.</string>
+
+
 </resources>

@@ -3,20 +3,23 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/oublier_background"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:id="@+id/relativeLayout">
 
     <TextView
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Dans ma vie, j&apos;ai souhaité oublier beaucoup de choses, parfois sans succès..."
         android:id="@+id/oublier_sentence"
         android:elegantTextHeight="true"
-        android:layout_weight="0.09"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="162dp"
+        android:text="@string/oublier_phrase01"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="202dp" />
+        android:textColor="#f2aaaa"
+        android:layout_centerInParent="true"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,5 +30,41 @@
         android:layout_marginTop="60dp"
         android:background="#ed9b9b"
         android:inputType="text"
-        android:width="@dimen/abc_action_bar_stacked_tab_max_width" />
+        android:width="@dimen/abc_action_bar_stacked_tab_max_width"
+        />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/bouton_effacer"
+        android:id="@+id/button_effacer"
+        android:layout_below="@+id/to_forget"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="64dp"
+        android:background="#f7ffbab4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/word_toForget"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="invisible"
+        android:textColor="#f59d9d" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/oublier_phrase03"
+        android:id="@+id/oublier_3"
+        android:layout_alignTop="@+id/word_toForget"
+        android:layout_centerHorizontal="true"
+        android:textColor="#f2b5b5"
+        android:visibility="invisible"
+        android:focusableInTouchMode="true"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
 </RelativeLayout>
