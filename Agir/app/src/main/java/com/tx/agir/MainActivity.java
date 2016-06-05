@@ -1,6 +1,5 @@
 package com.tx.agir;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -15,9 +14,9 @@ import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.plattysoft.leonids.Particle;
 import com.plattysoft.leonids.ParticleSystem;
-import com.plattysoft.leonids.modifiers.ParticleModifier;
+import com.tx.agir.LightPackage.Light;
+import com.tx.agir.ShakePackage.Shake;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,36 +28,56 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        if (fab != null) {
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            });
+        }
 
 
         Button button_eclairer = (Button) findViewById(R.id.eclairer_button);
-        button_eclairer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Eclairer.class);
-                startActivity(intent);
-            }
-        });
+        if (button_eclairer != null) {
+            button_eclairer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this, Light.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+        Button button_agiter = (Button) findViewById(R.id.agiter_button);
+        if (button_agiter != null) {
+            button_agiter.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent3 = new Intent(MainActivity.this, Shake.class);
+                    startActivity(intent3);
+                }
+            });
+        }
 
         Button button_oublier = (Button) findViewById(R.id.oublier_button);
-        button_oublier.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2 = new Intent(MainActivity.this, Oublier.class);
-                startActivity(intent2);
-            }
-        });
+        if (button_oublier != null) {
+            button_oublier.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent2 = new Intent(MainActivity.this, Oublier.class);
+                    startActivity(intent2);
+                }
+            });
+        }
+
 
         TextView textViewCustom = (TextView) findViewById(R.id.TitleText);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
-        textViewCustom.setTypeface(myCustomFont);
+        if (textViewCustom != null) {
+            textViewCustom.setTypeface(myCustomFont);
+        }
         new ParticleSystem(this, 1,R.drawable.essai, 10000)
                 .setSpeedRange(0.001f, 0.1f)
                 .setFadeOut(10000 , new AccelerateInterpolator())

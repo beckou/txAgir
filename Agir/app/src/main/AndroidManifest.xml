@@ -19,10 +19,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Eclairer"
+            android:name=".LightPackage.Light"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".ShakePackage.Shake"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".Oublier"
             android:label="@string/app_name"
@@ -31,4 +37,5 @@
     </application>
     <uses-feature android:glEsVersion="0x00020000"
         android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
 </manifest>

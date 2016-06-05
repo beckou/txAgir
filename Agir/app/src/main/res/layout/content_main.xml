@@ -31,6 +31,12 @@
             android:text="Oublier"
             android:id="@+id/oublier_button"
             android:layout_gravity="center_horizontal" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agiter"
+            android:id="@+id/agiter_button"
+            android:layout_gravity="center_horizontal" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
