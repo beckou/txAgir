@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import com.tx.agir.ShakePackage.Shake;
-
 public class IntroAgiter extends AppCompatActivity {
 
     private static int TIME_OUT = 6000; //Time to launch the another activity
@@ -32,11 +30,11 @@ public class IntroAgiter extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(IntroAgiter.this, Shake.class);
-                startActivity(i);
-                IntroAgiter.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
-
-                finish();
+//                Intent i = new Intent(IntroAgiter.this, Agiter.class);
+//                startActivity(i);
+//                IntroAgiter.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
+//
+//                finish();
             }
         }, TIME_OUT);
     }

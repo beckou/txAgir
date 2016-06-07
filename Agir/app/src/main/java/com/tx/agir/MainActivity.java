@@ -40,8 +40,6 @@ import java.util.Locale;
 
 
 import com.plattysoft.leonids.ParticleSystem;
-import com.tx.agir.LightPackage.Light;
-import com.tx.agir.ShakePackage.Shake;
 
 import org.w3c.dom.Text;
 
@@ -353,7 +351,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-
         if(fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override

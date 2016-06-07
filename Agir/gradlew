@@ -61,7 +61,7 @@ APP_HOME="`pwd -P`"
 cd "$SAVED" >/dev/null
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
