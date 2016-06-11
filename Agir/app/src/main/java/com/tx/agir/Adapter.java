@@ -60,7 +60,7 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
         adapter_text = (TextView) findViewById(R.id.adapter_text);
         if(adapter_text !=null){
 
-            adapter_text.setText(" instable");
+            adapter_text.setText(R.string.adapter_texte02);
         }
 
         mView.setOnTouchListener(this);
@@ -166,111 +166,111 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                 h = frame.getLayoutParams().height;
 
                 if(w <  550 && h < 171){
-                    adapter_text.setText("instable");
+                    adapter_text.setText(R.string.adapter_texte02);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w <  990 && h < 171){
-                    adapter_text.setText("instable               sentiment");
+                    adapter_text.setText(R.string.adapter_texte021);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  550 && h >= 171 ){
-                    adapter_text.setText(" Tout est si instable autour de moi");
+                    adapter_text.setText(R.string.adapter_texte03);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  560 && h >= 270){
-                    adapter_text.setText(" Tout est si changeant autour de moi");
+                    adapter_text.setText(R.string.adapter_texte04);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  935 && h >= 306){
-                    adapter_text.setText("MOUVANT");
+                    adapter_text.setText(R.string.adapter_texte05);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
                 if(w >=  950 && h >= 436) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. JE PERDS MES REPERES.");
+                    adapter_text.setText(R.string.adapter_texte06);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  950 && h >= 500) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit :");
+                    adapter_text.setText(R.string.adapter_texte07);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  950 && h >= 550) {
-                    adapter_text.setText("“Il faut s’adapter”.");
+                    adapter_text.setText(R.string.adapter_texte08);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
                 if(w >=  950 && h >= 550) {
-                    adapter_text.setText("“Il faut s’adapter”.");
+                    adapter_text.setText(R.string.adapter_texte08);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
                 if(w >=  190 && h >= 1018) {
-                    adapter_text.setText("CHANGER");
+                    adapter_text.setText(R.string.adapter_texte091);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
                 if(w >=  960 && h >= 610) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre MOBILE.");
+                    adapter_text.setText(R.string.adapter_texte09);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  960 && h >= 640) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre FLEXIBLE.");
+                    adapter_text.setText(R.string.adapter_texte092);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  800 && h >= 660) {
-                    adapter_text.setText("LE TEMPS");
+                    adapter_text.setText(R.string.adapter_texte10);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,80);
                 }
                 if(w >=  960 && h >= 690) {
-                    adapter_text.setText("Le temps s'accélère...");
+                    adapter_text.setText(R.string.adapter_texte11);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
                 if(w >=  960 && h >= 787) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité.");
+                    adapter_text.setText(R.string.adapter_texte12);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 850) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots.");
+                    adapter_text.setText(R.string.adapter_texte13);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1140) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie.En tout cas pas de façon linéaire.");
+                    adapter_text.setText(R.string.adapter_texte14);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1300) {
-                    adapter_text.setText("Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je ");
+                    adapter_text.setText(R.string.adapter_texte15);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1320) {
-                    adapter_text.setText("Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais ");
+                    adapter_text.setText(R.string.adapter_texte151);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1378) {
-                    adapter_text.setText("Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des");
+                    adapter_text.setText(R.string.adapter_texte152);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1443) {
-                    adapter_text.setText("Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des___________________sorties");
+                    adapter_text.setText(R.string.adapter_texte153);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1480) {
-                    adapter_text.setText("Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des___________________sorties___________________de");
+                    adapter_text.setText(R.string.adapter_texte154);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1573) {
-                    adapter_text.setText("Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des___________________sorties___________________de___________________route");
+                    adapter_text.setText(R.string.adapter_texte155);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1000 && h >= 1747) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. ");
+                    adapter_text.setText(R.string.adapter_texte16);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1090 && h >= 1787) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. Allez courage.");
+                    adapter_text.setText(R.string.adapter_texte17);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w >=  1090 && h >= 1880) {
-                    adapter_text.setText("Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. Allez courage. Je dois m’adapter…");
+                    adapter_text.setText(R.string.adapter_texte18);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
                 if(w <197 && h >= 1880) {
-                    adapter_text.setText("S'ADAPTER");
+                    adapter_text.setText(R.string.adapter_texte19);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,55);
                 }
 
