@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher2"
+        android:icon="@mipmap/ic_launcher3"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
@@ -24,9 +24,15 @@
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Eclairer"
+            android:name=".LightPackage.Light"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ShakePackage.Shake"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".Oublier"
             android:label="@string/app_name"
@@ -48,5 +54,8 @@
         <activity android:name=".IntroAgiter" />
         <activity android:name=".InfoActivity"></activity>
     </application>
-
+    <uses-feature android:glEsVersion="0x00020000"
+        android:required="true" />
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
 </manifest>
+
