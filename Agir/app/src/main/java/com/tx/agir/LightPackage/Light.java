@@ -69,7 +69,7 @@ public class Light extends Activity implements SensorEventListener {
 
     DecimalFormat d = new DecimalFormat("#.##");
 
-
+private DictioLight Dicoo;
 
 
     public void onCreate(Bundle savedInstanceState)
@@ -80,7 +80,7 @@ public class Light extends Activity implements SensorEventListener {
 
         mGLSurfaceView = new GLSurfaceView(this);
 
-
+        Dicoo = new DictioLight();
 
 
 
@@ -120,7 +120,7 @@ public class Light extends Activity implements SensorEventListener {
             // Request an OpenGL ES 2.0 compatible context.
             mGLSurfaceView.setEGLContextClientVersion(2);
             // Set the renderer to our demo renderer, defined below.
-           RenderEclairer = new LessonFourRenderer(getApplicationContext());
+           RenderEclairer = new LessonFourRenderer(getApplicationContext(),Dicoo);
             mGLSurfaceView.setRenderer(RenderEclairer);
         }
         else

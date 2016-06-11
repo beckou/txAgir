@@ -15,7 +15,7 @@ public class Circle {
     private  int mProgram, mPositionHandle, mColorHandle, mMVPMatrixHandle ;
     private FloatBuffer mVertexBuffer;
     private float vertices[] = new float[364 * 3];
-    float color[] = { 1.0f, 1.0f, 1.0f, 0.5f };
+    float color[] = { 0.9f, 0.6f, 0.6f, 0.4f };
 
     private final String vertexShaderCode =
             "uniform mat4 uMVPMatrix;" +
@@ -71,6 +71,8 @@ public class Circle {
     public void draw (float[] mvpMatrix){
 
         GLES20.glUseProgram(mProgram);
+        GLES20.glEnable(GLES20.GL_BLEND);
+        GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
 
         // get handle to vertex shader's vPosition member
         mPositionHandle = GLES20.glGetAttribLocation(mProgram, "vPosition");
@@ -103,7 +105,7 @@ public class Circle {
 
         // Disable vertex array
         GLES20.glDisableVertexAttribArray(mPositionHandle);
-
+GLES20.glDisable(GLES20.GL_BLEND);
     }
 
 }

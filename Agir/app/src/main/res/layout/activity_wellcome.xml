@@ -12,6 +12,6 @@
         android:id="@+id/imageView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:src="@drawable/intro_logo" />
+        android:src="@drawable/tx_icon" />
 
 </RelativeLayout>

@@ -36,7 +36,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 	private static final String TAG = "LessonFourRenderer";
 	
 	private final Context mActivityContext;
-
+	private final DictioLight dicoo;
 
 	/**
 	 * Store the model matrix. This matrix is used to move models from object space (where each model can be thought
@@ -148,9 +148,9 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
     /**
 	 * Initialize the model data.
 	 */
-	public LessonFourRenderer(final Context activityContext)
+	public LessonFourRenderer(final Context activityContext, DictioLight dicoo)
 	{
-
+		this.dicoo = dicoo;
         mActivityContext = activityContext;
 
         // Define points for a cube.
@@ -584,23 +584,24 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         Matrix.setIdentityM(mLightModelMatrix, 0);
         Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, -7.0f);
         //Matrix.rotateM(mLightModelMatrix, 0, angleInDegrees, 0.0f, 1.0f, 0.0f);
-        Matrix.rotateM(mLightModelMatrix, 0, gyroscope[2], 0.0f, 0.3f, 0.0f);
+        //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[2], 0.0f, 0.3f, 0.0f);
         //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[1], 0.4f, 0.0f, 0.0f);
-        Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1], 0.0f);
+        Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1]/10, 0.0f);
+		Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/10,  0.0f,0.0f );
 
         Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 2.0f);
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
 
 
-
+		String[] maPhrase = dicoo.getPhrase();
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 2.8f, -0.9f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube1();
 
-		drawText("Entrevoir");
+		drawText(maPhrase[0]);
 
 
 		Matrix.setIdentityM(mModelMatrix, 0);
@@ -608,7 +609,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 		//Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
 		drawCube2();
 
-		drawText("Le bout");
+		drawText(maPhrase[1]);
 
 
 
@@ -617,15 +618,15 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube3();
 
-        drawText("Si loin ...");
+        drawText(maPhrase[2]);
 
 
- //       Matrix.setIdentityM(mModelMatrix, 0);
- //       Matrix.translateM(mModelMatrix, 0, 0.0f, -2.0f, -7.0f);
+        Matrix.setIdentityM(mModelMatrix, 0);
+        Matrix.translateM(mModelMatrix, 0, 0.0f, -4.0f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
- //       drawCube4();
+        drawCube4();
 
-  //      drawText("Si proche ");
+        drawText(maPhrase[3]);
 
 
         // Draw a point to indicate the light.
@@ -856,7 +857,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         textPaint.setAntiAlias(true);
         textPaint.setARGB(255, 255, 255, 255);
         textPaint.setTextSize(35);
-        Typeface myCustomFont = Typeface.createFromAsset(mActivityContext.getAssets(),"fonts/LemonMilk.otf");
+        Typeface myCustomFont = Typeface.createFromAsset(mActivityContext.getAssets(),"fonts/PoiretOne-Regular.ttf");
         textPaint.setTypeface(myCustomFont);
 // draw the text centered
         canvas.drawText(texte, 16, 112, textPaint);

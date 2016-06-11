@@ -13,7 +13,7 @@ public class ShakeListener implements SensorEventListener {
 
 
     /** Minimum movement force to consider. */
-    private static final int MIN_FORCE = 10;
+    private static final int MIN_FORCE = 5;
 
     /**
      * Minimum times in a shake gesture that the direction of movement needs to
@@ -56,7 +56,7 @@ public class ShakeListener implements SensorEventListener {
         /**
          * Called when shake gesture is detected.
          */
-        void onShake() throws InterruptedException;
+        void onShake(float totalMovement) throws InterruptedException;
     }
 
     public void setOnShakeListener(OnShakeListener listener) {
@@ -104,7 +104,7 @@ public class ShakeListener implements SensorEventListener {
                     long totalDuration = now - mFirstDirectionChangeTime;
                     if (totalDuration < MAX_TOTAL_DURATION_OF_SHAKE) {
                         try {
-                            mShakeListener.onShake();
+                            mShakeListener.onShake(totalMovement);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

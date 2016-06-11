@@ -1,28 +1,23 @@
 package com.tx.agir.ShakePackage;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Context;
+import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
-import android.os.Vibrator;
-import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
+import android.view.animation.AnticipateInterpolator;
 import android.view.animation.TranslateAnimation;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.plattysoft.leonids.ParticleSystem;
 import com.tx.agir.R;
 
 import java.util.Random;
@@ -38,8 +33,12 @@ public class Shake extends Activity {
     private Animation fade_in;
     private Animation fade_out;
     private Animation animRotate;
-
+    private Animation animInvRotate;
     private Dictio dico;
+
+
+
+
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,116 +48,281 @@ public class Shake extends Activity {
          fade_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
          fade_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_out);
          animRotate= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.rotate);
+        animInvRotate= AnimationUtils.loadAnimation(getApplicationContext(), R.anim.invrotate);
+        final Random rand = new Random();
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
+
+        final int choix = rand.nextInt(11);
         dico = new Dictio();
+        final String mot = dico.getMot1(choix);
+
+        final TextView Ae = (TextView) findViewById(R.id.textView2);
+        final TextView Ge = (TextView) findViewById(R.id.textView3);
+        final TextView Ie = (TextView) findViewById(R.id.textView4);
+        final TextView Te = (TextView) findViewById(R.id.textView5);
+        final TextView Ee = (TextView) findViewById(R.id.textView6);
+        final TextView Re = (TextView) findViewById(R.id.textView7);
+        final TextView E1 = (TextView) findViewById(R.id.textView8);
+        final TextView E2 = (TextView) findViewById(R.id.textView9);
+        final TextView E3 = (TextView) findViewById(R.id.textView10);
+        final TextView E4 = (TextView) findViewById(R.id.textView11);
+        final TextView E5 = (TextView) findViewById(R.id.textView12);
+        final TextView E6 = (TextView) findViewById(R.id.textView13);
+        Ae.setText(mot.substring(0,1));
+
+        Ge.setText(mot.substring(1,2));
+
+        Ie.setText(mot.substring(2,3));
+
+        Te.setText(mot.substring(3,4));
+
+        Ee.setText(mot.substring(4,5));
+
+        Re.setText(mot.substring(5,6));
+
+        E1.setText(mot.substring(6,7));
+
+        E2.setText(mot.substring(7,8));
+        E3.setText(mot.substring(8,9));
+
+        E4.setText(mot.substring(9,10));
+        E5.setText(mot.substring(10,11));
+
+        E6.setText(mot.substring(11,12));
+
+
+        Ae.setTypeface(myCustomFont);
+
+        Ge.setTypeface(myCustomFont);
+
+        Ie.setTypeface(myCustomFont);
+
+        Te.setTypeface(myCustomFont);
+
+        Ee.setTypeface(myCustomFont);
+
+        Re.setTypeface(myCustomFont);
+
+        E1.setTypeface(myCustomFont);
+
+        E2.setTypeface(myCustomFont);
+        E3.setTypeface(myCustomFont);
+
+        E4.setTypeface(myCustomFont);
+        E5.setTypeface(myCustomFont);
+
+        E6.setTypeface(myCustomFont);
         mSensorListener.setOnShakeListener(new ShakeListener.OnShakeListener() {
 
-            public void onShake() throws InterruptedException {
-                Toast.makeText(getApplicationContext(), "Shake!", Toast.LENGTH_SHORT).show();
 
-                TextView Ae = (TextView) findViewById(R.id.textView2);
-                TextView Ge = (TextView) findViewById(R.id.textView3);
-                TextView Ie = (TextView) findViewById(R.id.textView4);
-                TextView Te = (TextView) findViewById(R.id.textView5);
-                TextView Ee = (TextView) findViewById(R.id.textView6);
-                TextView Re = (TextView) findViewById(R.id.textView7);
-                Random rand = new Random();
-                int n = rand.nextInt(1001)- 500;
-                int n1 = rand.nextInt(1001)- 500;
+            public void onShake(float totalMovement) throws InterruptedException {
+                Toast.makeText(getApplicationContext(), "Shake!"+ totalMovement, Toast.LENGTH_SHORT).show();
+                final String mot2 = dico.getMot2(choix,totalMovement);
 
-                TranslateAnimation anim = new TranslateAnimation( 0, n , 0, n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
 
-                TranslateAnimation Invanim = new TranslateAnimation( 0, -n , 0, -n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
 
-                 n = rand.nextInt(1001)- 500;
-                 n1 = rand.nextInt(1001)- 500;
+
+
+
+
+                int n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                int n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+
+                final TranslateAnimation anim = new TranslateAnimation( 0, n , 0, n1);
+
+                final float nInv = n;
+                final float nInv2 = n1;
+                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
 
                 TranslateAnimation anim1 = new TranslateAnimation( 0, n , 0, n1);
-                anim1.setDuration(3000);
                 anim1.setFillAfter( true );
+                anim1.setFillEnabled( true );
 
-                TranslateAnimation Invanim1 = new TranslateAnimation( 0, -n , 0, -n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
+                anim1.setDuration(3000/(int)(totalMovement/4));
+
+                final float n1Inv = n;
+                final float n1Inv2 = n1;
 
 
 
-                n = rand.nextInt(1001)- 500;
-                n1 = rand.nextInt(1001)- 500;
+
+
+
+                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
                 TranslateAnimation anim2 = new TranslateAnimation( 0, n , 0, n1);
-                anim2.setDuration(3000);
-                anim2.setFillAfter( true );
-
-                TranslateAnimation Invanim2 = new TranslateAnimation( 0, -n , 0, -n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
+                anim2.setDuration(3000/(int)(totalMovement/4));
+                anim2.setFillAfter( false );
 
 
-                n = rand.nextInt(1001)- 500;
-                n1 = rand.nextInt(1001)- 500;
+                final float n2Inv = n;
+                final float n2Inv2 = n1;
+
+
+                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
                 TranslateAnimation anim3 = new TranslateAnimation( 0, n , 0, n1);
-                anim3.setDuration(3000);
-                anim3.setFillAfter( true );
+                anim3.setDuration(3000/(int)(totalMovement/4));
+                anim3.setFillAfter( false );
 
-                TranslateAnimation Invanim3 = new TranslateAnimation( 0, -n , 0, -n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
+                final float n3Inv = n;
+                final float n3Inv2 = n1;
 
 
-                n = rand.nextInt(1001)- 500;
-                n1 = rand.nextInt(1001)- 500;
+
+
+
+                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
                 TranslateAnimation anim4 = new TranslateAnimation( 0, n , 0, n1);
-                anim4.setDuration(3000);
-                anim4.setFillAfter( true );
+                anim4.setDuration(3000/(int)(totalMovement/4));
 
-                TranslateAnimation Invanim4 = new TranslateAnimation( 0, -n , 0, -n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
+                final float n4Inv = n;
+                final float n4Inv2 = n1;
 
-                n = rand.nextInt(1001)- 500;
-                n1 = rand.nextInt(1001)- 500;
+
+                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
                 TranslateAnimation anim5 = new TranslateAnimation( 0, n , 0, n1);
-                anim5.setDuration(3000);
-                anim5.setFillAfter( true );
+                anim5.setDuration(3000/(int)(totalMovement/4));
 
-                TranslateAnimation Invanim5 = new TranslateAnimation( 0, -n , 0, -n1);
-                anim.setDuration(3000);
-                anim.setFillAfter( true );
+                final float n5Inv = n;
+                final float n5Inv2 = n1;
 
-                AnimationSet s = new AnimationSet(false);
-                //s.addAnimation(fade_in);
+                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
-                animRotate.setDuration((long) 2000);
-                animRotate.setStartOffset(anim.getDuration()/2);
+                TranslateAnimation anim6 = new TranslateAnimation( 0, n , 0, n1);
+                anim5.setDuration(3000/(int)(totalMovement/4));
 
-                s.addAnimation(animRotate);
+                final float n6Inv = n;
+                final float n6Inv2 = n1;
 
-                fade_out.setStartOffset(anim.getDuration()+animRotate.getDuration());
-                fade_in.setStartOffset(anim.getDuration() + fade_out.getDuration());
-                Invanim.setStartOffset(anim.getDuration()+fade_out.getDuration() + fade_in.getDuration());
-                Invanim1.setStartOffset(anim.getDuration()+fade_out.getDuration() + fade_in.getDuration());
-                Invanim2.setStartOffset(anim.getDuration()+fade_out.getDuration() + fade_in.getDuration());
-                Invanim3.setStartOffset(anim.getDuration()+fade_out.getDuration() + fade_in.getDuration());
-                Invanim4.setStartOffset(anim.getDuration()+fade_out.getDuration() + fade_in.getDuration());
-                Invanim5.setStartOffset(anim.getDuration()+fade_out.getDuration() + fade_in.getDuration());
+                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+
+                TranslateAnimation anim7 = new TranslateAnimation( 0, n , 0, n1);
+                anim5.setDuration(3000/(int)(totalMovement/4));
+
+                final float n7Inv = n;
+                final float n7Inv2 = n1;
+
+                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+
+                TranslateAnimation anim8 = new TranslateAnimation( 0, n , 0, n1);
+                anim5.setDuration(3000/(int)(totalMovement/4));
+
+                final float n8Inv = n;
+                final float n8Inv2 = n1;
+
+                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+
+                TranslateAnimation anim9 = new TranslateAnimation( 0, n , 0, n1);
+                anim5.setDuration(3000/(int)(totalMovement/4));
+
+                final float n9Inv = n;
+                final float n9Inv2 = n1;
+
+                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+
+                TranslateAnimation anim10 = new TranslateAnimation( 0, n , 0, n1);
+                anim5.setDuration(3000/(int)(totalMovement/4));
+
+                final float n10Inv = n;
+                final float n10Inv2 = n1;
 
 
+                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+
+                TranslateAnimation anim11 = new TranslateAnimation( 0, n , 0, n1);
+                anim5.setDuration(3000/(int)(totalMovement/4));
+
+                final float n11Inv = n;
+                final float n11Inv2 = n1;
+
+
+
+
+
+
+
+
+                animRotate.setStartOffset(anim.getDuration()/4);
+                animRotate.setFillEnabled(true);
+                animRotate.setFillAfter(true);
+                animRotate.setDuration((long) 3000);
+
+                animInvRotate.setStartOffset(anim.getDuration()/2);
+                animInvRotate.setFillEnabled(true);
+                animInvRotate.setFillAfter(true);
+                animInvRotate.setDuration((long) 1000);
+
+                fade_out.setFillEnabled(true);
+                fade_out.setFillAfter(true);
+
+                anim.setFillEnabled(true);
+                anim.setFillAfter(true);
+                anim.setDuration(3000/(int)(totalMovement/4));
+
+                fade_out.setStartOffset(anim.getDuration()/4+animRotate.getDuration()/4);
+
+
+
+                final AnimationSet s = new AnimationSet(true);
+                s.setFillEnabled(true);
                 s.setFillAfter(true);
+
                 s.addAnimation(animRotate);
                 s.addAnimation(fade_out);
-             //   s.addAnimation(fade_in);
-             //   s.addAnimation(Invanim);
-
                 s.addAnimation(anim);
+                s.setInterpolator(new AnticipateInterpolator());
                 Ae.startAnimation(s);
+
+                s.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Ae.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sBIS = new AnimationSet(false);
+                        sBIS.setFillEnabled(true);
+                        sBIS.setFillAfter(true);
+                        TranslateAnimation Invanim = new TranslateAnimation( nInv, 0 , nInv2, 0);
+
+                        Invanim.setStartOffset(fade_in.getDuration());
+
+                        Invanim.setFillAfter( true );
+                        Invanim.setFillEnabled( true );
+                        Invanim.setDuration(3000);
+
+                        sBIS.addAnimation(fade_in);
+
+                        sBIS.addAnimation(Invanim);
+                        Ae.setText(mot2.substring(0,1));
+                        Ae.startAnimation(sBIS);
+                        Ae.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
 
                 AnimationSet sGe = new AnimationSet(false);
 
@@ -170,7 +334,40 @@ public class Shake extends Activity {
                 sGe.addAnimation(fade_out);
                 // sGe.addAnimation(fade_in);
               //   sGe.addAnimation(Invanim);
+                sGe.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
 
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Ge.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sGBIS = new AnimationSet(false);
+                        sGBIS.setFillEnabled(true);
+                        sGBIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim1 = new TranslateAnimation(n1Inv, 0 , n1Inv2, 0);
+                        Invanim1.setDuration(3000);
+                        Invanim1.setFillAfter( true );
+                        Invanim1.setStartOffset(fade_in.getDuration());
+
+                        sGBIS.addAnimation(fade_in);
+                        Invanim1.setStartOffset(fade_in.getDuration());
+                        sGBIS.addAnimation(Invanim1);
+
+                        Ge.setText(mot2.substring(1,2));
+                        Ge.startAnimation(sGBIS);
+                        Ge.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
 
                 Ge.startAnimation(sGe);
 
@@ -185,6 +382,40 @@ public class Shake extends Activity {
 
 //                sIe.addAnimation(fade_in);
             //                   sIe.addAnimation(Invanim);
+                sIe.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Ie.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sIBIS = new AnimationSet(false);
+                        sIBIS.setFillEnabled(true);
+                        sIBIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim2 = new TranslateAnimation( n2Inv, 0 , n2Inv2, 0);
+                        Invanim2.setDuration(3000);
+                        Invanim2.setFillAfter( true );
+                        Invanim2.setStartOffset(fade_in.getDuration());
+
+                        sIBIS.addAnimation(fade_in);
+                        Invanim2.setStartOffset(fade_in.getDuration());
+                        sIBIS.addAnimation(Invanim2);
+
+                        Ie.setText(mot2.substring(2,3));
+                        Ie.startAnimation(sIBIS);
+                        Ie.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
 
                 Ie.startAnimation(sIe);
 
@@ -197,9 +428,39 @@ public class Shake extends Activity {
 
                 sTe.addAnimation(fade_out);
 
-//                sTe.addAnimation(fade_in);
-            //                  sTe.addAnimation(Invanim);
+                sTe.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
 
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Te.setVisibility(View.INVISIBLE);
+                        final AnimationSet sTBIS = new AnimationSet(false);
+                        sTBIS.setFillEnabled(true);
+                        sTBIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim3 = new TranslateAnimation(n3Inv, 0 , n3Inv2, 0);
+                        Invanim3.setDuration(3000);
+                        Invanim3.setFillAfter( true );
+                        Invanim3.setStartOffset(fade_in.getDuration());
+
+                        sTBIS.addAnimation(fade_in);
+                        Invanim3.setStartOffset(fade_in.getDuration());
+                        sTBIS.addAnimation(Invanim3);
+
+                        Te.setText(mot2.substring(3,4));
+                        Te.startAnimation(sTBIS);
+                        Te.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 Te.startAnimation(sTe);
 
                 AnimationSet sEe = new AnimationSet(false);
@@ -210,9 +471,40 @@ public class Shake extends Activity {
 
                 sEe.addAnimation(fade_out);
 
-//                sEe.addAnimation(fade_in);
-          //                    sEe.addAnimation(Invanim);
+                sEe.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
 
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Ee.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sEBIS = new AnimationSet(false);
+                        sEBIS.setFillEnabled(true);
+                        sEBIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim4 = new TranslateAnimation(n4Inv, 0 , n4Inv2, 0);
+                        Invanim4.setDuration(3000);
+                        Invanim4.setFillAfter( true );
+                        Invanim4.setStartOffset(fade_in.getDuration());
+
+                        sEBIS.addAnimation(fade_in);
+                        Invanim4.setStartOffset(fade_in.getDuration());
+                        sEBIS.addAnimation(Invanim4);
+
+                        Ee.setText(mot2.substring(4,5));
+                        Ee.startAnimation(sEBIS);
+                        Ee.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 Ee.startAnimation(sEe);
 
 
@@ -225,25 +517,313 @@ public class Shake extends Activity {
                 sRe.addAnimation(animRotate);
                 sRe.addAnimation(fade_out);
 
-//                sRe.addAnimation(fade_in);
-             //                 sRe.addAnimation(Invanim);
+                sRe.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
 
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Re.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sRBIS = new AnimationSet(false);
+                        sRBIS.setFillEnabled(true);
+                        sRBIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim5 = new TranslateAnimation(n5Inv, 0 , n5Inv2, 0);
+                        Invanim5.setDuration(3000);
+                        Invanim5.setFillAfter( true );
+                        Invanim5.setStartOffset(fade_in.getDuration());
+
+                        sRBIS.addAnimation(fade_in);
+                        Invanim5.setStartOffset(fade_in.getDuration());
+                        sRBIS.addAnimation(Invanim5);
+
+                        Re.setText(mot2.substring(5,6));
+                        Re.startAnimation(sRBIS);
+                        Re.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
                 Re.startAnimation(sRe);
 
 
-                n = rand.nextInt(4);
+                AnimationSet sE1e = new AnimationSet(false);
 
-                String mot = dico.getMot(n);
-                if(mot != null) {
+                sE1e.setFillAfter(true);
 
-                    Ae.setText(mot.substring(0,1));
-                    Ge.setText(mot.substring(1,2));
-                    Ie.setText(mot.substring(2,3));
-                    Te.setText(mot.substring(3,4));
-                    Ee.setText(mot.substring(4,5));
-                    Re.setText(mot.substring(5,6));
-                }
-                }
+                sE1e.addAnimation(anim6);
+
+                sE1e.addAnimation(animRotate);
+                sE1e.addAnimation(fade_out);
+
+                sE1e.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        E1.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sE1BIS = new AnimationSet(false);
+                        sE1BIS.setFillEnabled(true);
+                        sE1BIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim6 = new TranslateAnimation(n6Inv, 0 , n6Inv2, 0);
+                        Invanim6.setDuration(3000);
+                        Invanim6.setFillAfter( true );
+                        Invanim6.setStartOffset(fade_in.getDuration());
+
+                        sE1BIS.addAnimation(fade_in);
+                        Invanim6.setStartOffset(fade_in.getDuration());
+                        sE1BIS.addAnimation(Invanim6);
+
+                        E1.setText(mot2.substring(6,7));
+                        E1.startAnimation(sE1BIS);
+                        E1.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                E1.startAnimation(sE1e);
+
+                AnimationSet sE2e = new AnimationSet(false);
+
+                sE2e.setFillAfter(true);
+
+                sE2e.addAnimation(anim7);
+
+                sE2e.addAnimation(animRotate);
+                sE2e.addAnimation(fade_out);
+
+                sE2e.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        E2.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sE2BIS = new AnimationSet(false);
+                        sE2BIS.setFillEnabled(true);
+                        sE2BIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim7 = new TranslateAnimation(n7Inv, 0 , n7Inv2, 0);
+                        Invanim7.setDuration(3000);
+                        Invanim7.setFillAfter( true );
+                        Invanim7.setStartOffset(fade_in.getDuration());
+
+                        sE2BIS.addAnimation(fade_in);
+                        Invanim7.setStartOffset(fade_in.getDuration());
+                        sE2BIS.addAnimation(Invanim7);
+
+                        E2.setText(mot2.substring(7,8));
+                        E2.startAnimation(sE2BIS);
+                        E2.setVisibility(View.INVISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                E2.startAnimation(sE2e);
+
+
+                AnimationSet sE3e = new AnimationSet(false);
+
+                sE3e.setFillAfter(true);
+
+                sE3e.addAnimation(anim8);
+
+                sE3e.addAnimation(animRotate);
+                sE3e.addAnimation(fade_out);
+
+                sE3e.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        E3.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sE3BIS = new AnimationSet(false);
+                        sE3BIS.setFillEnabled(true);
+                        sE3BIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim8 = new TranslateAnimation(n8Inv, 0 , n8Inv2, 0);
+                        Invanim8.setDuration(3000);
+                        Invanim8.setFillAfter( true );
+                        Invanim8.setStartOffset(fade_in.getDuration());
+
+                        sE3BIS.addAnimation(fade_in);
+                        Invanim8.setStartOffset(fade_in.getDuration());
+                        sE3BIS.addAnimation(Invanim8);
+
+                        E3.setText(mot2.substring(8,9));
+                        E3.startAnimation(sE3BIS);
+                        E3.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                E3.startAnimation(sE3e);
+
+                AnimationSet sE4e = new AnimationSet(false);
+
+                sE4e.setFillAfter(true);
+
+                sE4e.addAnimation(anim9);
+
+                sE4e.addAnimation(animRotate);
+                sE4e.addAnimation(fade_out);
+
+                sE4e.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        E4.setVisibility(View.VISIBLE);
+
+                        final AnimationSet sE4BIS = new AnimationSet(false);
+                        sE4BIS.setFillEnabled(true);
+                        sE4BIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim9 = new TranslateAnimation(n9Inv, 0 , n9Inv2, 0);
+                        Invanim9.setDuration(3000);
+                        Invanim9.setFillAfter( true );
+                        Invanim9.setStartOffset(fade_in.getDuration());
+
+                        sE4BIS.addAnimation(fade_in);
+                        Invanim9.setStartOffset(fade_in.getDuration());
+                        sE4BIS.addAnimation(Invanim9);
+
+                        E4.setText(mot2.substring(9,10));
+                        E4.startAnimation(sE4BIS);
+                        E4.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                E4.startAnimation(sE4e);
+                AnimationSet sE5e = new AnimationSet(false);
+
+                sE5e.setFillAfter(true);
+
+                sE5e.addAnimation(anim10);
+
+                sE5e.addAnimation(animRotate);
+                sE5e.addAnimation(fade_out);
+
+                sE5e.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        E5.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sE5BIS = new AnimationSet(false);
+                        sE5BIS.setFillEnabled(true);
+                        sE5BIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim10 = new TranslateAnimation(n10Inv, 0 , n10Inv2, 0);
+                        Invanim10.setDuration(3000);
+                        Invanim10.setFillAfter( true );
+                        Invanim10.setStartOffset(fade_in.getDuration());
+
+                        sE5BIS.addAnimation(fade_in);
+                        Invanim10.setStartOffset(fade_in.getDuration());
+                        sE5BIS.addAnimation(Invanim10);
+
+                        E5.setText(mot2.substring(10,11));
+                        E5.startAnimation(sE5BIS);
+                        E5.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                E5.startAnimation(sE5e);
+
+                AnimationSet sE6e = new AnimationSet(false);
+
+                sE6e.setFillAfter(true);
+
+                sE6e.addAnimation(anim11);
+
+                sE6e.addAnimation(animRotate);
+                sE6e.addAnimation(fade_out);
+
+                sE6e.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        E6.setVisibility(View.INVISIBLE);
+
+                        final AnimationSet sE6BIS = new AnimationSet(false);
+                        sE6BIS.setFillEnabled(true);
+                        sE6BIS.setFillAfter(true);
+
+                        final TranslateAnimation Invanim11 = new TranslateAnimation(n11Inv, 0 , n11Inv2, 0);
+                        Invanim11.setDuration(3000);
+                        Invanim11.setFillAfter( true );
+                        Invanim11.setStartOffset(fade_in.getDuration());
+
+                        sE6BIS.addAnimation(fade_in);
+                        Invanim11.setStartOffset(fade_in.getDuration());
+                        sE6BIS.addAnimation(Invanim11);
+
+                        E6.setText(mot2.substring(11,12));
+                        E6.startAnimation(sE6BIS);
+                        E6.setVisibility(View.VISIBLE);
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                E6.startAnimation(sE6e);
+            }
 
         });
         }
