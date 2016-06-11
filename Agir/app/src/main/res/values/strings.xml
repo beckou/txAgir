@@ -26,12 +26,43 @@
     <string name="shake">SH&#160;&#160;&#160; KE</string>
 
     <string name="adapter_texte01">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. Allez courage. Je dois m’adapter…</string>
+    <string name="adapter_texte02">Instable</string>
+    <string name="adapter_texte021">instable&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;sentiment</string>
+    <string name="adapter_texte03">Tout est si instable autour de moi.</string>
+    <string name="adapter_texte04">Tout est si Changeant autour de moi.</string>
+    <string name="adapter_texte05">MOUVANT.</string>
+    <string name="adapter_texte06">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères.</string>
+    <string name="adapter_texte07">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit :</string>
+    <string name="adapter_texte08">“Il faut s’adapter”.</string>
+    <string name="adapter_texte09">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. ETRE MOBILE.</string>
+    <string name="adapter_texte092">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre FLEXIBLE.</string>
+    <string name="adapter_texte091">CHANGER</string>
+    <string name="adapter_texte10">LE TEMPS</string>
+    <string name="adapter_texte11">Le temps s’accélère</string>
+    <string name="adapter_texte12">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité.</string>
+    <string name="adapter_texte13">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots.</string>
+    <string name="adapter_texte14">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire.</string>
+    <string name="adapter_texte15">Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je</string>
+    <string name="adapter_texte151">Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais</string>
+    <string name="adapter_texte152">Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des</string>
+    <string name="adapter_texte153">Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des___________________sorties</string>
+    <string name="adapter_texte154">Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des___________________sorties___________________de</string>
+    <string name="adapter_texte155">Ma trajectoire est tout sauf rectiligne______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________Je___________________fais____________________des___________________sorties___________________de___________________route</string>
+    <string name="adapter_texte16">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps.</string>
+    <string name="adapter_texte17">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. Allez courage.</string>
+    <string name="adapter_texte18">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. Allez courage. Je dois m’adapter…</string>
+
+
+    <string name="adapter_texte19">S\'ADAPTER</string>
+
+
+
 
     <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue ...
         ou du moins que je secoue mon téléphone pour faire changer les choses.</string>
 
     <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour donner du sens.</string>
-    <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, agrandir mon champs de vue...</string>
+    <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, élargir mon champs de vue...</string>
 
     <string name="info">Que peut signifier agir dans le milieu numérique de l\'interactivité compulsive ? La création numérique "Agir" propose quatre expériences interactives : s\'adapter, agiter, éclairer et effacer.</string>
 </resources>
