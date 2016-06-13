@@ -3,7 +3,7 @@
 
     <string name="test_mot">Hello</string>
     <string name="test_mot_oublier">forget</string>
-    <string name="oublier_phrase01">I often thought "The best way to resolve one's problems is to forget them. " </string>
+    <string name="oublier_phrase01">I'm often told: "The best way to resolve one's problems is to forget them. " </string>
     <string name="oublier_phrase02">What do I want to forget? </string>
     <string name="oublier_phrase03">In spite of my efforts, only time can erase memories.</string>
     
@@ -58,7 +58,7 @@
     <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue ...
         ou du moins que je secoue mon téléphone pour faire changer les choses.</string>
 
-    <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour donner du sens.</string>
+    <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour trouver ma voie.</string>
 
     <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, agrandir mon champs de vue...</string>
 
