@@ -11,6 +11,8 @@ import android.widget.TextView;
 public class InfoActivity extends AppCompatActivity {
 
     private TextView intro;
+    private TextView credit;
+
     private FloatingActionButton revert_button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +26,8 @@ public class InfoActivity extends AppCompatActivity {
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/PoiretOne-Regular.ttf");
         intro.setTypeface(myCustomFont);
 
+        credit = (TextView) findViewById(R.id.credits);
+        credit.setTypeface(myCustomFont);
 
         revert_button = (FloatingActionButton) findViewById(R.id.revertInfo);
         revert_button.setOnClickListener(new View.OnClickListener() {

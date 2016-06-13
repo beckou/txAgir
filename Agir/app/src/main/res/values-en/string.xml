@@ -3,7 +3,7 @@
 
     <string name="test_mot">Hello</string>
     <string name="test_mot_oublier">forget</string>
-    <string name="oublier_phrase01">I'm often told: "The best way to resolve one's problems is to forget them. " </string>
+    <string name="oublier_phrase01">I\'m often told: "The best way to resolve one's problems is to forget them. " </string>
     <string name="oublier_phrase02">What do I want to forget? </string>
     <string name="oublier_phrase03">In spite of my efforts, only time can erase memories.</string>
     
@@ -63,6 +63,8 @@
     <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, agrandir mon champs de vue...</string>
 
     <string name="info">Que peut signifier agir dans le milieu numérique de l\'interactivité compulsive ? La création numérique "Agir" propose quatre expériences interactives : s\'adapter, agiter, éclairer et effacer.</string>
+
+    <string name="credits">Crédits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
 
 
 </resources>

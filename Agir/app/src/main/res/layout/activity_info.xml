@@ -16,13 +16,15 @@
         android:layout_height="wrap_content"
         android:text="@string/info"
         android:id="@+id/infoText"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
         android:autoText="true"
         android:textColor="#f7d1d1"
         android:textAlignment="center"
         android:textSize="30dp"
-        android:textIsSelectable="false" />
+        android:textIsSelectable="false"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="75dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:layout_width="wrap_content"
@@ -36,5 +38,16 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/infoText"
         android:layout_alignEnd="@+id/infoText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/credits"
+        android:id="@+id/credits"
+        android:textSize="20dp"
+        android:textIsSelectable="true"
+        android:textColor="#f7d1d1"
+        android:layout_above="@+id/revertInfo"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
