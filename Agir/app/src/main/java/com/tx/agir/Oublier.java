@@ -1,5 +1,7 @@
 package com.tx.agir;
 
+import android.content.ClipData;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -148,6 +150,12 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         animation_firstText.setAnimationListener(this);
         animation_last_text.setAnimationListener(this);
         //fade_out_bis.setAnimationListener(this);
+
+
+        /// DRAG and DROP
+
+
+
     }
 
     public void myTimer(final long MAC, final String ipAddress) {

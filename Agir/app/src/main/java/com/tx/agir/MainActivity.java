@@ -528,7 +528,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                         generateParticules(letterA);
 
-
                         letter_A_clicked = true;
 
                         letterA.clearAnimation();
@@ -718,7 +717,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 if (letter_R_clicked == true) {
 
                     if(Singleton.getInstance().getString() == "fr"){
-                        Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
+                        Intent oublier_intent = new Intent(MainActivity.this, eraseWord.class);
                         startActivity(oublier_intent);
                     }else if(Singleton.getInstance().getString() == "en"){
                         Intent eclairer_intent = new Intent(MainActivity.this, IntroEclairer.class);
