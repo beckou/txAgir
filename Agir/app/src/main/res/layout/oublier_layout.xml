@@ -67,4 +67,13 @@
         android:textAlignment="center"
         android:textSize="30sp" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gomme"
+        android:src="@drawable/gommetx"
+        android:layout_alignBottom="@+id/button_effacer"
+        android:layout_toRightOf="@+id/to_forget"
+        android:layout_toEndOf="@+id/to_forget" />
+
 </RelativeLayout>

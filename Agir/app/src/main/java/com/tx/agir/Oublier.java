@@ -1,6 +1,7 @@
 package com.tx.agir;
 
 import android.content.ClipData;
+import android.content.ClipDescription;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
@@ -52,8 +53,13 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     public static Timer timer;
     public static Timer timer2;
 
+    private ImageView img;
 
+    private static final String IMAGEVIEW_TAG = "icon bitmap";
 
+    private boolean isBeeingPressed = false;
+    String msg;
+    private android.widget.RelativeLayout.LayoutParams layoutParams;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +73,12 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         touchview = (RelativeLayout) findViewById(R.id.relativeLayout);
 
         myTimer(123, "127.0.0.1");
+
+        img = (ImageView)  findViewById(R.id.gomme);
+        img.setVisibility(View.INVISIBLE);
+        img.setTag(IMAGEVIEW_TAG);
+
+        setupDragDrop();
 
         animation_firstText = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.first_text_appear);
         animation_last_text = AnimationUtils.loadAnimation(this, R.anim.last_text_appear);
@@ -137,6 +149,8 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                 bouton_effacer.setVisibility(View.INVISIBLE);
                 Word_toForget.setText(toForget.getText());
                 Word_toForget.setVisibility(View.VISIBLE);
+
+                img.setVisibility(View.VISIBLE);
 
                 //update();
 
@@ -342,19 +356,26 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
                 int x = (int) event.getX();
                 int y = (int) event.getY();
 
-                        if (!isPointWithin(x, y, Word_toForget.getLeft(), Word_toForget.getRight(), Word_toForget.getTop(),
+//                System.out.println("x "+img.getX());
+//                System.out.println("y "+img.getY());
+//                System.out.println("left "+img.getLeft());
+//                System.out.println("Word_toForget.getLeft() "+Word_toForget.getLeft());
+
+
+
+                if (!isPointWithin((int)img.getX(), (int)img.getY(), Word_toForget.getLeft(), Word_toForget.getRight(), Word_toForget.getTop(),
                                 Word_toForget.getBottom())) {
                             //b.getBackground().setState(defaultStates);
                         }
 
-                        if (isPointWithin(x, y, Word_toForget.getLeft(),Word_toForget.getRight(), Word_toForget.getTop(),
+                        if (isPointWithin((int)img.getX(), (int)img.getY(), Word_toForget.getLeft(),Word_toForget.getRight(), Word_toForget.getTop(),
                                 Word_toForget.getBottom())) {
                             //b.getBackground().setState(STATE_PRESSED);
                        /*     Toast.makeText(getApplicationContext(), "word is being touched",
                                     Toast.LENGTH_SHORT).show();*/
 
                             float textSize = Word_toForget.getTextSize();
-                            float incr = (float) 1;
+                            float incr = (float) 4;
                             textSize = textSize + incr;
 
                             //Word_toForget.setTextSize(textSize);
@@ -382,7 +403,130 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     }
 
 
+    public void setupDragDrop() {
 
+
+
+        img.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+
+
+                if (event.getAction() == DragEvent.ACTION_DRAG_STARTED){
+                    layoutParams = (RelativeLayout.LayoutParams)v.getLayoutParams();
+                } else if (event.getAction() ==   DragEvent.ACTION_DRAG_ENDED)
+                    v.setVisibility(View.VISIBLE);
+
+
+
+
+
+
+                return true;
+            }
+        });
+
+        img.getRootView().setOnDragListener( new View.OnDragListener()
+        {
+            @Override
+            public boolean onDrag ( View v, DragEvent event )
+            {
+
+                int x = (int) event.getX();
+                int y = (int) event.getY();
+
+                System.out.println("(int) event.getX() " +(int) event.getX());
+                System.out.println("(int) event.getY() " +(int) event.getY());
+
+
+                System.out.println("x " + img.getX());
+                System.out.println("y " + img.getY());
+                System.out.println("Word_toForget.getLeft() " + Word_toForget.getLeft());
+
+                int shift = img.getWidth();
+                System.out.println("shift " + shift);
+
+                if (!isPointWithin(x,y, Word_toForget.getLeft()+shift, Word_toForget.getRight()+shift, Word_toForget.getTop()+shift,
+                        Word_toForget.getBottom()+shift)) {
+                    //b.getBackground().setState(defaultStates);
+                }
+
+                if (isPointWithin(x, y, Word_toForget.getLeft()+shift,Word_toForget.getRight()+shift, Word_toForget.getTop()+shift,
+                        Word_toForget.getBottom()+shift)) {
+                    //b.getBackground().setState(STATE_PRESSED);
+                       /*     Toast.makeText(getApplicationContext(), "word is being touched",
+                                    Toast.LENGTH_SHORT).show();*/
+
+                    System.out.println("in thereee");
+
+                    float textSize = Word_toForget.getTextSize();
+                    float incr = (float) 4;
+                    textSize = textSize + incr;
+
+                    //Word_toForget.setTextSize(textSize);
+                    Word_toForget.setTextSize(TypedValue.COMPLEX_UNIT_PX,textSize);
+                    update();
+
+                }
+
+                if ( event.getAction() == DragEvent.ACTION_DROP )
+                {
+                    float X = event.getX();
+                    float Y = event.getY();
+
+                    // Log.d(LOGCAT, "X " + (int) X + "Y " + (int) Y);
+                    //  View view = (View) event.getLocalState();
+                    img.setX(X-(img.getWidth()/2));
+                    img.setY(Y-(img.getHeight()/2));
+
+
+                    img.setVisibility(View.VISIBLE);
+
+                }
+                if(event.getAction() == DragEvent.ACTION_DRAG_EXITED){
+
+
+                }
+
+
+                return true;
+            }
+        });
+
+
+        img.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    String[] mimeTypes = { ClipDescription.MIMETYPE_TEXT_PLAIN};
+
+                    ClipData data = ClipData.newPlainText("", "");
+                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(img);
+                    img.setVisibility(View.INVISIBLE);
+
+                    v.startDrag( data, shadowBuilder, mimeTypes, 0);
+
+                    isBeeingPressed = true;
+
+
+
+
+                    return true;
+                }else  if (event.getAction() == MotionEvent.ACTION_UP) {
+                    isBeeingPressed = false;
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        });
+
+
+    }
 
 
 }

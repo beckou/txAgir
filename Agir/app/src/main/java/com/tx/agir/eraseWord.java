@@ -84,19 +84,6 @@ public class eraseWord extends AppCompatActivity {
             }
         });
 
-//        img.setOnLongClickListener(new View.OnLongClickListener() {
-//            @Override
-//            public boolean onLongClick(View v) {
-//                String[] mimeTypes = { ClipDescription.MIMETYPE_TEXT_PLAIN};
-//
-//                ClipData data = ClipData.newPlainText("", "");
-//                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(img);
-//                img.setVisibility(View.INVISIBLE);
-//
-//                v.startDrag( data, shadowBuilder, mimeTypes, 0);
-//                return true;
-//            }
-//        } );
 
         img.setOnTouchListener(new View.OnTouchListener() {
             @Override
