@@ -1110,25 +1110,61 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
     public void generateParticules(TextView letter_origin){
 
-        parti1 = new ParticleSystem(MainActivity.this, 1,R.drawable.lettrea, 10000);
-        parti1.setSpeedRange(0.001f, 0.1f);
-        parti1.setFadeOut(10000 , new AccelerateInterpolator());
-        parti1.emit(letter_origin, 1);
+        System.out.println(letter_origin.getText());
 
-        parti2 = new ParticleSystem(MainActivity.this, 1,R.drawable.lettrea, 7000);
+        if( letter_origin.getText().toString().equals("I")  ) {
+            System.out.println("dans le IIII");
+            parti1 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrei, 10000);
+            parti2 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrei, 7000);
+            parti3 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrei, 5000);
+        }
+
+        if( letter_origin.getText().toString().equals("A")) {
+            parti1 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrea, 10000);
+            parti2 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrea, 7000);
+            parti3 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrea, 5000);
+        }else
+
+        if( letter_origin.getText().toString().equals("G")) {
+            parti1 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettreg, 10000);
+            parti2 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettreg, 7000);
+            parti3 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettreg, 5000);
+        }else
+
+
+        if( letter_origin.getText().toString().equals("R")) {
+            parti1 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrer, 10000);
+            parti2 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrer, 7000);
+            parti3 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettrer, 5000);
+        }else
+        if( letter_origin.getText().toString().equals("D")) {
+            parti1 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettred, 10000);
+            parti2 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettred, 7000);
+            parti3 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettred, 5000);
+        }else
+        if( letter_origin.getText().toString().equals("E")) {
+            parti1 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettree, 10000);
+            parti2 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettree, 7000);
+            parti3 = new ParticleSystem(MainActivity.this, 1, R.drawable.lettree, 5000);
+        }
+
+
+        parti3.setSpeedRange(0.001f, 0.1f);
+        parti3.setFadeOut(5000, new AccelerateInterpolator());
+        parti3.emit(letter_origin, 1);
+
         parti2.setSpeedRange(0.001f, 0.1f);
-        parti2.setFadeOut(7000 , new AccelerateInterpolator());
+        parti2.setFadeOut(7000, new AccelerateInterpolator());
         parti2.emit(letter_origin, 1);
 
-        parti3 = new ParticleSystem(MainActivity.this, 1,R.drawable.lettrea, 5000);
-        parti3.setSpeedRange(0.001f, 0.1f);
-        parti3.setFadeOut(5000 , new AccelerateInterpolator());
-        parti3.emit(letter_origin, 1);
+        parti1.setSpeedRange(0.001f, 0.1f);
+        parti1.setFadeOut(10000, new AccelerateInterpolator());
+        parti1.emit(letter_origin, 1);
+
 
         particleList.add(parti1);
         particleList.add(parti2);
         particleList.add(parti3);
-
 
     }
 
