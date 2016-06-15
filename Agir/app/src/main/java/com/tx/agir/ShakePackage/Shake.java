@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
@@ -195,10 +194,6 @@ public class Shake extends Activity {
                 final float n3Inv = n;
                 final float n3Inv2 = n1;
 
-
-
-
-
                  n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
                  n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
@@ -303,6 +298,37 @@ public class Shake extends Activity {
                 s.setFillEnabled(true);
                 s.setFillAfter(true);
                 s.setInterpolator(new DecelerateInterpolator());
+
+                s.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Ae.setVisibility(View.GONE);
+
+                        final AnimationSet sBIS = new AnimationSet(false);
+                        sBIS.setFillEnabled(true);
+                        sBIS.setFillAfter(true);
+
+                        sBIS.addAnimation(fade_in);
+
+                        //sBIS.addAnimation(Invanim);
+                        Ae.setText(mot2.substring(0,1));
+                        Ae.setVisibility(View.VISIBLE);
+                        Ae.startAnimation(fade_in);
+
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+
                 s.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
@@ -343,7 +369,6 @@ public class Shake extends Activity {
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sGe.setInterpolator(new DecelerateInterpolator());
-
                 sGe.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
@@ -365,7 +390,6 @@ public class Shake extends Activity {
                         Ge.setText(mot2.substring(1,2));
                         Ge.setVisibility(View.VISIBLE);
                         Ge.startAnimation(fade_in);
-
                     }
 
                     @Override
@@ -389,6 +413,57 @@ public class Shake extends Activity {
 
 //                sIe.addAnimation(fade_in);
             //                   sIe.addAnimation(Invanim);
+
+
+
+                sIe.setInterpolator(new DecelerateInterpolator());
+
+                sIe.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        Ie.setVisibility(View.GONE);
+
+                        final AnimationSet sIBIS = new AnimationSet(false);
+                        sIBIS.setFillEnabled(true);
+                        sIBIS.setFillAfter(true);
+
+
+                        sIBIS.addAnimation(fade_in);
+                        //sIBIS.addAnimation(Invanim2);
+
+                        Ie.setText(mot2.substring(2,3));
+                        Ie.setVisibility(View.VISIBLE);
+                        Ie.startAnimation(fade_in);
+
+                        sIBIS.setAnimationListener(new Animation.AnimationListener() {
+
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+
+                            }
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
 
 
 
@@ -609,6 +684,7 @@ public class Shake extends Activity {
                             public void onAnimationRepeat(Animation animation) {
 
                             }
+
 
                             @Override
                             public void onAnimationEnd(Animation animation) {

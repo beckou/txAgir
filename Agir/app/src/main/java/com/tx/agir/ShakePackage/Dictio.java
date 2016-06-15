@@ -27,6 +27,7 @@ public class Dictio {
 
 
 
+
         ABonList.add(Mauvais1);
         AMauvaisList.add(Bon1);
 
@@ -182,7 +183,6 @@ public class Dictio {
         return this.sparseArray3.get(key);
 
     }
-
     public String getMot2(int ligne, float totalMovement){
         Random rand = new Random();
 
