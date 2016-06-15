@@ -12,6 +12,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
@@ -47,6 +48,7 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
         setContentView(R.layout.adapter_layout);
         Adapter.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         frame = (FrameLayout) findViewById(R.id.frame);
         if(frame != null){
@@ -319,6 +321,15 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
             }
         }
         return true;
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
     }
 }
 

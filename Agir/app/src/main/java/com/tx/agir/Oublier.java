@@ -17,6 +17,7 @@ import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -68,6 +69,9 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.oublier_layout);
+
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
 
@@ -543,6 +547,12 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
 
     }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+    }
 
 }
