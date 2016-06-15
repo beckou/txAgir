@@ -40,4 +40,5 @@ public class IntroAgiter extends AppCompatActivity {
             }
         }, TIME_OUT);
     }
+
 }
