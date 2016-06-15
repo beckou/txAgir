@@ -20,6 +20,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
@@ -155,6 +156,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
 
         MainActivity.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
@@ -1299,8 +1303,11 @@ float test = (float) ((float)  yTo*0.6);
     }
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
 
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
-
-
+    }
 }
