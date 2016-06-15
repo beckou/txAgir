@@ -15,6 +15,9 @@ public class IntroAgiter extends AppCompatActivity {
 
     private TextView intro;
 
+    private Handler mHandler;
+    private Runnable mRunnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,13 +26,8 @@ public class IntroAgiter extends AppCompatActivity {
         IntroAgiter.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
 
-        intro = (TextView) findViewById(R.id.introAgiter);
-
-        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
-        intro.setTypeface(myCustomFont);
-
-
-        new Handler().postDelayed(new Runnable() {
+        mHandler = new Handler();
+        mRunnable = new Runnable() {
             @Override
             public void run() {
                 Intent i = new Intent(IntroAgiter.this, Shake.class);
@@ -38,6 +36,24 @@ public class IntroAgiter extends AppCompatActivity {
 
                 finish();
             }
-        }, TIME_OUT);
+        };
+
+
+        intro = (TextView) findViewById(R.id.introAgiter);
+
+        Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
+        intro.setTypeface(myCustomFont);
+
+
+        mHandler.postDelayed(mRunnable, TIME_OUT);
     }
+
+
+
+    public void onStop () {
+//do your stuff here
+        super.onStop();
+        mHandler.removeCallbacks(mRunnable);
+    }
+
 }
