@@ -11,6 +11,7 @@ import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 
 import com.tx.agir.R;
 
@@ -76,6 +77,7 @@ private DictioLight Dicoo;
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.eclairer_layout);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
         mGLSurfaceView = new GLSurfaceView(this);
@@ -414,5 +416,13 @@ private DictioLight Dicoo;
             updateOreintationDisplay();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+    }
 
 }

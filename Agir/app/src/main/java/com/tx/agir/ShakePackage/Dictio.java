@@ -4,6 +4,9 @@ package com.tx.agir.ShakePackage;
 import java.util.ArrayList;
 import java.util.Random;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * Created by raphael on 29/05/16.
  */
@@ -24,6 +27,7 @@ public class Dictio {
         String[] Mauvais1 = {"de TAIRE le "};
 
         String[] Bon1 =     {"de REAGIR au"};
+
 
 
 
@@ -51,6 +55,7 @@ public class Dictio {
 
         String[] Bon3 =     {"MARIE       ","AIMER       ","MAIN        "};
 
+
         ABonList.add(Mauvais3);
         AMauvaisList.add(Bon3);
 
@@ -64,11 +69,13 @@ public class Dictio {
 
         String[] Bon4 =     {"un ROLE     "};
 
+
         ABonList.add(Mauvais4);
         AMauvaisList.add(Bon4);
 
         sparseArray2.put(4,"J'AIME");
         sparseArray3.put(4,"MONDE AUTOUR DE MOI");
+
 
         sparseArray1.put(4,"TOURBILLONER");
 
@@ -142,6 +149,7 @@ public class Dictio {
 
         String[] Mauvais10 = {"m'EMmURER   ","MEURE       ","ERRE        "};
 
+
         String[] Bon10 =     {"HUMER       ","MuRmUREr    ","EMUE        "};
 
 
@@ -155,6 +163,7 @@ public class Dictio {
         sparseArray3.put(10,"LES CHOSES, LES BIDULES, LES TRUCS");
 
         String[] Mauvais11 = {"VOMIR       ","fUIR        "};
+
 
         String[] Bon11 =     {"MURIR       ","VOIR        ","OUIR        "};
 
@@ -182,7 +191,6 @@ public class Dictio {
         return this.sparseArray3.get(key);
 
     }
-
     public String getMot2(int ligne, float totalMovement){
         Random rand = new Random();
 

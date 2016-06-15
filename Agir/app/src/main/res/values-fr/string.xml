@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Agir</string>
     <string name="action_settings">Settings</string>
-    <string name="oublier_phrase01">Je me suis souvent dit : "la meilleure façon de résoudre ses problèmes, c\'est de les oublier".</string>
+    <string name="oublier_phrase01">On me dit souvent: "la meilleure façon de résoudre ses problèmes, c\'est de les oublier".</string>
     <string name="oublier_phrase02">Qu\'est-ce que je souhaite oublier ?</string>
     <string name="oublier_phrase03">Malgré mes efforts, seul le temps permet d\'effacer</string>
 
@@ -19,6 +19,10 @@
     <string name="adapt">A&#160;&#160;&#160; APT</string>
     <string name="shake">SH&#160;&#160;&#160; KE</string>
 
+    <string name="agir_A">A</string>
+    <string name="agir_G">G</string>
+    <string name="agir_I">I</string>
+    <string name="agir_R">R</string>
 
     <string name="adapter_texte01">Tout est si instable autour de moi. Changeant. Mouvant. Je perds mes repères. Pourtant tout le monde me le dit : “Il faut s’adapter”. Etre mobile. Flexible. Le temps s’accélère… et il faut être de son temps. Réseau, vitesse, mobilité. Voilà les maîtres mots. Mais tout va trop vite. Je n’arrive plus à raconter ma vie. En tout cas pas de façon linéaire. Ma trajectoire est tout sauf rectiligne. Je fais des sorties de route. Je n’ai peut-être pas le profil (du moins c’est ce que me disent mes amis en ligne). Je ne suis pas de mon temps. Allez courage. Je dois m’adapter…</string>
 
@@ -62,13 +66,14 @@
 
 
 
-       <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue ...
-        ou du moins que je secoue mon téléphone pour faire changer les choses.</string>
+       <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue...</string>
 
     <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour donner du sens.</string>
 
-    <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, élargir mon champs de vue...</string>
+    <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, élargir mon champs de vision...</string>
 
     <string name="info">Que peut signifier agir dans le milieu numérique de l\'interactivité compulsive ? La création numérique "Agir" propose quatre expériences interactives : s\'adapter, agiter, éclairer et effacer.</string>
+
+    <string name="credits">Crédits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
 
 </resources>
