@@ -589,7 +589,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1]/10, 0.0f);
 		Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/10,  0.0f,0.0f );
 
-        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 2.0f);
+        Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 1.001f);
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
 
@@ -686,7 +686,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mDirectionHandle, gyroscope[0], gyroscope[1], gyroscope[2]);
 
         // Draw the cube.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);                               
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 18);
 	}
     private void drawCube2()
     {
@@ -853,8 +853,8 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         background.draw(canvas); // draw the background to our bitmap
 
 // Draw the text
-        Paint textPaint = new Paint(20);
-        textPaint.setAntiAlias(true);
+        Paint textPaint = new Paint(0);
+        textPaint.setAntiAlias(false);
         textPaint.setARGB(255, 255, 255, 255);
         textPaint.setTextSize(35);
         Typeface myCustomFont = Typeface.createFromAsset(mActivityContext.getAssets(),"fonts/PoiretOne-Regular.ttf");
