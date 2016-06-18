@@ -229,7 +229,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         };
         timer.cancel();
         timer = new Timer();
-        timer.schedule(timerTask, 5000);
+        timer.schedule(timerTask, 3000);
         System.out.println("Time:    "+timerTask.scheduledExecutionTime());
     }
     public void update2() {
