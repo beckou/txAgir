@@ -301,7 +301,9 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
         Word_toForget.startAnimation(fade_out_bis);
         Word_toForget.setVisibility(View.INVISIBLE);
-        Word_toForget.clearAnimation();
+        img.startAnimation(fade_out_bis);
+        img.setVisibility(View.INVISIBLE);
+        //Word_toForget.clearAnimation();
 
         oublier_3.setVisibility(View.VISIBLE);
         oublier_3.startAnimation(final_fade);

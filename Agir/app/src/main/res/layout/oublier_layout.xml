@@ -59,13 +59,14 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/oublier_phrase03"
         android:id="@+id/oublier_3"
-        android:layout_alignTop="@+id/word_toForget"
-        android:layout_centerHorizontal="true"
         android:textColor="#f2b5b5"
         android:visibility="invisible"
         android:focusableInTouchMode="true"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:layout_above="@+id/button_effacer"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:layout_width="wrap_content"
