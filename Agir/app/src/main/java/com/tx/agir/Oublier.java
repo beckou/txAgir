@@ -122,6 +122,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
 
         Word_toForget = (TextView)findViewById(R.id.word_toForget);
+        Word_toForget.setTypeface(myCustomFont);
         Word_toForget.setVisibility(View.INVISIBLE);
 
         oublier_3 = (TextView)findViewById(R.id.oublier_3);
@@ -149,6 +150,7 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
         bouton_effacer = (Button) findViewById(R.id.button_effacer);
         bouton_effacer.setVisibility(View.INVISIBLE);
+        bouton_effacer.setTypeface(myCustomFont);
         bouton_effacer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
