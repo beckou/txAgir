@@ -60,8 +60,7 @@
                 android:layout_above="@+id/R"
                 android:layout_alignLeft="@+id/revert"
                 android:layout_alignStart="@+id/revert"
-                android:foregroundTint="#dfc1c1"
-                android:backgroundTint="#f7ffbab4"
+                android:background="@drawable/my_button_bg"
                 android:textColor="#ffffff" />
 
             <Button
@@ -73,10 +72,12 @@
                 android:layout_alignTop="@+id/FR_button"
                 android:layout_alignRight="@+id/adapter"
                 android:layout_alignEnd="@+id/adapter"
-                android:backgroundTint="#f7ffbab4"
-                android:hint="ttin"
                 android:textColorHint="#ffffff"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:clickable="false"
+                android:background="@drawable/my_button_bg"
+
+                android:layout_marginLeft="5dp" />
 
         </LinearLayout>
 

@@ -6,6 +6,7 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
@@ -189,13 +190,19 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
           en_button = (Button)findViewById(R.id.EN_button);
 
 
+        fr_button.setBackgroundResource(R.drawable.button_pressed);
+
+
         if(fr_button != null){
 
             if(current.getLanguage() == "fr"){
+                fr_button.setBackgroundResource(R.drawable.button_pressed);
+
                 fr_button.setEnabled(false);
                 en_button.setEnabled(true);
                 //mainLayout.setVisibility(View.VISIBLE);
                 //english_menu.setVisibility(View.INVISIBLE);
+                en_button.setBackgroundResource(R.drawable.my_button_bg);
 
             }
             fr_button.setOnClickListener(new View.OnClickListener() {
@@ -207,6 +214,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     Singleton.getInstance().setString("fr");
 
                     setLocale("fr");
+                    en_button.setBackgroundResource(R.drawable.my_button_bg);
+                    fr_button.setBackgroundResource(R.drawable.button_pressed);
                 }
             });
 
@@ -217,6 +226,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                // fr_button.setText("coucou");
                 fr_button.setEnabled(true);
                 en_button.setEnabled(false);
+                en_button.setBackgroundResource(R.drawable.button_pressed);
+                fr_button.setBackgroundResource(R.drawable.my_button_bg);
+
                 //mainLayout.setVisibility(View.INVISIBLE);
                 //english_menu.setVisibility(View.VISIBLE);
             }
@@ -229,6 +241,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     Singleton.getInstance().setString("en");
 
                     setLocale("en");
+                    en_button.setBackgroundResource(R.drawable.button_pressed);
+                    fr_button.setBackgroundResource(R.drawable.my_button_bg);
 
 
                 }
