@@ -2,10 +2,12 @@ package com.tx.agir.ShakePackage;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
@@ -19,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tx.agir.MainActivity;
 import com.tx.agir.R;
 
 import java.util.Random;
@@ -37,6 +40,7 @@ public class Shake extends Activity {
     private Animation animInvRotate;
     private Dictio dico;
 
+    FloatingActionButton back;
 
 
 
@@ -1162,7 +1166,18 @@ public class Shake extends Activity {
 
                 });
 
+                back = (FloatingActionButton)  findViewById(R.id.back);
+                if(back != null){
+                    back.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(Shake.this, MainActivity.class);
+                            startActivity(i);
+                            finish();
+                        }
+                    });
 
+                }
 
 
 
