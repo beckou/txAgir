@@ -1,9 +1,11 @@
 package com.tx.agir;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -39,6 +41,8 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
     RelativeLayout mView;
     private TextView adapter_text = null;
 
+    FloatingActionButton back;
+
     private Boolean TopLefttouched = false;
     ViewGroup.MarginLayoutParams marginParams;
 
@@ -56,7 +60,18 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
 //            frame.getLayoutParams().width = 351;
         }
 
+        back = (FloatingActionButton)  findViewById(R.id.back);
+        if(back != null){
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Adapter.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
 
+        }
         mView = (RelativeLayout)  findViewById(R.id.view);
 
         adapter_text = (TextView) findViewById(R.id.adapter_text);

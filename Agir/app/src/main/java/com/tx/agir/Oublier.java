@@ -9,6 +9,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.DragEvent;
@@ -65,6 +66,8 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
 
     private int mLayoutWidth;
 
+    FloatingActionButton back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +87,19 @@ public class Oublier extends AppCompatActivity implements Animation.AnimationLis
         img = (ImageView)  findViewById(R.id.gomme);
         img.setVisibility(View.INVISIBLE);
         img.setTag(IMAGEVIEW_TAG);
+
+        back = (FloatingActionButton)  findViewById(R.id.back);
+        if(back != null){
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Oublier.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
+
+        }
 
         setupDragDrop();
 

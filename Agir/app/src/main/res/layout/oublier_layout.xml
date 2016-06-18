@@ -4,7 +4,22 @@
     android:layout_height="match_parent"
     android:background="@color/oublier_background"
     android:weightSum="1"
-    android:id="@+id/relativeLayout">
+    android:id="@+id/relativeLayout"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="#3d3b78"
+        app:backgroundTint="#f7ffbab4"
+        app:rippleColor="#f7140f0f"
+        android:tint="#ffffff"
+        />
 
     <TextView
         android:layout_width="345dp"
