@@ -55,14 +55,13 @@
 
     <string name="adapter_texte19">ADAPT</string>
 
-    <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue ...
-        ou du moins que je secoue mon téléphone pour faire changer les choses.</string>
+    <string name="intro_agiter">I have to be more dynamic. I need to give myself a shake…</string>
 
-    <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour trouver ma voie.</string>
+    <string name="intro_eclairer">Everything seems opaque. I\’m looking for lighting to find my way.</string>
 
-    <string name="intro_adapter">J\'ai peur de ne pas savoir m\'adapter, mais je dois avant tout changer de cadre pour le découvrir, agrandir mon champs de vue...</string>
+    <string name="intro_adapter">I\’m afraid not to know how to adapt, but above all I have to change frame to find out, too expand my field of vision…</string>
 
-    <string name="info">Que peut signifier agir dans le milieu numérique de l\'interactivité compulsive ? La création numérique "Agir" propose quatre expériences interactives : s\'adapter, agiter, éclairer et effacer.</string>
+    <string name="info">What might acting mean in the digital area of compulsive interactivity? The digital creation “Dare” offers four interactive experiences: Adapt, Shake, Lighten and Erase. \n Credits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
 
     <string name="credits">Crédits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
 
