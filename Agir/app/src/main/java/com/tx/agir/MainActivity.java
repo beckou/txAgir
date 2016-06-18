@@ -147,6 +147,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private TextView lighten_bis_1;
     private TextView lighten_bis_2;
 
+    private  FloatingActionButton fab;
+
 
     ////////////////////
 
@@ -252,11 +254,13 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         //linLayout = (LinearLayout) findViewById(R.id.linLayout);
         touchview= (RelativeLayout) findViewById(R.id.relativeLayout);
-        revert_button = (FloatingActionButton)  findViewById(R.id.revert);
+        revert_button = (FloatingActionButton)  findViewById(R.id.retour);
         revert_button.setVisibility(View.INVISIBLE);
         revert_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                fab.setVisibility(View.VISIBLE);
 
                 letter_A_clicked = false;
                 letter_I_clicked = false;
@@ -354,7 +358,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             }
         });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = (FloatingActionButton) findViewById(R.id.fab);
         if(fab != null) {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -1052,6 +1056,11 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         RelativeLayout.LayoutParams head_params = (RelativeLayout.LayoutParams)letterA.getLayoutParams();
         head_params.setMargins(shift, 0, 0, 0); //substitute parameters for left, top, right, bottom
         letterA.setLayoutParams(head_params);
+
+
+        // placement revert button
+
+
 
     }
 

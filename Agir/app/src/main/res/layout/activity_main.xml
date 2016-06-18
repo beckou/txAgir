@@ -34,4 +34,17 @@
         android:background="#5f5f5f"
         app:backgroundTint="#f7ffbab4" />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/retour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="#3d3b78"
+        app:backgroundTint="#f7ffbab4"
+        app:rippleColor="#f7140f0f"
+        android:tint="#ffffff"
+        />
+
 </android.support.design.widget.CoordinatorLayout>

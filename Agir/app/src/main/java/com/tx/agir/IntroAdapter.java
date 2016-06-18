@@ -38,7 +38,6 @@ public class IntroAdapter extends AppCompatActivity {
 
         IntroAdapter.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
-
         intro = (TextView) findViewById(R.id.introAdapter);
 
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
