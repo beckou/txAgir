@@ -62,11 +62,40 @@
     <string name="adapter_texte19">S\'ADAPTER</string>
 
 
+    <string name="agiter_Phrase00">Je veux </string>
+    <string name="agiter_Phrase10">ce qui m'entoure</string>
+    <string name="agiter_Mot00">MOUVOIR     </string>
+    <string name="agiter_Mot10">OUIR        </string>
+    <string name="agiter_Mot20">VOMIR       </string>
+
+    <string name="agiter_Phrase01">Je me vois </string>
+    <string name="agiter_Phrase11"> avec elle</string>
+    <string name="agiter_Mot01">FRETILLER   </string>
+    <string name="agiter_Mot11">FLIRTER     </string>
+    <string name="agiter_Mot21">FLETRIR     </string>
+
+    <string name="agiter_Phrase02">Je peux seulement </string>
+    <string name="agiter_Phrase12"> doucement</string>
+    <string name="agiter_Mot02">REMUER      </string>
+    <string name="agiter_Mot12">MURMURER    </string>
+    <string name="agiter_Mot22">M’EMMURER   </string>
+
+    <string name="agiter_Phrase03">Je voudrais </string>
+    <string name="agiter_Phrase13"> le monde autour de moi</string>
+    <string name="agiter_Mot03">AGITER      </string>
+    <string name="agiter_Mot13">REGIR       </string>
+    <string name="agiter_Mot23">TARIR       </string>
+
+
+    <string name="agiter_Phrase04">Une envie de </string>
+    <string name="agiter_Phrase14"> durablement</string>
+    <string name="agiter_Mot04">SECOUER     </string>
+    <string name="agiter_Mot14">SECOURIR    </string>
+    <string name="agiter_Mot24">S'ECROULER  </string>
 
 
 
-
-       <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue...</string>
+    <string name="intro_agiter">Je dois être plus dynamique. Il faut que je me secoue...</string>
 
     <string name="intro_eclairer">Tout semble opaque. Je cherche un éclairage pour donner du sens.</string>
 

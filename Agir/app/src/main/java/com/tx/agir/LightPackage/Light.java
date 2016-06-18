@@ -3,6 +3,7 @@ package com.tx.agir.LightPackage;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ConfigurationInfo;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -11,12 +12,16 @@ import android.hardware.SensorManager;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Surface;
 import android.view.WindowManager;
 
+import com.tx.agir.IntroEclairer;
+import com.tx.agir.OutroEclairer;
 import com.tx.agir.R;
 
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -24,7 +29,7 @@ import java.util.TimerTask;
  * Created by Rebecca on 13/04/2016.
  */
 public class Light extends Activity implements SensorEventListener {
-
+    ArrayList<String> myPhrase = new ArrayList<String>();
 
     private GLSurfaceView mGLSurfaceView;
 
@@ -168,9 +173,28 @@ private DictioLight Dicoo;
     public void updateLightVec(){
 
         //Log.w(" AGIIIR", " Updatedvector" + gyroOrientation[0] + " // " + gyroOrientation[1] + " // " + gyroOrientation[2]);
+        myPhrase = null;
+
+        myPhrase = this.RenderEclairer.setGyro(gyroOrientation);
+
+        if(myPhrase != null){
+            try {
+                Thread.sleep(1000);
+                String myStringPhrase[] = new String[myPhrase.size()];
+                Intent eclairer_intent = new Intent(Light.this, OutroEclairer.class);
+                for (int i =0; i < myPhrase.size(); i++){
+                myStringPhrase[i] = myPhrase.get(i);
+                }
+                eclairer_intent.putExtra("phraseOutro",myStringPhrase);
+                startActivity(eclairer_intent);
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
 
 
-        this.RenderEclairer.setGyro(gyroOrientation);
     }
 
 

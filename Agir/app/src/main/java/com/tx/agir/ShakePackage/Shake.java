@@ -148,9 +148,6 @@ public class Shake extends Activity {
 
 
 
-
-
-
                 int n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
                 int n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
 
@@ -170,8 +167,6 @@ public class Shake extends Activity {
 
                 final float n1Inv = n;
                 final float n1Inv2 = n1;
-
-
 
 
 
@@ -288,16 +283,16 @@ public class Shake extends Activity {
                 anim.setFillEnabled(true);
                 anim.setFillAfter(true);
                 anim.setDuration(3000/(int)(totalMovement/4));
-
-                fade_out.setStartOffset(anim.getDuration()/2);
-
+                fade_out.setDuration(300);
+                fade_out.setStartOffset(anim.getDuration()-300);
+                fade_in.setDuration(500);
 
 
                 final AnimationSet s = new AnimationSet(false);
 
                 s.addAnimation(anim);
                // s.addAnimation(animRotate);
-                s.addAnimation(fade_out);
+              //  s.addAnimation(fade_out);
                 Ae.startAnimation(s);
                 s.setFillEnabled(true);
                 s.setFillAfter(true);
@@ -322,7 +317,7 @@ public class Shake extends Activity {
                         //sBIS.addAnimation(Invanim);
                         Ae.setText(mot2.substring(0,1));
                         Ae.setVisibility(View.VISIBLE);
-                        Ae.startAnimation(fade_in);
+                     //   Ae.startAnimation(fade_in);
 
 
                     }
@@ -352,9 +347,15 @@ public class Shake extends Activity {
                         //sBIS.addAnimation(Invanim);
                         Ae.setText(mot2.substring(0,1));
                         Ae.setVisibility(View.VISIBLE);
-                        Ae.startAnimation(fade_in);
+                     //   Ae.startAnimation(fade_in);
+
+                        TranslateAnimation Invanim = new TranslateAnimation( nInv, 0 , nInv2, 0);
 
 
+                        Invanim.setFillAfter( true );
+                        Invanim.setFillEnabled( true );
+                        Invanim.setDuration(3000);
+                        Ae.startAnimation(Invanim);
                     }
 
                     @Override
@@ -369,7 +370,7 @@ public class Shake extends Activity {
 
                 sGe.addAnimation(anim1);
               //  sGe.addAnimation(animRotate);
-                sGe.addAnimation(fade_out);
+              //  sGe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sGe.setInterpolator(new DecelerateInterpolator());
@@ -393,7 +394,14 @@ public class Shake extends Activity {
 
                         Ge.setText(mot2.substring(1,2));
                         Ge.setVisibility(View.VISIBLE);
-                        Ge.startAnimation(fade_in);
+                    //    Ge.startAnimation(fade_in);
+
+                        final TranslateAnimation Invanim1 = new TranslateAnimation(n1Inv, 0 , n1Inv2, 0);
+                        Invanim1.setDuration(3000);
+                        Invanim1.setFillAfter( true );
+                        Ge.startAnimation(Invanim1);
+
+
                     }
 
                     @Override
@@ -411,7 +419,7 @@ public class Shake extends Activity {
                 sIe.addAnimation(anim2);
               //  sIe.addAnimation(animRotate);
 
-                sIe.addAnimation(fade_out);
+             //   sIe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
 
@@ -442,25 +450,13 @@ public class Shake extends Activity {
 
                         Ie.setText(mot2.substring(2,3));
                         Ie.setVisibility(View.VISIBLE);
-                        Ie.startAnimation(fade_in);
+                   //     Ie.startAnimation(fade_in);
 
-                        sIBIS.setAnimationListener(new Animation.AnimationListener() {
+                        final TranslateAnimation Invanim2 = new TranslateAnimation( n2Inv, 0 , n2Inv2, 0);
+                        Invanim2.setDuration(3000);
+                        Invanim2.setFillAfter( true );
+                        Ie.startAnimation(Invanim2);
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-
-
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
                     }
 
                     @Override
@@ -469,56 +465,6 @@ public class Shake extends Activity {
                     }
                 });
 
-
-
-                sIe.setInterpolator(new DecelerateInterpolator());
-
-                sIe.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-                        Ie.setVisibility(View.GONE);
-
-                        final AnimationSet sIBIS = new AnimationSet(false);
-                        sIBIS.setFillEnabled(true);
-                        sIBIS.setFillAfter(true);
-
-
-                        sIBIS.addAnimation(fade_in);
-                        //sIBIS.addAnimation(Invanim2);
-
-                        Ie.setText(mot2.substring(2,3));
-                        Ie.setVisibility(View.VISIBLE);
-                        Ie.startAnimation(fade_in);
-
-                        sIBIS.setAnimationListener(new Animation.AnimationListener() {
-
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-
-
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
 
                 Ie.startAnimation(sIe);
 
@@ -529,7 +475,7 @@ public class Shake extends Activity {
                 sTe.addAnimation(anim3);
               //  sTe.addAnimation(animRotate);
 
-                sTe.addAnimation(fade_out);
+              //  sTe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sTe.setInterpolator(new DecelerateInterpolator());
@@ -552,27 +498,15 @@ public class Shake extends Activity {
 
                         Te.setText(mot2.substring(3,4));
                         Te.setVisibility(View.VISIBLE);
-                        Te.startAnimation(fade_in);
+                    //    Te.startAnimation(fade_in);
 
                         //Te.startAnimation(sTBIS);
 
-                        sTBIS.setAnimationListener(new Animation.AnimationListener() {
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                Te.setVisibility(View.VISIBLE);
-
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
+                        final TranslateAnimation Invanim3 = new TranslateAnimation(n3Inv, 0 , n3Inv2, 0);
+                        Invanim3.setDuration(3000);
+                        Invanim3.setFillAfter( true );
+                        Te.startAnimation(Invanim3);
                     }
 
                     @Override
@@ -588,7 +522,7 @@ public class Shake extends Activity {
                 sEe.addAnimation(anim4);
               //  sEe.addAnimation(animRotate);
 
-                sEe.addAnimation(fade_out);
+             //   sEe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sEe.setInterpolator(new DecelerateInterpolator());
@@ -609,30 +543,20 @@ public class Shake extends Activity {
 
 
 
-                        sEBIS.addAnimation(fade_in);
+                 //       sEBIS.addAnimation(fade_in);
                  //       sEBIS.addAnimation(Invanim4);
 
                         Ee.setText(mot2.substring(4,5));
                         Ee.setVisibility(View.VISIBLE);
 
-                        Ee.startAnimation(fade_in);
-                        sEBIS.setAnimationListener(new Animation.AnimationListener() {
+                 //       Ee.startAnimation(fade_in);
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                Ee.setVisibility(View.VISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
 
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
+                        final TranslateAnimation Invanim4 = new TranslateAnimation(n4Inv, 0 , n4Inv2, 0);
+                        Invanim4.setDuration(3000);
+                        Invanim4.setFillAfter( true );
+                        Ee.startAnimation(Invanim4);
                     }
 
                     @Override
@@ -651,7 +575,7 @@ public class Shake extends Activity {
                 sRe.setInterpolator(new DecelerateInterpolator());
 
              //   sRe.addAnimation(animRotate);
-                sRe.addAnimation(fade_out);
+          //      sRe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
 
@@ -676,25 +600,14 @@ public class Shake extends Activity {
 
                         Re.setText(mot2.substring(5,6));
                         Re.setVisibility(View.VISIBLE);
-                        Re.startAnimation(fade_in);
-                        sRBIS.setAnimationListener(new Animation.AnimationListener() {
-
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                Re.setVisibility(View.VISIBLE);
-
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
-
-                            }
+              //          Re.startAnimation(fade_in);
 
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
+                        final TranslateAnimation Invanim5 = new TranslateAnimation(n5Inv, 0 , n5Inv2, 0);
+                        Invanim5.setDuration(3000);
+                        Invanim5.setFillAfter( true );
+                        Re.startAnimation(Invanim5);
 
-                            }
-                        });
                     }
 
                     @Override
@@ -713,7 +626,7 @@ public class Shake extends Activity {
                 sE1e.setInterpolator(new DecelerateInterpolator());
 
               //  sE1e.addAnimation(animRotate);
-                sE1e.addAnimation(fade_out);
+        //        sE1e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
 
@@ -737,25 +650,16 @@ public class Shake extends Activity {
                         E1.setText(mot2.substring(6,7));
                         E1.setVisibility(View.VISIBLE);
 
-                        E1.startAnimation(fade_in);
+              //          E1.startAnimation(fade_in);
 
-                        sE1BIS.setAnimationListener(new Animation.AnimationListener() {
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                E1.setVisibility(View.VISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
 
-                            }
+                        final TranslateAnimation Invanim6 = new TranslateAnimation(n6Inv, 0 , n6Inv2, 0);
+                        Invanim6.setDuration(3000);
+                        Invanim6.setFillAfter( true );
+                        E1.startAnimation(Invanim6);
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
                     }
 
                     @Override
@@ -772,7 +676,7 @@ public class Shake extends Activity {
                 sE2e.addAnimation(anim7);
 
               //  sE2e.addAnimation(animRotate);
-                sE2e.addAnimation(fade_out);
+         //       sE2e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE2e.setInterpolator(new DecelerateInterpolator());
@@ -799,25 +703,15 @@ public class Shake extends Activity {
                         E2.setText(mot2.substring(7,8));
                         E2.setVisibility(View.VISIBLE);
 
-                        E2.startAnimation(fade_in);
+              //          E2.startAnimation(fade_in);
 
-                        sE2BIS.setAnimationListener(new Animation.AnimationListener() {
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                E2.setVisibility(View.INVISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
+                        final TranslateAnimation Invanim7 = new TranslateAnimation(n7Inv, 0 , n7Inv2, 0);
+                        Invanim7.setDuration(3000);
+                        Invanim7.setFillAfter( true );
+                        E2.startAnimation(Invanim7);
 
-                            }
-
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
                     }
 
                     @Override
@@ -835,7 +729,7 @@ public class Shake extends Activity {
                 sE3e.addAnimation(anim8);
 
              //   sE3e.addAnimation(animRotate);
-                sE3e.addAnimation(fade_out);
+          //      sE3e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE3e.setInterpolator(new DecelerateInterpolator());
@@ -854,31 +748,22 @@ public class Shake extends Activity {
                         sE3BIS.setFillEnabled(true);
                         sE3BIS.setFillAfter(true);
 
-                        sE3BIS.addAnimation(fade_in);
+             //           sE3BIS.addAnimation(fade_in);
                     //    sE3BIS.addAnimation(Invanim8);
 
                         E3.setText(mot2.substring(8,9));
                         E3.setVisibility(View.VISIBLE);
 
-                        E3.startAnimation(fade_in);
+                  //      E3.startAnimation(fade_in);
 
-                        sE3BIS.setAnimationListener(new Animation.AnimationListener() {
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                E3.setVisibility(View.VISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
+                        final TranslateAnimation Invanim8 = new TranslateAnimation(n8Inv, 0 , n8Inv2, 0);
+                        Invanim8.setDuration(3000);
+                        Invanim8.setFillAfter( true );
+                        E3.startAnimation(Invanim8);
 
-                            }
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
-
-                            }
-                        });
                     }
 
                     @Override
@@ -895,7 +780,7 @@ public class Shake extends Activity {
                 sE4e.addAnimation(anim9);
 
              //   sE4e.addAnimation(animRotate);
-                sE4e.addAnimation(fade_out);
+            //    sE4e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE4e.setInterpolator(new DecelerateInterpolator());
@@ -916,30 +801,28 @@ public class Shake extends Activity {
 
 
 
-                        sE4BIS.addAnimation(fade_in);
+               //         sE4BIS.addAnimation(fade_in);
                        // sE4BIS.addAnimation(Invanim9);
 
                         E4.setText(mot2.substring(9,10));
                         E4.setVisibility(View.VISIBLE);
 
-                        E4.startAnimation(fade_in);
-                        sE4BIS.setAnimationListener(new Animation.AnimationListener() {
+                //        E4.startAnimation(fade_in);
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                E4.setVisibility(View.VISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
 
-                            }
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
 
-                            }
-                        });
+
+                        final TranslateAnimation Invanim9 = new TranslateAnimation(n9Inv, 0 , n9Inv2, 0);
+                        Invanim9.setDuration(3000);
+                        Invanim9.setFillAfter( true );
+                        E4.startAnimation(Invanim9);
+
+
+
+
+
                     }
 
                     @Override
@@ -955,7 +838,7 @@ public class Shake extends Activity {
                 sE5e.addAnimation(anim10);
 
             //    sE5e.addAnimation(animRotate);
-                sE5e.addAnimation(fade_out);
+        //        sE5e.addAnimation(fade_out);
                 sE5e.setInterpolator(new DecelerateInterpolator());
 
                 sE5e.setAnimationListener(new Animation.AnimationListener() {
@@ -979,24 +862,18 @@ public class Shake extends Activity {
                         E5.setText(mot2.substring(10,11));
                         E5.setVisibility(View.VISIBLE);
 
-                        E5.startAnimation(fade_in);
-                        sE5BIS.setAnimationListener(new Animation.AnimationListener() {
+               //         E5.startAnimation(fade_in);
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                E5.setVisibility(View.VISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
 
-                            }
+                        final TranslateAnimation Invanim10 = new TranslateAnimation(n10Inv, 0 , n10Inv2, 0);
+                        Invanim10.setDuration(3000);
+                        Invanim10.setFillAfter( true );
+                        E5.startAnimation(Invanim10);
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
 
-                            }
-                        });
+
+
                     }
 
                     @Override
@@ -1013,7 +890,7 @@ public class Shake extends Activity {
                 sE6e.addAnimation(anim11);
 
              //   sE6e.addAnimation(animRotate);
-                sE6e.addAnimation(fade_out);
+          //      sE6e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE6e.setInterpolator(new DecelerateInterpolator());
@@ -1034,7 +911,7 @@ public class Shake extends Activity {
 
 
 
-                        sE6BIS.addAnimation(fade_in);
+                   //     sE6BIS.addAnimation(fade_in);
 
                       //  sE6BIS.addAnimation(Invanim11);
 
@@ -1042,24 +919,19 @@ public class Shake extends Activity {
 
                         E6.setVisibility(View.VISIBLE);
 
-                        E6.startAnimation(fade_in);
-                        sE6BIS.setAnimationListener(new Animation.AnimationListener() {
+                    //    E6.startAnimation(fade_in);
 
-                            @Override
-                            public void onAnimationStart(Animation animation) {
-                                E6.setVisibility(View.VISIBLE);
 
-                            }
-                            @Override
-                            public void onAnimationRepeat(Animation animation) {
 
-                            }
 
-                            @Override
-                            public void onAnimationEnd(Animation animation) {
+                        final TranslateAnimation Invanim11 = new TranslateAnimation(n11Inv, 0 , n11Inv2, 0);
+                        Invanim11.setDuration(3000);
+                        Invanim11.setFillAfter( true );
 
-                            }
-                        });
+                        E6.startAnimation(Invanim11);
+
+
+
                     }
 
                     @Override
@@ -1071,100 +943,6 @@ public class Shake extends Activity {
 
 
 
-
-
-
-
-
-
-                fade_in.setAnimationListener(new Animation.AnimationListener() {
-
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-
-                    }
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-
-                        TranslateAnimation Invanim = new TranslateAnimation( nInv, 0 , nInv2, 0);
-
-
-                        Invanim.setFillAfter( true );
-                        Invanim.setFillEnabled( true );
-                        Invanim.setDuration(3000);
-
-                        final TranslateAnimation Invanim1 = new TranslateAnimation(n1Inv, 0 , n1Inv2, 0);
-                        Invanim1.setDuration(3000);
-                        Invanim1.setFillAfter( true );
-
-
-                        final TranslateAnimation Invanim2 = new TranslateAnimation( n2Inv, 0 , n2Inv2, 0);
-                        Invanim2.setDuration(3000);
-                        Invanim2.setFillAfter( true );
-
-
-                        final TranslateAnimation Invanim3 = new TranslateAnimation(n3Inv, 0 , n3Inv2, 0);
-                        Invanim3.setDuration(3000);
-                        Invanim3.setFillAfter( true );
-
-
-                        final TranslateAnimation Invanim4 = new TranslateAnimation(n4Inv, 0 , n4Inv2, 0);
-                        Invanim4.setDuration(3000);
-                        Invanim4.setFillAfter( true );
-
-                        final TranslateAnimation Invanim5 = new TranslateAnimation(n5Inv, 0 , n5Inv2, 0);
-                        Invanim5.setDuration(3000);
-
-
-                        final TranslateAnimation Invanim6 = new TranslateAnimation(n6Inv, 0 , n6Inv2, 0);
-                        Invanim6.setDuration(3000);
-                        Invanim6.setFillAfter( true );
-
-                        final TranslateAnimation Invanim7 = new TranslateAnimation(n7Inv, 0 , n7Inv2, 0);
-                        Invanim7.setDuration(3000);
-                        Invanim7.setFillAfter( true );
-
-
-                        final TranslateAnimation Invanim8 = new TranslateAnimation(n8Inv, 0 , n8Inv2, 0);
-                        Invanim8.setDuration(3000);
-                        Invanim8.setFillAfter( true );
-
-                        final TranslateAnimation Invanim9 = new TranslateAnimation(n9Inv, 0 , n9Inv2, 0);
-                        Invanim9.setDuration(3000);
-                        Invanim9.setFillAfter( true );
-
-
-
-                        final TranslateAnimation Invanim10 = new TranslateAnimation(n10Inv, 0 , n10Inv2, 0);
-                        Invanim10.setDuration(3000);
-                        Invanim10.setFillAfter( true );
-
-
-                        final TranslateAnimation Invanim11 = new TranslateAnimation(n11Inv, 0 , n11Inv2, 0);
-                        Invanim11.setDuration(3000);
-                        Invanim11.setFillAfter( true );
-
-                        Ie.startAnimation(Invanim2);
-                        Ge.startAnimation(Invanim1);
-                        Ae.startAnimation(Invanim);
-                        Te.startAnimation(Invanim3);
-                        Ee.startAnimation(Invanim4);
-                        Re.startAnimation(Invanim5);
-                        E1.startAnimation(Invanim6);
-                        E2.startAnimation(Invanim7);
-                        E3.startAnimation(Invanim8);
-                        E4.startAnimation(Invanim9);
-                        E5.startAnimation(Invanim10);
-                        E6.startAnimation(Invanim11);
-
-                    }
-
-                });
 
                 back = (FloatingActionButton)  findViewById(R.id.back);
                 if(back != null){

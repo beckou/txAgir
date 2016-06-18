@@ -136,7 +136,7 @@ public class Dictio {
         AMauvaisList.add(Bon9);
 
 
-        sparseArray2.put(9,"JE DOIS");
+        sparseArray2.put(9,"JE VEUX");
         sparseArray3.put(9,"DANS CETTE CAGE");
 
         sparseArray1.put(9,"REMUER      ");

@@ -21,6 +21,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import java.lang.Math;
+import java.util.ArrayList;
 
 import com.tx.agir.R;
 import com.tx.agir.common.RawResourceReader;
@@ -34,10 +35,12 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 {	
 	/** Used for debug logs. */
 	private static final String TAG = "LessonFourRenderer";
-	
+	private boolean is_finished = false;
+	private boolean are_finished[] = {false,false,false,false};
+    private ArrayList<String> myFinalePhrase = new ArrayList<String>();
 	private final Context mActivityContext;
 	private final DictioLight dicoo;
-
+    private String[] maPhrase;
 	/**
 	 * Store the model matrix. This matrix is used to move models from object space (where each model can be thought
 	 * of being located at the center of the universe) to world space.
@@ -594,7 +597,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
 
 
-		String[] maPhrase = dicoo.getPhrase();
+		 maPhrase = dicoo.getPhrase();
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 2.8f, -0.9f, -7.0f);
@@ -922,8 +925,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 	}
 
 
-	public void setGyro(float gyro[]){
-        Log.w("PIPIJIJ", " ::" + gyro[0] + " :: " + gyro[1] + " :: " + gyro[2]);
+	public ArrayList<String> setGyro(float gyro[]){
 
 
         this.gyroscope[0] = (float) (gyro[0] * 180/Math.PI);
@@ -932,7 +934,46 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 
         GLES20.glUniform3f(mDirectionHandle, gyroscope[0], gyroscope[1], gyroscope[2]);
 
-        Log.w("PIPIJIJ", " ::" + gyroscope[0] + " :: " + gyroscope[1] + " :: " + gyroscope[2]);
+     //  Log.w("LogMatrice", ""+mLightModelMatrix[12] + " " + mLightModelMatrix[13]);
+if(!are_finished[0]){
+		if(((mLightModelMatrix[12] > 1.0) && 	(mLightModelMatrix[12] < 3.0))&&((mLightModelMatrix[13] > -1.0) && (mLightModelMatrix[13] < -0.2))){
+			Log.w("LogMatrice", "Phrase 1" );
+            myFinalePhrase.add(maPhrase[0]);
+            are_finished[0]= true;
+            if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
+                return myFinalePhrase;
+
+		}}
+        if(!are_finished[1]){
+		if(((mLightModelMatrix[12] >= -1.8) && 	(mLightModelMatrix[12] <= 0.0)) && ((mLightModelMatrix[13] >= 3.8) &&	(mLightModelMatrix[13] <= 4.1))) {
+			Log.w("LogMatrice", "Phrase 2" );
+            myFinalePhrase.add(maPhrase[1]);
+            are_finished[1]= true;
+            if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
+                return myFinalePhrase;
+
+
+        }}
+        if(!are_finished[2]){
+            if(((mLightModelMatrix[12] >= -1.8) && 	(mLightModelMatrix[12] <= 0.0))&& ((mLightModelMatrix[13] <= -3.8) && (mLightModelMatrix[13] >= -4.0))){
+			Log.w("LogMatrice", "Phrase 3" );
+            myFinalePhrase.add(maPhrase[2]);
+            are_finished[2]= true;
+            if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
+                return myFinalePhrase;
+
+		}}
+        if(!are_finished[3]){
+        if((mLightModelMatrix[12] > -3.0 && 	mLightModelMatrix[12] < -1.0)&& (mLightModelMatrix[13] > 0.0 && 	mLightModelMatrix[13] < 0.8)){
+			Log.w("LogMatrice", "Phrase 4" );
+            myFinalePhrase.add(maPhrase[3]);
+            are_finished[3]= true;
+            if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
+                return myFinalePhrase;
+
+		}}
+
+        return null;
 
     }
 
