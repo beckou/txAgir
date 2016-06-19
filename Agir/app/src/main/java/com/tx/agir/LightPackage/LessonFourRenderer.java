@@ -589,8 +589,8 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         //Matrix.rotateM(mLightModelMatrix, 0, angleInDegrees, 0.0f, 1.0f, 0.0f);
         //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[2], 0.0f, 0.3f, 0.0f);
         //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[1], 0.4f, 0.0f, 0.0f);
-        Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1]/10, 0.0f);
-		Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/10,  0.0f,0.0f );
+        Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1]/9, 0.0f);
+		Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/9,  0.0f,0.0f );
 
         Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 1.001f);
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
@@ -689,7 +689,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mDirectionHandle, gyroscope[0], gyroscope[1], gyroscope[2]);
 
         // Draw the cube.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 18);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
 	}
     private void drawCube2()
     {

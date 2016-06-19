@@ -62,8 +62,8 @@ public class Shake extends Activity {
         final Random rand = new Random();
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
 
-        final int choix = rand.nextInt(11);
-        dico = new Dictio();
+        final int choix = rand.nextInt(5);
+        dico = new Dictio(this.getApplicationContext());
         final String mot = dico.getMot1(choix);
         final String motP1 = dico.getMot3(choix);
         final String motP2 = dico.getMot4(choix);

@@ -1,6 +1,11 @@
 package com.tx.agir.ShakePackage;
 
 
+import android.content.Context;
+import android.util.Log;
+
+import com.tx.agir.R;
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,67 +20,67 @@ public class Dictio {
     android.util.SparseArray<String> sparseArray2 = new android.util.SparseArray<String>(30);
     android.util.SparseArray<String> sparseArray3 = new android.util.SparseArray<String>(30);
 
-    public Dictio(){
+    public Dictio(Context myContext){
 
-        sparseArray1.put(0,"D'AGITER  LE");
-        sparseArray2.put(0,"JE NE PEUX CESSER");
-        sparseArray3.put(0,"MONDE AUTOUR DE MOI");
 
-        String[] Mauvais1 = {"de TAIRE le "};
+        sparseArray1.put(0, completeMot(myContext.getResources().getString(R.string.agiter_Mot00)));
+        sparseArray2.put(0,myContext.getResources().getString(R.string.agiter_Phrase00));
+        sparseArray3.put(0,myContext.getResources().getString(R.string.agiter_Phrase10));
 
-        String[] Bon1 =     {"de REAGIR au"};
+        String[] Mauvais1 = {completeMot(myContext.getResources().getString(R.string.agiter_Mot20))};
 
+        String[] Bon1 =     {completeMot(myContext.getResources().getString(R.string.agiter_Mot10))};
 
 
 
         ABonList.add(Mauvais1);
         AMauvaisList.add(Bon1);
 
-        sparseArray2.put(1,"J'AIME");
-        sparseArray3.put(1,"MONDE AUTOUR DE MOI");
+        sparseArray2.put(1,myContext.getResources().getString(R.string.agiter_Phrase01));
+        sparseArray3.put(1,myContext.getResources().getString(R.string.agiter_Phrase11));
 
-        sparseArray1.put(1,"SECOUER     ");
+        sparseArray1.put(1,completeMot(myContext.getResources().getString(R.string.agiter_Mot01)));
 
-        String[] Mauvais2 = {"COURSEE     ","CREUSE      ","ECROUES     "};
+        String[] Mauvais2 = {completeMot(myContext.getResources().getString(R.string.agiter_Mot21))};
 
-        String[] Bon2 =     {"COEUR       ","CESURE      ","SUCREE      "};
+        String[] Bon2 =     {completeMot(myContext.getResources().getString(R.string.agiter_Mot11))};
 
         ABonList.add(Mauvais2);
         AMauvaisList.add(Bon2);
 
 
-        sparseArray2.put(2,"J'AIME");
-        sparseArray3.put(2,"MONDE AUTOUR DE MOI");
-        sparseArray1.put(2,"ANIMER      ");
+        sparseArray2.put(2, myContext.getResources().getString(R.string.agiter_Phrase02));
+        sparseArray3.put(2,(myContext.getResources().getString(R.string.agiter_Phrase12)));
+        sparseArray1.put(2,completeMot(myContext.getResources().getString(R.string.agiter_Mot02)));
 
-        String[] Mauvais3 = {"RANIME      ","NIERA       "};
+        String[] Mauvais3 = {completeMot(myContext.getResources().getString(R.string.agiter_Mot22))};
 
-        String[] Bon3 =     {"MARIE       ","AIMER       ","MAIN        "};
+        String[] Bon3 =     {completeMot(myContext.getResources().getString(R.string.agiter_Mot11))};
 
         ABonList.add(Mauvais3);
         AMauvaisList.add(Bon3);
 
 
-        sparseArray2.put(3,"J'AI");
-        sparseArray3.put(3,"DANS CE MONDE EPHEMERE");
+        sparseArray2.put(3,(myContext.getResources().getString(R.string.agiter_Phrase03)));
+        sparseArray3.put(3,(myContext.getResources().getString(R.string.agiter_Phrase13)));
 
-        sparseArray1.put(3,  "dû m'AFFOLER");
+        sparseArray1.put(3,  completeMot(myContext.getResources().getString(R.string.agiter_Mot03)));
 
-        String[] Mauvais4 = {"RALE        "};
+        String[] Mauvais4 = {completeMot(myContext.getResources().getString(R.string.agiter_Mot23))};
 
-        String[] Bon4 =     {"un ROLE     "};
+        String[] Bon4 =     {completeMot(myContext.getResources().getString(R.string.agiter_Mot13))};
 
         ABonList.add(Mauvais4);
         AMauvaisList.add(Bon4);
 
-        sparseArray2.put(4,"J'AIME");
-        sparseArray3.put(4,"MONDE AUTOUR DE MOI");
+        sparseArray2.put(4,(myContext.getResources().getString(R.string.agiter_Phrase04)));
+        sparseArray3.put(4,(myContext.getResources().getString(R.string.agiter_Phrase14)));
 
-        sparseArray1.put(4,"TOURBILLONER");
+        sparseArray1.put(4,completeMot(myContext.getResources().getString(R.string.agiter_Mot04)));
 
-        String[] Mauvais5 = {"ROUILLERONT ","OUBLIERONT  ","BRULERONT   "};
+        String[] Mauvais5 = {completeMot(myContext.getResources().getString(R.string.agiter_Mot24))};
 
-        String[] Bon5 =     {"EBLOUIRONT  ","BRILLENT    "};
+        String[] Bon5 =     {completeMot(myContext.getResources().getString(R.string.agiter_Mot14))};
 
 
         ABonList.add(Mauvais5);
@@ -205,4 +210,23 @@ public class Dictio {
             return this.AMauvaisList.get(ligne)[randN];
         }
     }
+
+public String completeMot(String mot){
+    StringBuilder myString = new StringBuilder("            ");
+    Log.w("s1", " le i :"+ myString.toString().length());
+    Log.w("s2", " le i :"+ mot.length());
+
+    for (int i = 0; i < mot.length(); i++){
+        Log.w("i", " le i :"+ i);
+
+        myString.setCharAt(i,mot.charAt(i));
+
+    }
+
+
+    return myString.toString();
+}
+
+
+
 }

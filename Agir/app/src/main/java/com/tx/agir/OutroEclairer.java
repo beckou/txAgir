@@ -32,7 +32,7 @@ public class OutroEclairer extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent i = new Intent(OutroEclairer.this, Light.class);
+                Intent i = new Intent(OutroEclairer.this, MainActivity.class);
                 startActivity(i);
                 OutroEclairer.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
