@@ -211,31 +211,60 @@
             android:textSize="30dp"
             android:textIsSelectable="true" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Je ne peux cesser"
-            android:id="@+id/textView14"
-            android:textColor="#fff"
-            android:textSize="25dp"
-            android:layout_marginTop="74dp"
-            android:layout_gravity="center"
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_alignParentTop="true"
-            android:layout_alignRight="@+id/textView15"
-            android:layout_alignEnd="@+id/textView13" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:weightSum="1">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text=" monde autour de moi"
-            android:id="@+id/textView15"
-            android:textColor="#fff"
-            android:textSize="25dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="87dp" />
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="275dp"
+                android:layout_gravity="center"
+                android:layout_weight="1.21">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Je ne peux cesser"
+                    android:id="@+id/textView14"
+                    android:textColor="#fff"
+                    android:textSize="25dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignRight="@+id/textView15"
+                    android:layout_alignEnd="@+id/textView13"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="100dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:layout_weight="1.96">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text=" monde autour de moi"
+                    android:id="@+id/textView15"
+                    android:textColor="#fff"
+                    android:textSize="25dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="50dp"
+                    android:layout_marginTop="100dp"
+                    android:layout_marginLeft="90dp" />
+            </LinearLayout>
+        </LinearLayout>
+
     </RelativeLayout>
 
 </LinearLayout>

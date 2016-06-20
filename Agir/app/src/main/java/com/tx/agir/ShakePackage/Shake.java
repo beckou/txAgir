@@ -39,7 +39,7 @@ public class Shake extends Activity {
     private Animation animRotate;
     private Animation animInvRotate;
     private Dictio dico;
-
+    private boolean isShaken =false;
     FloatingActionButton back;
 
 
@@ -142,139 +142,136 @@ public class Shake extends Activity {
 
 
             public void onShake(float totalMovement) throws InterruptedException {
-                Toast.makeText(getApplicationContext(), "Shake!"+ totalMovement, Toast.LENGTH_SHORT).show();
-                final String mot2 = dico.getMot2(choix,totalMovement);
+                if (!isShaken){
+                    isShaken = true;
+                    Toast.makeText(getApplicationContext(), "Shake!" + totalMovement, Toast.LENGTH_SHORT).show();
+                final String mot2 = dico.getMot2(choix, totalMovement);
 
 
+                int n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                int n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-
-                int n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                int n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-
-                final TranslateAnimation anim = new TranslateAnimation( 0, n , 0, n1);
+                final TranslateAnimation anim = new TranslateAnimation(0, n, 0, n1);
 
                 final float nInv = n;
                 final float nInv2 = n1;
-                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
 
-                TranslateAnimation anim1 = new TranslateAnimation( 0, n , 0, n1);
-                anim1.setFillAfter( true );
-                anim1.setFillEnabled( true );
+                TranslateAnimation anim1 = new TranslateAnimation(0, n, 0, n1);
+                anim1.setFillAfter(true);
+                anim1.setFillEnabled(true);
 
-                anim1.setDuration(3000/(int)(totalMovement/4));
+                anim1.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n1Inv = n;
                 final float n1Inv2 = n1;
 
 
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-
-                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-
-                TranslateAnimation anim2 = new TranslateAnimation( 0, n , 0, n1);
-                anim2.setDuration(3000/(int)(totalMovement/4));
-                anim2.setFillAfter( false );
+                TranslateAnimation anim2 = new TranslateAnimation(0, n, 0, n1);
+                anim2.setDuration(3000 / (int) (totalMovement / 4));
+                anim2.setFillAfter(false);
 
 
                 final float n2Inv = n;
                 final float n2Inv2 = n1;
 
 
-                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim3 = new TranslateAnimation( 0, n , 0, n1);
-                anim3.setDuration(3000/(int)(totalMovement/4));
-                anim3.setFillAfter( false );
+                TranslateAnimation anim3 = new TranslateAnimation(0, n, 0, n1);
+                anim3.setDuration(3000 / (int) (totalMovement / 4));
+                anim3.setFillAfter(false);
 
                 final float n3Inv = n;
                 final float n3Inv2 = n1;
 
-                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim4 = new TranslateAnimation( 0, n , 0, n1);
-                anim4.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim4 = new TranslateAnimation(0, n, 0, n1);
+                anim4.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n4Inv = n;
                 final float n4Inv2 = n1;
 
 
-                 n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                 n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim5 = new TranslateAnimation( 0, n , 0, n1);
-                anim5.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim5 = new TranslateAnimation(0, n, 0, n1);
+                anim5.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n5Inv = n;
                 final float n5Inv2 = n1;
 
-                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim6 = new TranslateAnimation( 0, n , 0, n1);
-                anim6.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim6 = new TranslateAnimation(0, n, 0, n1);
+                anim6.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n6Inv = n;
                 final float n6Inv2 = n1;
 
-                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim7 = new TranslateAnimation( 0, n , 0, n1);
-                anim7.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim7 = new TranslateAnimation(0, n, 0, n1);
+                anim7.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n7Inv = n;
                 final float n7Inv2 = n1;
 
-                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim8 = new TranslateAnimation( 0, n , 0, n1);
-                anim8.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim8 = new TranslateAnimation(0, n, 0, n1);
+                anim8.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n8Inv = n;
                 final float n8Inv2 = n1;
 
-                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim9 = new TranslateAnimation( 0, n , 0, n1);
-                anim9.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim9 = new TranslateAnimation(0, n, 0, n1);
+                anim9.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n9Inv = n;
                 final float n9Inv2 = n1;
 
-                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim10 = new TranslateAnimation( 0, n , 0, n1);
-                anim10.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim10 = new TranslateAnimation(0, n, 0, n1);
+                anim10.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n10Inv = n;
                 final float n10Inv2 = n1;
 
 
-                n = rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
-                n1 =  rand.nextInt((int)totalMovement/5*300)- ((int)totalMovement/5*300)/2;
+                n = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
+                n1 = rand.nextInt((int) totalMovement / 5 * 300) - ((int) totalMovement / 5 * 300) / 2;
 
-                TranslateAnimation anim11 = new TranslateAnimation( 0, n , 0, n1);
-                anim11.setDuration(3000/(int)(totalMovement/4));
+                TranslateAnimation anim11 = new TranslateAnimation(0, n, 0, n1);
+                anim11.setDuration(3000 / (int) (totalMovement / 4));
 
                 final float n11Inv = n;
                 final float n11Inv2 = n1;
 
 
-
-                animRotate.setStartOffset(anim.getDuration()/4);
+                animRotate.setStartOffset(anim.getDuration() / 4);
                 animRotate.setFillEnabled(true);
                 animRotate.setFillAfter(true);
                 animRotate.setDuration((long) 3000);
 
-                animInvRotate.setStartOffset(anim.getDuration()/2);
+                animInvRotate.setStartOffset(anim.getDuration() / 2);
                 animInvRotate.setFillEnabled(true);
                 animInvRotate.setFillAfter(true);
                 animInvRotate.setDuration((long) 1000);
@@ -282,17 +279,17 @@ public class Shake extends Activity {
 
                 anim.setFillEnabled(true);
                 anim.setFillAfter(true);
-                anim.setDuration(3000/(int)(totalMovement/4));
+                anim.setDuration(3000 / (int) (totalMovement / 4));
                 fade_out.setDuration(300);
-                fade_out.setStartOffset(anim.getDuration()-300);
+                fade_out.setStartOffset(anim.getDuration() - 300);
                 fade_in.setDuration(500);
 
 
                 final AnimationSet s = new AnimationSet(false);
 
                 s.addAnimation(anim);
-               // s.addAnimation(animRotate);
-              //  s.addAnimation(fade_out);
+                // s.addAnimation(animRotate);
+                //  s.addAnimation(fade_out);
                 Ae.startAnimation(s);
                 s.setFillEnabled(true);
                 s.setFillAfter(true);
@@ -315,9 +312,9 @@ public class Shake extends Activity {
                         sBIS.addAnimation(fade_in);
 
                         //sBIS.addAnimation(Invanim);
-                        Ae.setText(mot2.substring(0,1));
+                        Ae.setText(mot2.substring(0, 1));
                         Ae.setVisibility(View.VISIBLE);
-                     //   Ae.startAnimation(fade_in);
+                        //   Ae.startAnimation(fade_in);
 
 
                     }
@@ -345,17 +342,18 @@ public class Shake extends Activity {
                         sBIS.addAnimation(fade_in);
 
                         //sBIS.addAnimation(Invanim);
-                        Ae.setText(mot2.substring(0,1));
+                        Ae.setText(mot2.substring(0, 1));
                         Ae.setVisibility(View.VISIBLE);
-                     //   Ae.startAnimation(fade_in);
+                        //   Ae.startAnimation(fade_in);
 
-                        TranslateAnimation Invanim = new TranslateAnimation( nInv, 0 , nInv2, 0);
+                        TranslateAnimation Invanim = new TranslateAnimation(nInv, 0, nInv2, 0);
 
 
-                        Invanim.setFillAfter( true );
-                        Invanim.setFillEnabled( true );
+                        Invanim.setFillAfter(true);
+                        Invanim.setFillEnabled(true);
                         Invanim.setDuration(3000);
                         Ae.startAnimation(Invanim);
+                        isShaken = false;
                     }
 
                     @Override
@@ -369,8 +367,8 @@ public class Shake extends Activity {
                 sGe.setFillAfter(true);
 
                 sGe.addAnimation(anim1);
-              //  sGe.addAnimation(animRotate);
-              //  sGe.addAnimation(fade_out);
+                //  sGe.addAnimation(animRotate);
+                //  sGe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sGe.setInterpolator(new DecelerateInterpolator());
@@ -390,15 +388,15 @@ public class Shake extends Activity {
 
 
                         sGBIS.addAnimation(fade_in);
-                       // sGBIS.addAnimation(Invanim1);
+                        // sGBIS.addAnimation(Invanim1);
 
-                        Ge.setText(mot2.substring(1,2));
+                        Ge.setText(mot2.substring(1, 2));
                         Ge.setVisibility(View.VISIBLE);
-                    //    Ge.startAnimation(fade_in);
+                        //    Ge.startAnimation(fade_in);
 
-                        final TranslateAnimation Invanim1 = new TranslateAnimation(n1Inv, 0 , n1Inv2, 0);
+                        final TranslateAnimation Invanim1 = new TranslateAnimation(n1Inv, 0, n1Inv2, 0);
                         Invanim1.setDuration(3000);
-                        Invanim1.setFillAfter( true );
+                        Invanim1.setFillAfter(true);
                         Ge.startAnimation(Invanim1);
 
 
@@ -417,15 +415,14 @@ public class Shake extends Activity {
                 sIe.setFillAfter(true);
 
                 sIe.addAnimation(anim2);
-              //  sIe.addAnimation(animRotate);
+                //  sIe.addAnimation(animRotate);
 
-             //   sIe.addAnimation(fade_out);
+                //   sIe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
 
 //                sIe.addAnimation(fade_in);
-            //                   sIe.addAnimation(Invanim);
-
+                //                   sIe.addAnimation(Invanim);
 
 
                 sIe.setInterpolator(new DecelerateInterpolator());
@@ -448,13 +445,13 @@ public class Shake extends Activity {
                         sIBIS.addAnimation(fade_in);
                         //sIBIS.addAnimation(Invanim2);
 
-                        Ie.setText(mot2.substring(2,3));
+                        Ie.setText(mot2.substring(2, 3));
                         Ie.setVisibility(View.VISIBLE);
-                   //     Ie.startAnimation(fade_in);
+                        //     Ie.startAnimation(fade_in);
 
-                        final TranslateAnimation Invanim2 = new TranslateAnimation( n2Inv, 0 , n2Inv2, 0);
+                        final TranslateAnimation Invanim2 = new TranslateAnimation(n2Inv, 0, n2Inv2, 0);
                         Invanim2.setDuration(3000);
-                        Invanim2.setFillAfter( true );
+                        Invanim2.setFillAfter(true);
                         Ie.startAnimation(Invanim2);
 
                     }
@@ -473,9 +470,9 @@ public class Shake extends Activity {
                 sTe.setFillAfter(true);
 
                 sTe.addAnimation(anim3);
-              //  sTe.addAnimation(animRotate);
+                //  sTe.addAnimation(animRotate);
 
-              //  sTe.addAnimation(fade_out);
+                //  sTe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sTe.setInterpolator(new DecelerateInterpolator());
@@ -494,18 +491,18 @@ public class Shake extends Activity {
                         sTBIS.setFillAfter(true);
 
                         sTBIS.addAnimation(fade_in);
-                     //   sTBIS.addAnimation(Invanim3);
+                        //   sTBIS.addAnimation(Invanim3);
 
-                        Te.setText(mot2.substring(3,4));
+                        Te.setText(mot2.substring(3, 4));
                         Te.setVisibility(View.VISIBLE);
-                    //    Te.startAnimation(fade_in);
+                        //    Te.startAnimation(fade_in);
 
                         //Te.startAnimation(sTBIS);
 
 
-                        final TranslateAnimation Invanim3 = new TranslateAnimation(n3Inv, 0 , n3Inv2, 0);
+                        final TranslateAnimation Invanim3 = new TranslateAnimation(n3Inv, 0, n3Inv2, 0);
                         Invanim3.setDuration(3000);
-                        Invanim3.setFillAfter( true );
+                        Invanim3.setFillAfter(true);
                         Te.startAnimation(Invanim3);
                     }
 
@@ -520,9 +517,9 @@ public class Shake extends Activity {
                 sEe.setFillAfter(true);
 
                 sEe.addAnimation(anim4);
-              //  sEe.addAnimation(animRotate);
+                //  sEe.addAnimation(animRotate);
 
-             //   sEe.addAnimation(fade_out);
+                //   sEe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sEe.setInterpolator(new DecelerateInterpolator());
@@ -542,20 +539,18 @@ public class Shake extends Activity {
                         sEBIS.setFillAfter(true);
 
 
+                        //       sEBIS.addAnimation(fade_in);
+                        //       sEBIS.addAnimation(Invanim4);
 
-                 //       sEBIS.addAnimation(fade_in);
-                 //       sEBIS.addAnimation(Invanim4);
-
-                        Ee.setText(mot2.substring(4,5));
+                        Ee.setText(mot2.substring(4, 5));
                         Ee.setVisibility(View.VISIBLE);
 
-                 //       Ee.startAnimation(fade_in);
+                        //       Ee.startAnimation(fade_in);
 
 
-
-                        final TranslateAnimation Invanim4 = new TranslateAnimation(n4Inv, 0 , n4Inv2, 0);
+                        final TranslateAnimation Invanim4 = new TranslateAnimation(n4Inv, 0, n4Inv2, 0);
                         Invanim4.setDuration(3000);
-                        Invanim4.setFillAfter( true );
+                        Invanim4.setFillAfter(true);
                         Ee.startAnimation(Invanim4);
                     }
 
@@ -574,8 +569,8 @@ public class Shake extends Activity {
                 sRe.addAnimation(anim5);
                 sRe.setInterpolator(new DecelerateInterpolator());
 
-             //   sRe.addAnimation(animRotate);
-          //      sRe.addAnimation(fade_out);
+                //   sRe.addAnimation(animRotate);
+                //      sRe.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
 
@@ -594,18 +589,17 @@ public class Shake extends Activity {
                         sRBIS.setFillAfter(true);
 
 
-
                         sRBIS.addAnimation(fade_in);
-                    //    sRBIS.addAnimation(Invanim5);
+                        //    sRBIS.addAnimation(Invanim5);
 
-                        Re.setText(mot2.substring(5,6));
+                        Re.setText(mot2.substring(5, 6));
                         Re.setVisibility(View.VISIBLE);
-              //          Re.startAnimation(fade_in);
+                        //          Re.startAnimation(fade_in);
 
 
-                        final TranslateAnimation Invanim5 = new TranslateAnimation(n5Inv, 0 , n5Inv2, 0);
+                        final TranslateAnimation Invanim5 = new TranslateAnimation(n5Inv, 0, n5Inv2, 0);
                         Invanim5.setDuration(3000);
-                        Invanim5.setFillAfter( true );
+                        Invanim5.setFillAfter(true);
                         Re.startAnimation(Invanim5);
 
                     }
@@ -625,8 +619,8 @@ public class Shake extends Activity {
                 sE1e.addAnimation(anim6);
                 sE1e.setInterpolator(new DecelerateInterpolator());
 
-              //  sE1e.addAnimation(animRotate);
-        //        sE1e.addAnimation(fade_out);
+                //  sE1e.addAnimation(animRotate);
+                //        sE1e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
 
@@ -645,19 +639,17 @@ public class Shake extends Activity {
                         sE1BIS.setFillAfter(true);
 
                         sE1BIS.addAnimation(fade_in);
-                       // sE1BIS.addAnimation(Invanim6);
+                        // sE1BIS.addAnimation(Invanim6);
 
-                        E1.setText(mot2.substring(6,7));
+                        E1.setText(mot2.substring(6, 7));
                         E1.setVisibility(View.VISIBLE);
 
-              //          E1.startAnimation(fade_in);
+                        //          E1.startAnimation(fade_in);
 
 
-
-
-                        final TranslateAnimation Invanim6 = new TranslateAnimation(n6Inv, 0 , n6Inv2, 0);
+                        final TranslateAnimation Invanim6 = new TranslateAnimation(n6Inv, 0, n6Inv2, 0);
                         Invanim6.setDuration(3000);
-                        Invanim6.setFillAfter( true );
+                        Invanim6.setFillAfter(true);
                         E1.startAnimation(Invanim6);
 
                     }
@@ -675,8 +667,8 @@ public class Shake extends Activity {
 
                 sE2e.addAnimation(anim7);
 
-              //  sE2e.addAnimation(animRotate);
-         //       sE2e.addAnimation(fade_out);
+                //  sE2e.addAnimation(animRotate);
+                //       sE2e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE2e.setInterpolator(new DecelerateInterpolator());
@@ -696,20 +688,18 @@ public class Shake extends Activity {
                         sE2BIS.setFillAfter(true);
 
 
-
                         sE2BIS.addAnimation(fade_in);
-                      //sE2BIS.addAnimation(Invanim7);
+                        //sE2BIS.addAnimation(Invanim7);
 
-                        E2.setText(mot2.substring(7,8));
+                        E2.setText(mot2.substring(7, 8));
                         E2.setVisibility(View.VISIBLE);
 
-              //          E2.startAnimation(fade_in);
+                        //          E2.startAnimation(fade_in);
 
 
-
-                        final TranslateAnimation Invanim7 = new TranslateAnimation(n7Inv, 0 , n7Inv2, 0);
+                        final TranslateAnimation Invanim7 = new TranslateAnimation(n7Inv, 0, n7Inv2, 0);
                         Invanim7.setDuration(3000);
-                        Invanim7.setFillAfter( true );
+                        Invanim7.setFillAfter(true);
                         E2.startAnimation(Invanim7);
 
                     }
@@ -728,8 +718,8 @@ public class Shake extends Activity {
 
                 sE3e.addAnimation(anim8);
 
-             //   sE3e.addAnimation(animRotate);
-          //      sE3e.addAnimation(fade_out);
+                //   sE3e.addAnimation(animRotate);
+                //      sE3e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE3e.setInterpolator(new DecelerateInterpolator());
@@ -748,19 +738,18 @@ public class Shake extends Activity {
                         sE3BIS.setFillEnabled(true);
                         sE3BIS.setFillAfter(true);
 
-             //           sE3BIS.addAnimation(fade_in);
-                    //    sE3BIS.addAnimation(Invanim8);
+                        //           sE3BIS.addAnimation(fade_in);
+                        //    sE3BIS.addAnimation(Invanim8);
 
-                        E3.setText(mot2.substring(8,9));
+                        E3.setText(mot2.substring(8, 9));
                         E3.setVisibility(View.VISIBLE);
 
-                  //      E3.startAnimation(fade_in);
+                        //      E3.startAnimation(fade_in);
 
 
-
-                        final TranslateAnimation Invanim8 = new TranslateAnimation(n8Inv, 0 , n8Inv2, 0);
+                        final TranslateAnimation Invanim8 = new TranslateAnimation(n8Inv, 0, n8Inv2, 0);
                         Invanim8.setDuration(3000);
-                        Invanim8.setFillAfter( true );
+                        Invanim8.setFillAfter(true);
                         E3.startAnimation(Invanim8);
 
 
@@ -779,8 +768,8 @@ public class Shake extends Activity {
 
                 sE4e.addAnimation(anim9);
 
-             //   sE4e.addAnimation(animRotate);
-            //    sE4e.addAnimation(fade_out);
+                //   sE4e.addAnimation(animRotate);
+                //    sE4e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE4e.setInterpolator(new DecelerateInterpolator());
@@ -800,27 +789,19 @@ public class Shake extends Activity {
                         sE4BIS.setFillAfter(true);
 
 
+                        //         sE4BIS.addAnimation(fade_in);
+                        // sE4BIS.addAnimation(Invanim9);
 
-               //         sE4BIS.addAnimation(fade_in);
-                       // sE4BIS.addAnimation(Invanim9);
-
-                        E4.setText(mot2.substring(9,10));
+                        E4.setText(mot2.substring(9, 10));
                         E4.setVisibility(View.VISIBLE);
 
-                //        E4.startAnimation(fade_in);
+                        //        E4.startAnimation(fade_in);
 
 
-
-
-
-
-                        final TranslateAnimation Invanim9 = new TranslateAnimation(n9Inv, 0 , n9Inv2, 0);
+                        final TranslateAnimation Invanim9 = new TranslateAnimation(n9Inv, 0, n9Inv2, 0);
                         Invanim9.setDuration(3000);
-                        Invanim9.setFillAfter( true );
+                        Invanim9.setFillAfter(true);
                         E4.startAnimation(Invanim9);
-
-
-
 
 
                     }
@@ -837,8 +818,8 @@ public class Shake extends Activity {
 
                 sE5e.addAnimation(anim10);
 
-            //    sE5e.addAnimation(animRotate);
-        //        sE5e.addAnimation(fade_out);
+                //    sE5e.addAnimation(animRotate);
+                //        sE5e.addAnimation(fade_out);
                 sE5e.setInterpolator(new DecelerateInterpolator());
 
                 sE5e.setAnimationListener(new Animation.AnimationListener() {
@@ -857,21 +838,18 @@ public class Shake extends Activity {
 
 
                         sE5BIS.addAnimation(fade_in);
-                     //   sE5BIS.addAnimation(Invanim10);
+                        //   sE5BIS.addAnimation(Invanim10);
 
-                        E5.setText(mot2.substring(10,11));
+                        E5.setText(mot2.substring(10, 11));
                         E5.setVisibility(View.VISIBLE);
 
-               //         E5.startAnimation(fade_in);
+                        //         E5.startAnimation(fade_in);
 
 
-
-                        final TranslateAnimation Invanim10 = new TranslateAnimation(n10Inv, 0 , n10Inv2, 0);
+                        final TranslateAnimation Invanim10 = new TranslateAnimation(n10Inv, 0, n10Inv2, 0);
                         Invanim10.setDuration(3000);
-                        Invanim10.setFillAfter( true );
+                        Invanim10.setFillAfter(true);
                         E5.startAnimation(Invanim10);
-
-
 
 
                     }
@@ -889,8 +867,8 @@ public class Shake extends Activity {
 
                 sE6e.addAnimation(anim11);
 
-             //   sE6e.addAnimation(animRotate);
-          //      sE6e.addAnimation(fade_out);
+                //   sE6e.addAnimation(animRotate);
+                //      sE6e.addAnimation(fade_out);
                 fade_out.setFillEnabled(true);
                 fade_out.setFillAfter(true);
                 sE6e.setInterpolator(new DecelerateInterpolator());
@@ -910,26 +888,22 @@ public class Shake extends Activity {
                         sE6BIS.setFillAfter(true);
 
 
+                        //     sE6BIS.addAnimation(fade_in);
 
-                   //     sE6BIS.addAnimation(fade_in);
+                        //  sE6BIS.addAnimation(Invanim11);
 
-                      //  sE6BIS.addAnimation(Invanim11);
-
-                        E6.setText(mot2.substring(11,12));
+                        E6.setText(mot2.substring(11, 12));
 
                         E6.setVisibility(View.VISIBLE);
 
-                    //    E6.startAnimation(fade_in);
+                        //    E6.startAnimation(fade_in);
 
 
-
-
-                        final TranslateAnimation Invanim11 = new TranslateAnimation(n11Inv, 0 , n11Inv2, 0);
+                        final TranslateAnimation Invanim11 = new TranslateAnimation(n11Inv, 0, n11Inv2, 0);
                         Invanim11.setDuration(3000);
-                        Invanim11.setFillAfter( true );
+                        Invanim11.setFillAfter(true);
 
                         E6.startAnimation(Invanim11);
-
 
 
                     }
@@ -942,10 +916,8 @@ public class Shake extends Activity {
                 E6.startAnimation(sE6e);
 
 
-
-
-                back = (FloatingActionButton)  findViewById(R.id.back);
-                if(back != null){
+                back = (FloatingActionButton) findViewById(R.id.back);
+                if (back != null) {
                     back.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -958,7 +930,7 @@ public class Shake extends Activity {
                 }
 
 
-
+            }
             }
 
         });

@@ -604,31 +604,42 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube1();
 
+		// Texte qui sera en haut
+	//	Log.w("GAUCHE", maPhrase[0]);
 		drawText(maPhrase[0]);
+		GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
+		GLES20.glUniform1i(mTextureUniformHandle, 1);
 
 
 		Matrix.setIdentityM(mModelMatrix, 0);
 		Matrix.translateM(mModelMatrix, 0, -1.3f, 0.0f, -7.0f);
 		//Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
 		drawCube2();
-
+		// Texte qui sera en bas
+	//	Log.w("HAUT", maPhrase[1]);
 		drawText(maPhrase[1]);
 
+		GLES20.glActiveTexture(GLES20.GL_TEXTURE2);
+		GLES20.glUniform1i(mTextureUniformHandle, 2);
 
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 0.0f, 4.0f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube3();
-
+		// Texte qui sera à droite
+		Log.w("BAS", maPhrase[2]);
         drawText(maPhrase[2]);
+		GLES20.glActiveTexture(GLES20.GL_TEXTURE3);
+		GLES20.glUniform1i(mTextureUniformHandle, 3);
 
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 0.0f, -4.0f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube4();
-
+		// Texte qui sera à gauche
+	//	Log.w("DROITE", maPhrase[3]);
         drawText(maPhrase[3]);
 
 
@@ -942,7 +953,6 @@ if(!are_finished[0]){
             are_finished[0]= true;
             if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
                 return myFinalePhrase;
-
 		}}
         if(!are_finished[1]){
 		if(((mLightModelMatrix[12] >= -1.8) && 	(mLightModelMatrix[12] <= 0.0)) && ((mLightModelMatrix[13] >= 3.8) &&	(mLightModelMatrix[13] <= 4.1))) {
