@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private Button en_button;
 
 
+    private static int TIME_OUT = 5000; //Time to launch the another activity
 
     //private LinearLayout linLayout;
     private RelativeLayout touchview;
@@ -536,17 +538,37 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 if (letter_A_clicked == true) {
                     // button has already been clicked once.
-//                    Intent adapter_intent = new Intent(MainActivity.this, Adapter.class);
-//                    startActivity(adapter_intent);
+
 
                     Intent adapter_intent = new Intent(MainActivity.this, IntroAdapter.class);
                     startActivity(adapter_intent);
 
 
 
+
+
+
                 } else {
 
                     if ((!letter_G_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
+
+
+
+                        Handler mHandler;
+                        Runnable mRunnable;
+                        mHandler = new Handler();
+                        mRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent i = new Intent(MainActivity.this, IntroAdapter.class);
+                                startActivity(i);
+
+                            }
+                        };
+                        mHandler.postDelayed(mRunnable, TIME_OUT);
+
+
+
 
                         generateParticules(letterA);
 
@@ -611,6 +633,19 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 } else {
 
                     if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
+
+                        Handler mHandler;
+                        Runnable mRunnable;
+                        mHandler = new Handler();
+                        mRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent i = new Intent(MainActivity.this, IntroAgiter.class);
+                                startActivity(i);
+
+                            }
+                        };
+                        mHandler.postDelayed(mRunnable, TIME_OUT);
 
                         letter_G_clicked = true;
 
@@ -682,6 +717,23 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     if ((!letter_A_clicked) && (!letter_G_clicked) && (!letter_R_clicked)) {
 
+                        Handler mHandler;
+                        Runnable mRunnable;
+                        mHandler = new Handler();
+                        mRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent i = null;
+                                if(Singleton.getInstance().getString() == "fr") {
+                                     i = new Intent(MainActivity.this, IntroEclairer.class);
+                                }else if(Singleton.getInstance().getString() == "en") {
+                                    i = new Intent(MainActivity.this, Oublier.class);
+                                }
+                                startActivity(i);
+
+                            }
+                        };
+                        mHandler.postDelayed(mRunnable, TIME_OUT);
 
                         generateParticules(letterI);
 
@@ -751,6 +803,24 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_G_clicked)) {
 
                         generateParticules(letterR);
+
+                        Handler mHandler;
+                        Runnable mRunnable;
+                        mHandler = new Handler();
+                        mRunnable = new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent i = null;
+                                if(Singleton.getInstance().getString() == "fr") {
+                                    i = new Intent(MainActivity.this, Oublier.class);
+                                }else if(Singleton.getInstance().getString() == "en") {
+                                    i = new Intent(MainActivity.this, IntroEclairer.class);
+                                }
+                                startActivity(i);
+
+                            }
+                        };
+                        mHandler.postDelayed(mRunnable, TIME_OUT);
 
                         letter_R_clicked = true;
                         letterG.clearAnimation();
@@ -1322,6 +1392,14 @@ float test = (float) ((float)  yTo*0.6);
             letterR.startAnimation(replaceAnimation);
 
         }
+
+
+        // appel différé
+
+
+
+
+
 
 
     }
