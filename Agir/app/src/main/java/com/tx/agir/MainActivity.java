@@ -983,7 +983,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     Random rnd = new Random();
                     //int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
+                    int alpha = randInt(50,255);
+                    int color = Color.argb(alpha, 255, 255, 255);
 
 
                     //letterA.setTextColor(  ContextCompat.getColor(getBaseContext(), R.color.letter01));
@@ -1001,8 +1002,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     Random rnd = new Random();
                     //int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
-
+                    int alpha = randInt(50,255);
+                    int color = Color.argb(alpha, 255, 255, 255);
                     letterG.setTextColor(color);
 
 //                    float val = letterG.getTextSize() + 10;
@@ -1018,8 +1019,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                 if (isPointWithin(x, y, letterI.getLeft(), letterI.getRight(), letterI.getTop(), letterI.getBottom())) {
                     Random rnd = new Random();
                     //int color = Color.argb(255, rnd.nextInt(256), rnd.nextInt(256), rnd.nextInt(256));
-                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
-
+                    int alpha = randInt(50,255);
+                    int color = Color.argb(alpha, 255, 255, 255);
                     letterI.setTextColor(color);
 
 
@@ -1034,8 +1035,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 }
                 if (isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
-                    Random rnd = new Random();
-                    int color = Color.argb(rnd.nextInt(255), 255, 255, 255);
+                    int alpha = randInt(50,255);
+                    int color = Color.argb(alpha, 255, 255, 255);
                     letterR.setTextColor(color);
 //
 //                    float val = letterR.getTextSize() + 10;
@@ -1332,5 +1333,13 @@ float test = (float) ((float)  yTo*0.6);
 
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
+    }
+
+
+
+    public static int randInt(int min, int max) {
+        Random rnd = new Random();
+        int randomNum = rnd.nextInt((max - min) + 1) + min;
+        return randomNum;
     }
 }
