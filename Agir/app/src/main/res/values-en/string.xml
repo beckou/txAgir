@@ -57,11 +57,12 @@
 
     <string name="intro_agiter">I have to be more dynamic. I need to give myself a shake…</string>
 
-    <string name="intro_eclairer">Everything seems opaque. I\’m looking for lighting to find my way.</string>
+    <string name="intro_eclairer">Everything seems opaque. I\'m looking for lighting to find my way.</string>
 
-    <string name="intro_adapter">I\’m afraid not to know how to adapt, but above all I have to change frame to find out, too expand my field of vision…</string>
+    <string name="intro_adapter">I\'m afraid not to know how to adapt, but above all I have to change the frame to expand my field of vision…</string>
 
-    <string name="info">What might acting mean in the digital area of compulsive interactivity? The digital creation “Dare” offers four interactive experiences: Adapt, Shake, Lighten and Erase. \n Credits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
+
+    <string name="info">What might acting mean in the digital area of compulsive interactivity? The digital creation “Dare” offers four interactive experiences: Adapt, Shake, Erase and Lighten. \n Credits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
 
     <string name="credits">Crédits: \n Serge Bouchardon \n Rebecca Fribourg \n Raphaël Kovacic</string>
 
