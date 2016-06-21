@@ -193,7 +193,6 @@ public class Dictio {
 
         if(totalMovement > 12) {
 
-            if(ancienMouvement < 12){
 
 
 
@@ -203,30 +202,11 @@ public class Dictio {
             System.out.println(this.ABonList);
             return this.ABonList.get(ligne)[randN];
 
-            }else{
 
-
-
-                int i = this.ABonList.get(ligne).length;
-
-                int randN = rand.nextInt(i);
-                System.out.println(this.ABonList);
-                ancienMouvement = 0;
-
-                return this.getMot1(ligne);
-
-            }
 
         }else {
 
-            if(ancienMouvement < 12) {
 
-                ancienMouvement = 0;
-
-                return this.getMot1(ligne);
-
-
-            }else{
                 int i = this.AMauvaisList.get(ligne).length;
                 System.out.println(this.AMauvaisList);
 
@@ -235,9 +215,9 @@ public class Dictio {
                 return this.AMauvaisList.get(ligne)[randN];
 
 
-            }
 
-            
+
+
 
         }
 
