@@ -57,7 +57,7 @@ public class IntroEclairer extends AppCompatActivity {
     public void onStop () {
 //do your stuff here
         super.onStop();
-      //  mHandler.removeCallbacks(mRunnable);
+        mHandler.removeCallbacks(mRunnable);
     }
 
 }
