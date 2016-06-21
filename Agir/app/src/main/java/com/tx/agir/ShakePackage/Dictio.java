@@ -19,7 +19,7 @@ public class Dictio {
     android.util.SparseArray<String> sparseArray1 = new android.util.SparseArray<String>(30);
     android.util.SparseArray<String> sparseArray2 = new android.util.SparseArray<String>(30);
     android.util.SparseArray<String> sparseArray3 = new android.util.SparseArray<String>(30);
-
+    private float ancienMouvement = 0.0f;
     public Dictio(Context myContext){
 
 
@@ -192,23 +192,56 @@ public class Dictio {
         Random rand = new Random();
 
         if(totalMovement > 12) {
-            int i = this.ABonList.get(ligne).length;
 
+            if(ancienMouvement < 12){
+
+
+
+            int i = this.ABonList.get(ligne).length;
 
             int randN = rand.nextInt(i);
             System.out.println(this.ABonList);
             return this.ABonList.get(ligne)[randN];
+
+            }else{
+
+
+
+                int i = this.ABonList.get(ligne).length;
+
+                int randN = rand.nextInt(i);
+                System.out.println(this.ABonList);
+                ancienMouvement = 0;
+
+                return this.getMot1(ligne);
+
+            }
+
         }else {
 
+            if(ancienMouvement < 12) {
 
-            int i = this.AMauvaisList.get(ligne).length;
-            System.out.println(this.AMauvaisList);
+                ancienMouvement = 0;
+
+                return this.getMot1(ligne);
 
 
-            int randN = rand.nextInt(i);
+            }else{
+                int i = this.AMauvaisList.get(ligne).length;
+                System.out.println(this.AMauvaisList);
 
-            return this.AMauvaisList.get(ligne)[randN];
+                int randN = rand.nextInt(i);
+
+                return this.AMauvaisList.get(ligne)[randN];
+
+
+            }
+
+            
+
         }
+
+
     }
 
 public String completeMot(String mot){

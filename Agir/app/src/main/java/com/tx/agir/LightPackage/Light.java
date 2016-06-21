@@ -71,6 +71,7 @@ public class Light extends Activity implements SensorEventListener {
     public static final int TIME_CONSTANT = 30;
     public static final float FILTER_COEFFICIENT = 0.98f;
     private Timer fuseTimer = new Timer();
+    public static Timer timer;
 
     // The following members are only for displaying the sensor output.
     public Handler mHandler;
@@ -89,7 +90,7 @@ private DictioLight Dicoo;
 
         mGLSurfaceView = new GLSurfaceView(this);
 
-        Dicoo = new DictioLight();
+        Dicoo = new DictioLight(this.getApplicationContext());
 
 
 
@@ -182,20 +183,7 @@ private DictioLight Dicoo;
         myPhrase = this.RenderEclairer.setGyro(gyroOrientation);
 
         if(myPhrase != null){
-            try {
-                Thread.sleep(1000);
-                String myStringPhrase[] = new String[myPhrase.size()];
-                Intent eclairer_intent = new Intent(Light.this, OutroEclairer.class);
-                for (int i =0; i < myPhrase.size(); i++){
-                myStringPhrase[i] = myPhrase.get(i);
-                }
-                this.finish();
-
-                eclairer_intent.putExtra("phraseOutro",myStringPhrase);
-                startActivity(eclairer_intent);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            myTimer(myPhrase);
 
         }
 
@@ -453,5 +441,36 @@ private DictioLight Dicoo;
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
     }
+
+
+
+
+    public void myTimer(final ArrayList<String> myPhrase) {
+        TimerTask timerTask = new TimerTask() {
+
+            @Override
+            public void run() {
+
+
+                String myStringPhrase[] = new String[myPhrase.size()];
+                Intent eclairer_intent = new Intent(Light.this, OutroEclairer.class);
+                for (int i = 0; i < myPhrase.size(); i++){
+                    myStringPhrase[i] = myPhrase.get(i);
+                }
+
+                eclairer_intent.putExtra("phraseOutro",myStringPhrase);
+                startActivity(eclairer_intent);
+
+
+
+
+
+            }
+        };
+        timer = new Timer();
+        timer.schedule(timerTask, 3000);
+
+    }
+
 
 }

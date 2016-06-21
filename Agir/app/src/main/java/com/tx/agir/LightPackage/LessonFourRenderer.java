@@ -598,6 +598,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[1], 0.4f, 0.0f, 0.0f);
         Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1]/9, 0.0f);
         Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/9,  0.0f,0.0f );
+		Matrix.translateM(mLightModelMatrix, 0, 0.0f, 2.0f, 0.0f);
 
      //   Log.w("gyro1", "" +gyroscope[1]);
      //   Log.w("gyro2", "" +gyroscope[2]);

@@ -44,7 +44,6 @@ public class Shake extends Activity {
 
 
 
-
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -138,13 +137,26 @@ public class Shake extends Activity {
         P1.setTypeface(myCustomFont);
         P2.setTypeface(myCustomFont);
 
+        back = (FloatingActionButton) findViewById(R.id.back);
+        if (back != null) {
+            back.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Shake.this, MainActivity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
+
+        }
+
         mSensorListener.setOnShakeListener(new ShakeListener.OnShakeListener() {
 
 
             public void onShake(float totalMovement) throws InterruptedException {
                 if (!isShaken){
                     isShaken = true;
-                    Toast.makeText(getApplicationContext(), "Shake!" + totalMovement, Toast.LENGTH_SHORT).show();
+                //    Toast.makeText(getApplicationContext(), "Shake!" + totalMovement, Toast.LENGTH_SHORT).show();
                 final String mot2 = dico.getMot2(choix, totalMovement);
 
 
@@ -916,18 +928,7 @@ public class Shake extends Activity {
                 E6.startAnimation(sE6e);
 
 
-                back = (FloatingActionButton) findViewById(R.id.back);
-                if (back != null) {
-                    back.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Shake.this, MainActivity.class);
-                            startActivity(i);
-                            finish();
-                        }
-                    });
 
-                }
 
 
             }

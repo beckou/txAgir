@@ -15,7 +15,7 @@ public class Circle {
     private  int mProgram, mPositionHandle, mColorHandle, mMVPMatrixHandle ;
     private FloatBuffer mVertexBuffer;
     private float vertices[] = new float[364 * 3];
-    float color[] = { 0.9f, 0.6f, 0.6f, 0.3f };
+    float color[] = { 1.0f, 1.0f, 1.0f, 0.5f };
 
     private final String vertexShaderCode =
             "uniform mat4 uMVPMatrix;" +
@@ -37,8 +37,8 @@ public class Circle {
         vertices[2] = 0;
 
         for(int i =1; i <364; i++){
-            vertices[(i * 3)+ 0] = (float) (0.2 * Math.cos((3.14/180) * (float)i ));
-            vertices[(i * 3)+ 1] = (float) (0.2 * Math.sin((3.14/180) * (float)i ));
+            vertices[(i * 3)+ 0] = (float) (0.3 * Math.cos((3.14/180) * (float)i ));
+            vertices[(i * 3)+ 1] = (float) (0.3 * Math.sin((3.14/180) * (float)i ));
             vertices[(i * 3)+ 2] = 0;
         }
 

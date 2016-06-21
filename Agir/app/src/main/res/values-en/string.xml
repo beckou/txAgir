@@ -68,37 +68,60 @@
 
 
 
-    <string name="agiter_Phrase00">Je veux </string>
-    <string name="agiter_Phrase10">ce qui m\'entoure</string>
-    <string name="agiter_Mot00">MOUVOIR</string>
-    <string name="agiter_Mot10">OUIR</string>
-    <string name="agiter_Mot20">VOMIR</string>
+    <string name="agiter_Phrase00">I\'m going to </string>
+    <string name="agiter_Phrase10">the whole world</string>
+    <string name="agiter_Mot00">SHAKE</string>
+    <string name="agiter_Mot10">SHAPE</string>
+    <string name="agiter_Mot20">HATE</string>
 
-    <string name="agiter_Phrase01">Je me vois </string>
-    <string name="agiter_Phrase11"> avec elle</string>
-    <string name="agiter_Mot01">FRETILLER   </string>
-    <string name="agiter_Mot11">FLIRTER     </string>
-    <string name="agiter_Mot21">FLETRIR     </string>
+    <string name="agiter_Phrase01">I need to  </string>
+    <string name="agiter_Phrase11">  my life</string>
+    <string name="agiter_Mot01">SHIFT     </string>
+    <string name="agiter_Mot11">SHINE     </string>
+    <string name="agiter_Mot21">SHIRK     </string>
 
-    <string name="agiter_Phrase02">Je peux seulement </string>
-    <string name="agiter_Phrase12"> doucement</string>
-    <string name="agiter_Mot02">REMUER      </string>
-    <string name="agiter_Mot12">MURMURER    </string>
-    <string name="agiter_Mot22">M\’EMMURER   </string>
+    <string name="agiter_Phrase02">I want to </string>
+    <string name="agiter_Phrase12"> my environment</string>
+    <string name="agiter_Mot02">MOVE      </string>
+    <string name="agiter_Mot12">MODEL     </string>
+    <string name="agiter_Mot22"> VOMIT    </string>
 
-    <string name="agiter_Phrase03">I\'m going to </string>
-    <string name="agiter_Phrase13"> the whole world</string>
-    <string name="agiter_Mot03">SHAKE       </string>
-    <string name="agiter_Mot13">SHAPE       </string>
-    <string name="agiter_Mot23">HATE        </string>
+    <string name="agiter_Phrase03">I would like to </string>
+    <string name="agiter_Phrase13"> with my lover</string>
+    <string name="agiter_Mot03">WRIGGLE     </string>
+    <string name="agiter_Mot13">WRITE       </string>
+    <string name="agiter_Mot23"> WRESTLE    </string>
 
 
-    <string name="agiter_Phrase04">I need to  </string>
-    <string name="agiter_Phrase14">  my life</string>
-    <string name="agiter_Mot04">SHIFT       </string>
+    <string name="agiter_Phrase04">If only I could</string>
+    <string name="agiter_Phrase14">my desires</string>
+    <string name="agiter_Mot04">SHOVE       </string>
     <string name="agiter_Mot14">SHINE       </string>
-    <string name="agiter_Mot24">SHIRK       </string>
+    <string name="agiter_Mot24">SHOCK       </string>
 
+    <string name="Eclairer_Phrase10">moving</string>
+    <string name="Eclairer_Phrase11">in all directions</string>
+    <string name="Eclairer_Phrase12"> to find</string>
+    <string name="Eclairer_Phrase13">one\'s way</string>
 
+    <string name="Eclairer_Phrase20">so far</string>
+    <string name="Eclairer_Phrase21"> so close</string>
+    <string name="Eclairer_Phrase22"> glimpsing</string>
+    <string name="Eclairer_Phrase23">the end</string>
+
+    <string name="Eclairer_Phrase30">turning</string>
+    <string name="Eclairer_Phrase31">around</string>
+    <string name="Eclairer_Phrase32">until</string>
+    <string name="Eclairer_Phrase33">infinity</string>
+
+    <string name="Eclairer_Phrase40">discovering</string>
+    <string name="Eclairer_Phrase41">the direction</string>
+    <string name="Eclairer_Phrase42">of the path</string>
+    <string name="Eclairer_Phrase43"> to follow</string>
+
+    <string name="Eclairer_Phrase50">seeing</string>
+    <string name="Eclairer_Phrase51">clearer</string>
+    <string name="Eclairer_Phrase52">around</string>
+    <string name="Eclairer_Phrase53">me</string>
 
 </resources>

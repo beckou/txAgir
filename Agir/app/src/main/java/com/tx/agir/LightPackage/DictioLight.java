@@ -1,6 +1,9 @@
 package com.tx.agir.LightPackage;
 
+import android.content.Context;
 import android.graphics.Typeface;
+
+import com.tx.agir.R;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -11,17 +14,20 @@ import java.util.Random;
 public class DictioLight {
     ArrayList<String[]> ListPhrases = new ArrayList<String[]>();
      int Choix = 0;
-    public DictioLight() {
+    public DictioLight(Context myContext) {
 
-        String[] P1 = {"entrevoir","si loin","le Bout","si proche"};
-        String[] P2 = {"tourner","en rond","jusqu'à","l'infini"};
-        String[] P3 = {"decouvrir","le sens","du chemin","à suivre"};
-        String[] P4 = {"y voir","plus clair","autour","de moi"};
+        String[] P1 = {myContext.getResources().getString(R.string.Eclairer_Phrase10),myContext.getResources().getString(R.string.Eclairer_Phrase11),myContext.getResources().getString(R.string.Eclairer_Phrase12),myContext.getResources().getString(R.string.Eclairer_Phrase13)};
+        String[] P2 = {myContext.getResources().getString(R.string.Eclairer_Phrase20),myContext.getResources().getString(R.string.Eclairer_Phrase21),myContext.getResources().getString(R.string.Eclairer_Phrase22),myContext.getResources().getString(R.string.Eclairer_Phrase23)};
+        String[] P3 = {myContext.getResources().getString(R.string.Eclairer_Phrase30),myContext.getResources().getString(R.string.Eclairer_Phrase31),myContext.getResources().getString(R.string.Eclairer_Phrase32),myContext.getResources().getString(R.string.Eclairer_Phrase33)};
+        String[] P4 = {myContext.getResources().getString(R.string.Eclairer_Phrase40),myContext.getResources().getString(R.string.Eclairer_Phrase41),myContext.getResources().getString(R.string.Eclairer_Phrase42),myContext.getResources().getString(R.string.Eclairer_Phrase43)};
+        String[] P5 = {myContext.getResources().getString(R.string.Eclairer_Phrase50),myContext.getResources().getString(R.string.Eclairer_Phrase51),myContext.getResources().getString(R.string.Eclairer_Phrase52),myContext.getResources().getString(R.string.Eclairer_Phrase53)};
+
 
         ListPhrases.add(P1);
         ListPhrases.add(P2);
         ListPhrases.add(P3);
         ListPhrases.add(P4);
+        ListPhrases.add(P5);
 
         final Random rand = new Random();
 

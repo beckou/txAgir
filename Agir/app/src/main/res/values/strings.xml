@@ -68,12 +68,12 @@
 
     <string name="agiter_Phrase00">Je veux </string>
     <string name="agiter_Phrase10">ce qui m\'entoure</string>
-    <string name="agiter_Mot00">MOUVOIR&#32;&#32;&#32;&#32;&#32;</string>
-    <string name="agiter_Mot10">OUIR&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</string>
-    <string name="agiter_Mot20">VOMIR&#32;&#32;&#32;&#32;&#32;&#32;&#32;</string>
+    <string name="agiter_Mot00">MOUVOIR</string>
+    <string name="agiter_Mot10">VOULOIR</string>
+    <string name="agiter_Mot20">VOMIR</string>
 
     <string name="agiter_Phrase01">Je me vois </string>
-    <string name="agiter_Phrase11"> avec elle</string>
+    <string name="agiter_Phrase11"> avec l\'être aimé</string>
     <string name="agiter_Mot01">FRETILLER   </string>
     <string name="agiter_Mot11">FLIRTER     </string>
     <string name="agiter_Mot21">FLETRIR     </string>
@@ -97,6 +97,29 @@
     <string name="agiter_Mot14">SECOURIR    </string>
     <string name="agiter_Mot24">S\'ECROULER  </string>
 
+    <string name="Eclairer_Phrase10">entrevoir</string>
+    <string name="Eclairer_Phrase11"> si loin</string>
+    <string name="Eclairer_Phrase12"> le bout</string>
+    <string name="Eclairer_Phrase13"> si proche</string>
 
+    <string name="Eclairer_Phrase20">tourner</string>
+    <string name="Eclairer_Phrase21"> en rond</string>
+    <string name="Eclairer_Phrase22"> jusqu\'à</string>
+    <string name="Eclairer_Phrase23"> l\'infini</string>
+
+    <string name="Eclairer_Phrase30">decouvrir</string>
+    <string name="Eclairer_Phrase31"> le sens</string>
+    <string name="Eclairer_Phrase32"> du chemin</string>
+    <string name="Eclairer_Phrase33"> à suivre</string>
+
+    <string name="Eclairer_Phrase40">y voir</string>
+    <string name="Eclairer_Phrase41"> plus clair</string>
+    <string name="Eclairer_Phrase42"> autour</string>
+    <string name="Eclairer_Phrase43"> de moi</string>
+
+    <string name="Eclairer_Phrase50">bouger</string>
+    <string name="Eclairer_Phrase51">en tous sens</string>
+    <string name="Eclairer_Phrase52">pour trouver</string>
+    <string name="Eclairer_Phrase53">sa voie</string>
 
 </resources>
