@@ -153,6 +153,18 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
     private  FloatingActionButton fab;
 
 
+
+
+    private Handler mHandler_A;
+    private Handler mHandler_G;
+    private Handler mHandler_I;
+    private Handler mHandler_R;
+    private Runnable mRunnable_A;
+    private Runnable mRunnable_G;
+    private Runnable mRunnable_I;
+    private Runnable mRunnable_R;
+
+
     ////////////////////
 
     private RelativeLayout english_menu;
@@ -543,9 +555,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     Intent adapter_intent = new Intent(MainActivity.this, IntroAdapter.class);
                     startActivity(adapter_intent);
 
-
-
-
+                    mHandler_A.removeCallbacks(mRunnable_A);
 
 
                 } else {
@@ -553,11 +563,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     if ((!letter_G_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
 
 
-
-                        Handler mHandler;
-                        Runnable mRunnable;
-                        mHandler = new Handler();
-                        mRunnable = new Runnable() {
+                        mHandler_A = new Handler();
+                        mRunnable_A = new Runnable() {
                             @Override
                             public void run() {
                                 Intent i = new Intent(MainActivity.this, IntroAdapter.class);
@@ -565,7 +572,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                             }
                         };
-                        mHandler.postDelayed(mRunnable, TIME_OUT);
+                        mHandler_A.postDelayed(mRunnable_A, TIME_OUT);
 
 
 
@@ -627,6 +634,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 if (letter_G_clicked == true) {
 
+                    mHandler_G.removeCallbacks(mRunnable_G);
+
+
                     Intent agiter_intent = new Intent(MainActivity.this, IntroAgiter.class);
                     startActivity(agiter_intent);
 
@@ -634,10 +644,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     if ((!letter_A_clicked) && (!letter_I_clicked) && (!letter_R_clicked)) {
 
-                        Handler mHandler;
-                        Runnable mRunnable;
-                        mHandler = new Handler();
-                        mRunnable = new Runnable() {
+
+                        mHandler_G = new Handler();
+                        mRunnable_G = new Runnable() {
                             @Override
                             public void run() {
                                 Intent i = new Intent(MainActivity.this, IntroAgiter.class);
@@ -645,7 +654,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                             }
                         };
-                        mHandler.postDelayed(mRunnable, TIME_OUT);
+                        mHandler_G.postDelayed(mRunnable_G, TIME_OUT);
 
                         letter_G_clicked = true;
 
@@ -700,8 +709,11 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             public void onClick(View view) {
 
 
-
                 if (letter_I_clicked == true) {
+
+
+                    mHandler_I.removeCallbacks(mRunnable_I);
+
 
                     // button has already been clicked once
                     if(Singleton.getInstance().getString() == "fr"){
@@ -717,10 +729,8 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                     if ((!letter_A_clicked) && (!letter_G_clicked) && (!letter_R_clicked)) {
 
-                        Handler mHandler;
-                        Runnable mRunnable;
-                        mHandler = new Handler();
-                        mRunnable = new Runnable() {
+                        mHandler_I = new Handler();
+                        mRunnable_I = new Runnable() {
                             @Override
                             public void run() {
                                 Intent i = null;
@@ -733,7 +743,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                             }
                         };
-                        mHandler.postDelayed(mRunnable, TIME_OUT);
+                        mHandler_I.postDelayed(mRunnable_I, TIME_OUT);
 
                         generateParticules(letterI);
 
@@ -790,6 +800,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                 if (letter_R_clicked == true) {
 
+                    mHandler_R.removeCallbacks(mRunnable_R);
+
+
                     if(Singleton.getInstance().getString() == "fr"){
                         Intent oublier_intent = new Intent(MainActivity.this, Oublier.class);
                         startActivity(oublier_intent);
@@ -804,10 +817,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                         generateParticules(letterR);
 
-                        Handler mHandler;
-                        Runnable mRunnable;
-                        mHandler = new Handler();
-                        mRunnable = new Runnable() {
+
+                        mHandler_R = new Handler();
+                        mRunnable_R = new Runnable() {
                             @Override
                             public void run() {
                                 Intent i = null;
@@ -820,7 +832,7 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
                             }
                         };
-                        mHandler.postDelayed(mRunnable, TIME_OUT);
+                        mHandler_R.postDelayed(mRunnable_R, TIME_OUT);
 
                         letter_R_clicked = true;
                         letterG.clearAnimation();
