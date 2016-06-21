@@ -224,9 +224,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             fr_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getBaseContext(),
-                            "You have selected French", Toast.LENGTH_SHORT)
-                            .show();
+//                    Toast.makeText(getBaseContext(),
+//                            "You have selected French", Toast.LENGTH_SHORT)
+//                            .show();
                     Singleton.getInstance().setString("fr");
 
                     setLocale("fr");
@@ -251,9 +251,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
             en_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(getBaseContext(),
-                            "You have selected English", Toast.LENGTH_SHORT)
-                            .show();
+//                    Toast.makeText(getBaseContext(),
+//                            "You have selected English", Toast.LENGTH_SHORT)
+//                            .show();
                     Singleton.getInstance().setString("en");
 
                     setLocale("en");
