@@ -17,7 +17,7 @@ public class InfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        setContentView(R.layout.info_layout);
 
         InfoActivity.this.overridePendingTransition(R.anim.activity_fade_in, R.anim.activity_fade_out);
 
@@ -25,9 +25,6 @@ public class InfoActivity extends AppCompatActivity {
         intro = (TextView) findViewById(R.id.infoText);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/PoiretOne-Regular.ttf");
         intro.setTypeface(myCustomFont);
-
-        credit = (TextView) findViewById(R.id.credits);
-        credit.setTypeface(myCustomFont);
 
         revert_button = (FloatingActionButton) findViewById(R.id.revertInfo);
         revert_button.setOnClickListener(new View.OnClickListener() {
