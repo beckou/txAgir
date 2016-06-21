@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -25,6 +26,9 @@ public class InfoActivity extends AppCompatActivity {
         intro = (TextView) findViewById(R.id.infoText);
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(), "fonts/PoiretOne-Regular.ttf");
         intro.setTypeface(myCustomFont);
+
+        intro.setMovementMethod(new ScrollingMovementMethod());
+
 
         revert_button = (FloatingActionButton) findViewById(R.id.revertInfo);
         revert_button.setOnClickListener(new View.OnClickListener() {
