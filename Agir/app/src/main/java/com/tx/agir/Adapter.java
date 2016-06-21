@@ -290,15 +290,15 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                 }
                 if(w >=  (frameW + (20*stepW)) && h >= (frameH + (20*stepH))) {
                     adapter_text.setText(R.string.adapter_texte16);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
                 if(w >=  (frameW + (21*stepW)) && h >= (frameH + (21*stepH))) {
                     adapter_text.setText(R.string.adapter_texte17);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
                 if(w >=  (frameW + (22*stepW)) && h >= (frameH + (22*stepH))) {
                     adapter_text.setText(R.string.adapter_texte18);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
                 if(w <197 && h >= 1880) {
                     adapter_text.setText(R.string.adapter_texte19);
