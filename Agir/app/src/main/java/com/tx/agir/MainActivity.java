@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.ActionMode;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -43,6 +44,7 @@ import java.util.Locale;
 
 
 import com.plattysoft.leonids.ParticleSystem;
+import com.tx.agir.ShakePackage.disableTextSelect;
 
 import org.w3c.dom.Text;
 
@@ -269,6 +271,9 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 //        english_menu = (RelativeLayout) findViewById(R.id.english_menu);
 //        english_menu.setVisibility(View.GONE);
 
+
+
+
         particleList = new ArrayList<ParticleSystem>();
 
 
@@ -354,9 +359,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     mHandler_R.removeCallbacks(mRunnable_R);
 
 
-
-
-
                 if (letterTouch.equals("A")) {
                    // replace((int) firstPosX_A, (int) firstPosY_A, firstX_A, firstY_A, letterTouch);
                     letterA.clearAnimation();
@@ -375,18 +377,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letterR.clearAnimation();
                 }
 
-
-                // remove particles
-//                if(parti1!=null && parti2!=null && parti2!=null ) {
-//
-//
-//                    parti1.cancel();
-//                    parti2.cancel();
-//                    parti3.cancel();
-//
-//
-//
-//                }
 
                 for (ParticleSystem p : particleList) {
                     p.cancel();
@@ -415,28 +405,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         }
 
 
-//        Button button_eclairer = (Button) findViewById(R.id.eclairer_button);
-//        if(button_eclairer != null) {
-//            button_eclairer.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(MainActivity.this, Eclairer.class);
-//                    startActivity(intent);
-//                }
-//            });
-//        }
-
-//        Button button_oublier = (Button) findViewById(R.id.oublier_button);
-//        if(button_oublier != null) {
-//            button_oublier.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent2 = new Intent(MainActivity.this, Oublier.class);
-//                    startActivity(intent2);
-//                }
-//            });
-//        }
-
        // Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/HARRINGT.TTF");
         Typeface myCustomFont = Typeface.createFromAsset(getAssets(),"fonts/PoiretOne-Regular.ttf");
 
@@ -445,7 +413,10 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
         letterI = (TextView) findViewById(R.id.I);
         letterR = (TextView) findViewById(R.id.R);
 
-
+        disableTextSelect.blockSelection(letterA);
+        disableTextSelect.blockSelection(letterG);
+        disableTextSelect.blockSelection(letterI);
+        disableTextSelect.blockSelection(letterR);
 
 
 
@@ -476,32 +447,41 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         oublier = (TextView) findViewById(R.id.oublier);
         oublier.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(oublier);
 
 
         adapter= (TextView) findViewById(R.id.adapter);
         adapter.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(adapter);
 
 
         agiter = (TextView) findViewById(R.id.agiter);
         agiter.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(agiter);
 
 
         eclairer= (TextView) findViewById(R.id.eclairer);
         eclairer.setVisibility(View.INVISIBLE);
-
+        disableTextSelect.blockSelection(eclairer);
 
 
         adapt = (TextView) findViewById(R.id.adapt);
         adapt.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(adapt);
+
 
         shake = (TextView) findViewById(R.id.shake);
         shake.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(shake);
+
 
         erase = (TextView) findViewById(R.id.erase);
         erase.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(erase);
 
         lighten = (TextView) findViewById(R.id.lighten);
         lighten.setVisibility(View.INVISIBLE);
+        disableTextSelect.blockSelection(lighten);
 
         /// replace words
 
@@ -1100,13 +1080,6 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     int color = Color.argb(alpha, 255, 255, 255);
                     letterG.setTextColor(color);
 
-//                    float val = letterG.getTextSize() + 10;
-//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-//
-//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
 
 
                 }
@@ -1118,27 +1091,12 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
                     letterI.setTextColor(color);
 
 
-//                    float val = letterI.getTextSize() + 10;
-//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-//
-//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-
-
 
                 }
                 if (isPointWithin(x, y, letterR.getLeft(), letterR.getRight(), letterR.getTop(), letterR.getBottom())) {
                     int alpha = randInt(50,255);
                     int color = Color.argb(alpha, 255, 255, 255);
                     letterR.setTextColor(color);
-//
-//                    float val = letterR.getTextSize() + 10;
-//                    letterR.setTextSize(TypedValue.COMPLEX_UNIT_PX,val);
-//
-//                    letterA.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                    letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//                    letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
 
                 }
 
@@ -1184,38 +1142,15 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
         letterA.setVisibility(View.VISIBLE);
 
-//        letterG.startAnimation(fadeOut);
-//        letterI.startAnimation(fadeOut);
-//        letterR.startAnimation(fadeOut);
-//
-//
-//        letterG.setVisibility(View.INVISIBLE);
-//        letterI.setVisibility(View.INVISIBLE);
-//        letterR.setVisibility(View.INVISIBLE);
-//        revert_button.setVisibility(View.VISIBLE);
-
     }
 
     public void letter_G(){
 
-//        letterG.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//
-//        letterA.setVisibility(View.INVISIBLE);
-//        letterG.setVisibility(View.VISIBLE);
-//        letterI.setVisibility(View.INVISIBLE);
-//        letterR.setVisibility(View.INVISIBLE);
-//        revert_button.setVisibility(View.VISIBLE);
     }
 
     public void letter_I(){
 
-//        letterI.setTextSize(TypedValue.COMPLEX_UNIT_DIP,150);
-//
-//        letterA.setVisibility(View.INVISIBLE);
-//        letterG.setVisibility(View.INVISIBLE);
-//        letterI.setVisibility(View.VISIBLE);
-//        letterR.setVisibility(View.INVISIBLE);
-//        revert_button.setVisibility(View.VISIBLE);
+
     }
 
     public void letter_R(){
@@ -1444,4 +1379,7 @@ float test = (float) ((float)  yTo*0.6);
         int randomNum = rnd.nextInt((max - min) + 1) + min;
         return randomNum;
     }
+
+
+
 }
