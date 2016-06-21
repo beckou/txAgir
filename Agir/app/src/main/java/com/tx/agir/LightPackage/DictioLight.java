@@ -13,10 +13,10 @@ public class DictioLight {
      int Choix = 0;
     public DictioLight() {
 
-        String[] P1 = {"Entrevoir","Si Loin","Le Bout","Si Proche"};
-        String[] P2 = {"Tourner","En Rond","jusqu'à","L'infini"};
-        String[] P3 = {"Decouvrir","Le sens","du chemin","à suivre"};
-        String[] P4 = {"Y voir","plus clair","autour","de moi"};
+        String[] P1 = {"entrevoir","si loin","le Bout","si proche"};
+        String[] P2 = {"tourner","en rond","jusqu'à","l'infini"};
+        String[] P3 = {"decouvrir","le sens","du chemin","à suivre"};
+        String[] P4 = {"y voir","plus clair","autour","de moi"};
 
         ListPhrases.add(P1);
         ListPhrases.add(P2);
@@ -25,7 +25,7 @@ public class DictioLight {
 
         final Random rand = new Random();
 
-         Choix = rand.nextInt(4);
+         Choix = rand.nextInt(ListPhrases.size());
 
 
     }

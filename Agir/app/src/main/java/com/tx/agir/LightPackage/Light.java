@@ -5,6 +5,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ConfigurationInfo;
+import android.graphics.PixelFormat;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -13,6 +14,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Surface;
+import android.view.Window;
 import android.view.WindowManager;
 
 import com.tx.agir.IntroEclairer;
@@ -124,6 +126,8 @@ private DictioLight Dicoo;
 
         if (supportsEs2)
         {
+            mGLSurfaceView.getHolder().setFormat(PixelFormat.RGBA_8888);
+
             // Request an OpenGL ES 2.0 compatible context.
             mGLSurfaceView.setEGLContextClientVersion(2);
             // Set the renderer to our demo renderer, defined below.

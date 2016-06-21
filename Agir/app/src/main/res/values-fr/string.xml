@@ -64,9 +64,9 @@
 
     <string name="agiter_Phrase00">Je veux    </string>
     <string name="agiter_Phrase10">ce qui m\'entoure</string>
-    <string name="agiter_Mot00">MOUVOIR&#32;&#32;&#32;&#32;&#32;</string>
-    <string name="agiter_Mot10">OUIR&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</string>
-    <string name="agiter_Mot20">VOMIR&#32;&#32;&#32;&#32;&#32;&#32;&#32;</string>
+    <string name="agiter_Mot00">MOUVOIR</string>
+    <string name="agiter_Mot10">OUIR</string>
+    <string name="agiter_Mot20">VOMIR</string>
 
     <string name="agiter_Phrase01">Je me vois </string>
     <string name="agiter_Phrase11"> avec elle</string>

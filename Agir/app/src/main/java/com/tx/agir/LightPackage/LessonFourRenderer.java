@@ -11,6 +11,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.opengl.GLES20;
@@ -21,6 +22,7 @@ import android.os.SystemClock;
 import android.util.Log;
 
 import java.lang.Math;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 
 import com.tx.agir.R;
@@ -41,7 +43,9 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 	private final Context mActivityContext;
 	private final DictioLight dicoo;
     private String[] maPhrase;
-	/**
+
+
+    /**
 	 * Store the model matrix. This matrix is used to move models from object space (where each model can be thought
 	 * of being located at the center of the universe) to world space.
 	 */
@@ -474,11 +478,10 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 	}
 	
 	@Override
-	public void onSurfaceCreated(GL10 glUnused, EGLConfig config) 
+	public void onSurfaceCreated(GL10 myGL, EGLConfig config)
 	{
 
-
-        // Set the background clear color to black.
+		// Set the background clear color to black.
 		GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
 		
 		// Use culling to remove back faces.
@@ -486,7 +489,8 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 		
 		// Enable depth testing
 		GLES20.glEnable(GLES20.GL_DEPTH_TEST);
-		
+
+
 		// The below glEnable() call is a holdover from OpenGL ES 1, and is not needed in OpenGL ES 2.
 		// Enable texture mapping
 		// GLES20.glEnable(GLES20.GL_TEXTURE_2D);
@@ -531,7 +535,17 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         
         // Load the texture
       //  mTextureDataHandle = TextureHelper.loadTexture(mActivityContext, R.drawable.bumpy_bricks_public_domain);
-	}	
+
+        mTextureCoordinateHandle = GLES20.glGetAttribLocation(mProgramHandle, "a_TexCoordinate");
+        // Set the active texture unit to texture unit 0.
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
+        // Bind the texture to this unit.
+        //GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureDataHandle);
+
+        // Tell the texture uniform sampler to use this texture in the shader by binding to texture unit 0.
+
+
+	}
 		
 	@Override
 	public void onSurfaceChanged(GL10 glUnused, int width, int height) 
@@ -574,14 +588,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         mDirectionHandle = GLES20.glGetAttribLocation(mProgramHandle, "a_LightDir");
 
         mNormalHandle = GLES20.glGetAttribLocation(mProgramHandle, "a_Normal"); 
-        mTextureCoordinateHandle = GLES20.glGetAttribLocation(mProgramHandle, "a_TexCoordinate");
-        // Set the active texture unit to texture unit 0.
-        GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
-        // Bind the texture to this unit.
-        //GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureDataHandle);
-        
-        // Tell the texture uniform sampler to use this texture in the shader by binding to texture unit 0.
-        GLES20.glUniform1i(mTextureUniformHandle, 0);
+
 
         // Calculate position of the light. Rotate and then push into the distance.
         Matrix.setIdentityM(mLightModelMatrix, 0);
@@ -590,56 +597,65 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[2], 0.0f, 0.3f, 0.0f);
         //Matrix.rotateM(mLightModelMatrix, 0, gyroscope[1], 0.4f, 0.0f, 0.0f);
         Matrix.translateM(mLightModelMatrix, 0,0.0f,  gyroscope[1]/9, 0.0f);
-		Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/9,  0.0f,0.0f );
+        Matrix.translateM(mLightModelMatrix, 0,gyroscope[2]/9,  0.0f,0.0f );
+
+     //   Log.w("gyro1", "" +gyroscope[1]);
+     //   Log.w("gyro2", "" +gyroscope[2]);
 
         Matrix.translateM(mLightModelMatrix, 0, 0.0f, 0.0f, 1.001f);
         Matrix.multiplyMV(mLightPosInWorldSpace, 0, mLightModelMatrix, 0, mLightPosInModelSpace, 0);
         Matrix.multiplyMV(mLightPosInEyeSpace, 0, mViewMatrix, 0, mLightPosInWorldSpace, 0);
 
-
-		 maPhrase = dicoo.getPhrase();
+        GLES20.glUniform1i(mTextureUniformHandle, 0);
+        maPhrase = dicoo.getPhrase();
+        mTextureUniformHandle = GLES20.glGetUniformLocation(mProgramHandle, "u_Texture");
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 2.8f, -0.9f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube1();
 
-		// Texte qui sera en haut
-	//	Log.w("GAUCHE", maPhrase[0]);
-		drawText(maPhrase[0]);
-		GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
-		GLES20.glUniform1i(mTextureUniformHandle, 1);
+        // Texte qui sera en haut
+        //	Log.w("GAUCHE", maPhrase[0]);
+
+        drawText(maPhrase[0]);
+
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE1);
+        GLES20.glUniform1i(mTextureUniformHandle, 1);
 
 
-		Matrix.setIdentityM(mModelMatrix, 0);
-		Matrix.translateM(mModelMatrix, 0, -1.3f, 0.0f, -7.0f);
-		//Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
-		drawCube2();
-		// Texte qui sera en bas
-	//	Log.w("HAUT", maPhrase[1]);
-		drawText(maPhrase[1]);
+        Matrix.setIdentityM(mModelMatrix, 0);
+        Matrix.translateM(mModelMatrix, 0, -1.3f, 0.0f, -7.0f);
+        //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
+        drawCube2();
+        // Texte qui sera en bas
+        //	Log.w("HAUT", maPhrase[1]);
 
-		GLES20.glActiveTexture(GLES20.GL_TEXTURE2);
-		GLES20.glUniform1i(mTextureUniformHandle, 2);
+        drawText(maPhrase[1]);
+
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE2);
+        GLES20.glUniform1i(mTextureUniformHandle, 2);
 
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 0.0f, 4.0f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube3();
-		// Texte qui sera à droite
-		Log.w("BAS", maPhrase[2]);
+        // Texte qui sera à droite
+        //Log.w("BAS", maPhrase[2]);
+
         drawText(maPhrase[2]);
-		GLES20.glActiveTexture(GLES20.GL_TEXTURE3);
-		GLES20.glUniform1i(mTextureUniformHandle, 3);
+        GLES20.glActiveTexture(GLES20.GL_TEXTURE3);
+        GLES20.glUniform1i(mTextureUniformHandle, 3);
 
 
         Matrix.setIdentityM(mModelMatrix, 0);
         Matrix.translateM(mModelMatrix, 0, 0.0f, -4.0f, -7.0f);
         //Matrix.rotateM(mModelMatrix, 0, angleInDegrees, 1.0f, 0.0f, 0.0f);
         drawCube4();
-		// Texte qui sera à gauche
-	//	Log.w("DROITE", maPhrase[3]);
+        // Texte qui sera à gauche
+        //	Log.w("DROITE", maPhrase[3]);
+
         drawText(maPhrase[3]);
 
 
@@ -700,7 +716,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mDirectionHandle, gyroscope[0], gyroscope[1], gyroscope[2]);
 
         // Draw the cube.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 4);
 	}
     private void drawCube2()
     {
@@ -750,7 +766,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
 
         // Draw the cube.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 4);
     }
     private void drawCube3()
     {
@@ -800,7 +816,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
 
         // Draw the cube.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 4);
     }
     private void drawCube4()
     {
@@ -850,12 +866,14 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
         GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
 
         // Draw the cube.
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 36);
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 4);
     }
 
 
 	private void drawText(String texte)
 	{
+        GLES20.glDisable(GLES20.GL_DEPTH_TEST);
+
         Bitmap bitmap = Bitmap.createBitmap(256, 256, Bitmap.Config.ARGB_4444);
         Canvas canvas = new Canvas(bitmap);
         bitmap.eraseColor(0);
@@ -907,6 +925,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 
 		// Pass in the light position in eye space.
         GLES20.glUniform3f(mLightPosHandle, mLightPosInEyeSpace[0], mLightPosInEyeSpace[1], mLightPosInEyeSpace[2]);
+        GLES20.glEnable(GLES20.GL_DEPTH_TEST);
 
 	}
 
@@ -939,6 +958,8 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 	public ArrayList<String> setGyro(float gyro[]){
 
 
+
+
         this.gyroscope[0] = (float) (gyro[0] * 180/Math.PI);
         this.gyroscope[1] = (float) (gyro[1] * 180/Math.PI);
         this.gyroscope[2] = (float) (gyro[2] * 180/Math.PI);
@@ -949,7 +970,7 @@ public class LessonFourRenderer implements GLSurfaceView.Renderer
 if(!are_finished[0]){
 		if(((mLightModelMatrix[12] > 1.0) && 	(mLightModelMatrix[12] < 3.0))&&((mLightModelMatrix[13] > -1.0) && (mLightModelMatrix[13] < -0.2))){
 			Log.w("LogMatrice", "Phrase 1" );
-            myFinalePhrase.add(maPhrase[0]);
+            myFinalePhrase.add(maPhrase[3]);
             are_finished[0]= true;
             if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
                 return myFinalePhrase;
@@ -976,11 +997,10 @@ if(!are_finished[0]){
         if(!are_finished[3]){
         if((mLightModelMatrix[12] > -3.0 && 	mLightModelMatrix[12] < -1.0)&& (mLightModelMatrix[13] > 0.0 && 	mLightModelMatrix[13] < 0.8)){
 			Log.w("LogMatrice", "Phrase 4" );
-            myFinalePhrase.add(maPhrase[3]);
+            myFinalePhrase.add(maPhrase[0]);
             are_finished[3]= true;
             if(are_finished[0] && are_finished[1] && are_finished[2] && are_finished[3])
                 return myFinalePhrase;
-
 		}}
 
         return null;

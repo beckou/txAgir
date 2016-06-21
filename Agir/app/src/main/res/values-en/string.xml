@@ -70,9 +70,9 @@
 
     <string name="agiter_Phrase00">Je veux </string>
     <string name="agiter_Phrase10">ce qui m\'entoure</string>
-    <string name="agiter_Mot00">MOUVOIR&#32;&#32;&#32;&#32;&#32;</string>
-    <string name="agiter_Mot10">OUIR&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</string>
-    <string name="agiter_Mot20">VOMIR&#32;&#32;&#32;&#32;&#32;&#32;&#32;</string>
+    <string name="agiter_Mot00">MOUVOIR</string>
+    <string name="agiter_Mot10">OUIR</string>
+    <string name="agiter_Mot20">VOMIR</string>
 
     <string name="agiter_Phrase01">Je me vois </string>
     <string name="agiter_Phrase11"> avec elle</string>
@@ -84,7 +84,7 @@
     <string name="agiter_Phrase12"> doucement</string>
     <string name="agiter_Mot02">REMUER      </string>
     <string name="agiter_Mot12">MURMURER    </string>
-    <string name="agiter_Mot22">M’EMMURER   </string>
+    <string name="agiter_Mot22">M\’EMMURER   </string>
 
     <string name="agiter_Phrase03">I\'m going to </string>
     <string name="agiter_Phrase13"> the whole world</string>
