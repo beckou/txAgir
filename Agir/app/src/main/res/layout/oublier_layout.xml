@@ -22,7 +22,7 @@
         />
 
     <TextView
-        android:layout_width="345dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/oublier_sentence"
@@ -58,7 +58,8 @@
         android:layout_marginTop="64dp"
         android:background="#f7ffbab4"
         android:textSize="30sp"
-        android:elegantTextHeight="false" />
+        android:elegantTextHeight="false"
+        style="@style/TextAppearance.AppCompat.Button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +74,7 @@
         android:textSize="35sp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/oublier_phrase03"
