@@ -340,7 +340,19 @@ public class MainActivity extends AppCompatActivity implements Animation.Animati
 
 
 
-                ///////////
+
+                if(mRunnable_A !=null)
+                    mHandler_A.removeCallbacks(mRunnable_A);
+
+                if(mRunnable_G !=null)
+                    mHandler_G.removeCallbacks(mRunnable_G);
+
+                if(mRunnable_I !=null)
+                    mHandler_I.removeCallbacks(mRunnable_I);
+
+                if(mRunnable_R !=null)
+                    mHandler_R.removeCallbacks(mRunnable_R);
+
 
 
 
