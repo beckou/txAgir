@@ -8,7 +8,24 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.tx.agir.IntroEclairer"
-    android:background="#050202">
+    android:background="#050202"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@android:drawable/ic_menu_revert"
+        android:background="#3d3b78"
+        app:backgroundTint="#f7ffbab4"
+        app:rippleColor="#f7140f0f"
+        android:tint="#ffffff"
+        />
+
+
 
     <TextView
         android:layout_width="wrap_content"

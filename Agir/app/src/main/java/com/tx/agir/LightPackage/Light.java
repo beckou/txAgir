@@ -189,9 +189,10 @@ private DictioLight Dicoo;
                 for (int i =0; i < myPhrase.size(); i++){
                 myStringPhrase[i] = myPhrase.get(i);
                 }
+                this.finish();
+
                 eclairer_intent.putExtra("phraseOutro",myStringPhrase);
                 startActivity(eclairer_intent);
-
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
