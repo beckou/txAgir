@@ -37,6 +37,10 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
     private float w;
     private float h;
 
+
+    private float frameW;
+    private float frameH;
+
     FrameLayout frame;
     RelativeLayout mView;
     private TextView adapter_text = null;
@@ -100,6 +104,8 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
         frame.getLayoutParams().height = adapter_text.getHeight()+ pixels;
         frame.getLayoutParams().width = adapter_text.getWidth()+ pixels ;
 
+        frameH = frame.getLayoutParams().height;
+        frameW = frame.getLayoutParams().width;
     }
 
 
@@ -182,39 +188,47 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                 w =  frame.getLayoutParams().width;
                 h = frame.getLayoutParams().height;
 
-                if(w <  550 && h < 171){
+                System.out.println( "WIDTH "+mView.getWidth());
+                System.out.println( "HEIGH "+mView.getHeight());
+
+             //   float stepW = mView.getWidth() / 25;
+                float stepW = 0;
+                float stepH = mView.getHeight() / 25;
+
+                int sizeFont = 20;
+                if(w <  frameW && h < frameH){
                     adapter_text.setText(R.string.adapter_texte02);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
                 if(w <  990 && h < 171){
                     adapter_text.setText(R.string.adapter_texte021);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  550 && h >= 171 ){
+                if(w >=  (frameW + stepW) && h >= (frameH + stepH)  ){
                     adapter_text.setText(R.string.adapter_texte03);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  560 && h >= 270){
+                if(w >=  (frameW + (2*stepW)) && h >= (frameH + (2*stepH))){
                     adapter_text.setText(R.string.adapter_texte04);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
                 if(w >=  935 && h >= 306){
                     adapter_text.setText(R.string.adapter_texte05);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
-                if(w >=  950 && h >= 436) {
+                if(w >=  (frameW + (3*stepW)) && h >= (frameH + (3*stepH))) {
                     adapter_text.setText(R.string.adapter_texte06);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  950 && h >= 500) {
+                if(w >=  (frameW + (4*stepW)) && h >= (frameH + (4*stepH))) {
                     adapter_text.setText(R.string.adapter_texte07);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  950 && h >= 550) {
+                if(w >=  (frameW + (5*stepW)) && h >= (frameH + (5*stepH))) {
                     adapter_text.setText(R.string.adapter_texte08);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
-                if(w >=  950 && h >= 550) {
+                if(w >=  (frameW + (6*stepW)) && h >= (frameH + (6*stepH))) {
                     adapter_text.setText(R.string.adapter_texte08);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
@@ -222,67 +236,67 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                     adapter_text.setText(R.string.adapter_texte091);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
-                if(w >=  960 && h >= 610) {
+                if(w >=  (frameW + (7*stepW)) && h >= (frameH + (7*stepH))) {
                     adapter_text.setText(R.string.adapter_texte09);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  960 && h >= 640) {
+                if(w >=  (frameW + (8*stepW)) && h >= (frameH + (8*stepH))) {
                     adapter_text.setText(R.string.adapter_texte092);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  800 && h >= 660) {
+                if(w >=  (frameW + (9*stepW)) && h >= (frameH + (9*stepH))) {
                     adapter_text.setText(R.string.adapter_texte10);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,80);
                 }
-                if(w >=  960 && h >= 690) {
+                if(w >=  (frameW + (10*stepW)) && h >=(frameH + (10*stepH)) ) {
                     adapter_text.setText(R.string.adapter_texte11);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
                 }
-                if(w >=  960 && h >= 787) {
+                if(w >=  (frameW + (11*stepW)) && h >= (frameH + (11*stepH))) {
                     adapter_text.setText(R.string.adapter_texte12);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 850) {
+                if(w >=  (frameW + (12*stepW)) && h >= (frameH + (12*stepH))) {
                     adapter_text.setText(R.string.adapter_texte13);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1140) {
+                if(w >=  (frameW + (13*stepW)) && h >= (frameH + (13*stepH))) {
                     adapter_text.setText(R.string.adapter_texte14);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1300) {
+                if(w >=  (frameW + (14*stepW)) && h >= (frameH + (14*stepH))) {
                     adapter_text.setText(R.string.adapter_texte15);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1320) {
+                if(w >=  (frameW + (15*stepW)) && h >= (frameH + (15*stepH))) {
                     adapter_text.setText(R.string.adapter_texte151);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1378) {
+                if(w >=  (frameW + (16*stepW)) && h >= (frameH + (16*stepH))) {
                     adapter_text.setText(R.string.adapter_texte152);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1443) {
+                if(w >=  (frameW + (17*stepW)) && h >= (frameH + (17*stepH))) {
                     adapter_text.setText(R.string.adapter_texte153);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1480) {
+                if(w >=  (frameW + (18*stepW)) && h >= (frameH + (18*stepH))) {
                     adapter_text.setText(R.string.adapter_texte154);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1573) {
+                if(w >=  (frameW + (19*stepW)) && h >= (frameH + (19*stepH))) {
                     adapter_text.setText(R.string.adapter_texte155);
-                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,sizeFont);
                 }
-                if(w >=  1000 && h >= 1747) {
+                if(w >=  (frameW + (20*stepW)) && h >= (frameH + (20*stepH))) {
                     adapter_text.setText(R.string.adapter_texte16);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
-                if(w >=  1090 && h >= 1787) {
+                if(w >=  (frameW + (21*stepW)) && h >= (frameH + (21*stepH))) {
                     adapter_text.setText(R.string.adapter_texte17);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
-                if(w >=  1090 && h >= 1880) {
+                if(w >=  (frameW + (22*stepW)) && h >= (frameH + (22*stepH))) {
                     adapter_text.setText(R.string.adapter_texte18);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
                 }
@@ -290,6 +304,122 @@ public class Adapter extends AppCompatActivity implements View.OnTouchListener {
                     adapter_text.setText(R.string.adapter_texte19);
                     adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,55);
                 }
+
+
+
+
+
+
+
+
+//                if(w <  550.2 && h < 171){
+//                    adapter_text.setText(R.string.adapter_texte02);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w <  990 && h < 171){
+//                    adapter_text.setText(R.string.adapter_texte021);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  550 && h >= 171 ){
+//                    adapter_text.setText(R.string.adapter_texte03);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  560 && h >= 270){
+//                    adapter_text.setText(R.string.adapter_texte04);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  935 && h >= 306){
+//                    adapter_text.setText(R.string.adapter_texte05);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
+//                }
+//                if(w >=  950 && h >= 436) {
+//                    adapter_text.setText(R.string.adapter_texte06);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  950 && h >= 500) {
+//                    adapter_text.setText(R.string.adapter_texte07);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  950 && h >= 550) {
+//                    adapter_text.setText(R.string.adapter_texte08);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
+//                }
+//                if(w >=  950 && h >= 550) {
+//                    adapter_text.setText(R.string.adapter_texte08);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
+//                }
+//                if(w >=  190 && h >= 1018) {
+//                    adapter_text.setText(R.string.adapter_texte091);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
+//                }
+//                if(w >=  960 && h >= 610) {
+//                    adapter_text.setText(R.string.adapter_texte09);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  960 && h >= 640) {
+//                    adapter_text.setText(R.string.adapter_texte092);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  800 && h >= 660) {
+//                    adapter_text.setText(R.string.adapter_texte10);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,80);
+//                }
+//                if(w >=  960 && h >= 690) {
+//                    adapter_text.setText(R.string.adapter_texte11);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,60);
+//                }
+//                if(w >=  960 && h >= 787) {
+//                    adapter_text.setText(R.string.adapter_texte12);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 850) {
+//                    adapter_text.setText(R.string.adapter_texte13);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1140) {
+//                    adapter_text.setText(R.string.adapter_texte14);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1300) {
+//                    adapter_text.setText(R.string.adapter_texte15);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1320) {
+//                    adapter_text.setText(R.string.adapter_texte151);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1378) {
+//                    adapter_text.setText(R.string.adapter_texte152);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1443) {
+//                    adapter_text.setText(R.string.adapter_texte153);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1480) {
+//                    adapter_text.setText(R.string.adapter_texte154);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1573) {
+//                    adapter_text.setText(R.string.adapter_texte155);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1000 && h >= 1747) {
+//                    adapter_text.setText(R.string.adapter_texte16);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1090 && h >= 1787) {
+//                    adapter_text.setText(R.string.adapter_texte17);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w >=  1090 && h >= 1880) {
+//                    adapter_text.setText(R.string.adapter_texte18);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,25);
+//                }
+//                if(w <197 && h >= 1880) {
+//                    adapter_text.setText(R.string.adapter_texte19);
+//                    adapter_text.setTextSize(TypedValue.COMPLEX_UNIT_SP,55);
+//                }
 
 
 
